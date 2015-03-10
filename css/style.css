@@ -282,6 +282,7 @@ a.linkStyle:hover{
     float: left;
     font-weight: bold;
     margin: 5px 10px 8px 0;
+    cursor: pointer;
 }
 .bildirimDiv.olumlu{
     background: rgb(176,230,14);
@@ -294,22 +295,31 @@ a.linkStyle:hover{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0e60e', endColorstr='#5a872f', GradientType=0 );
 }
 .bildirimDiv.olumsuz{
-    background: rgb(252,173,164);
-    background: -moz-linear-gradient(top, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(252,173,164)), color-stop(100%, rgb(209,48,34)));
-    background: -webkit-linear-gradient(top, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
-    background: -o-linear-gradient(top, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
-    background: -ms-linear-gradient(top, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
-    background: linear-gradient(to bottom, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcada4', endColorstr='#d13022', GradientType=0 );
+    background: rgb(255,111,89);
+    background: -moz-linear-gradient(top, rgb(255,111,89) 0%, rgb(204,43,29) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(255,111,89)), color-stop(100%, rgb(204,43,29)));
+    background: -webkit-linear-gradient(top, rgb(255,111,89) 0%, rgb(204,43,29) 100%);
+    background: -o-linear-gradient(top, rgb(255,111,89) 0%, rgb(204,43,29) 100%);
+    background: -ms-linear-gradient(top, rgb(255,111,89) 0%, rgb(204,43,29) 100%);
+    background: linear-gradient(to bottom, rgb(255,111,89) 0%, rgb(204,43,29) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6f59', endColorstr='#cc2b1d', GradientType=0 );
 }
 .bildirimDiv.uyari{
-    background: rgb(255,205,143);
-    background: -moz-linear-gradient(top, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(255,205,143)), color-stop(100%, rgb(230,137,23)));
-    background: -webkit-linear-gradient(top, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
-    background: -o-linear-gradient(top, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
-    background: -ms-linear-gradient(top, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
-    background: linear-gradient(to bottom, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcd8f', endColorstr='#e68917', GradientType=0 );
+   background: rgb(252,176,83);
+    background: -moz-linear-gradient(top, rgb(252,176,83) 0%, rgb(255,140,0) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(252,176,83)), color-stop(100%, rgb(255,140,0)));
+    background: -webkit-linear-gradient(top, rgb(252,176,83) 0%, rgb(255,140,0) 100%);
+    background: -o-linear-gradient(top, rgb(252,176,83) 0%, rgb(255,140,0) 100%);
+    background: -ms-linear-gradient(top, rgb(252,176,83) 0%, rgb(255,140,0) 100%);
+    background: linear-gradient(to bottom, rgb(252,176,83) 0%, rgb(255,140,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcb053', endColorstr='#ff8c00', GradientType=0 );
+}
+.bildirimDiv.olumlu:hover{
+    background: forestgreen;
+}
+.bildirimDiv.olumsuz:hover{
+    background: red;
+}
+.bildirimDiv.uyari:hover{
+    background: darkorange;
 }
