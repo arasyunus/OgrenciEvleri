@@ -1,0 +1,315 @@
+html{font-family: Arial, Helvetica, sans-serif;}
+body{
+    position: relative;
+    background: url(../images/bg_grad.png) no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.clr{
+    position: relative;margin: 0;padding: 0;clear: both;
+}
+
+.banner{
+    position: relative;
+    background-color: transparent;
+    width: 940px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0;
+    top: 30px;
+}
+.banner .hupng{
+    position: relative;
+    background: url(../images/hu_.png) no-repeat left center;
+    width: 230px;
+    height: 80px;
+    float: left;
+}
+
+/* ------- General Styles ------- */
+
+.kapsul{
+    position: relative;
+    margin: 0 auto;
+    padding: 14px;
+    width: 900px;
+    top: 30px;
+    background-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.h1Tag {
+    color:#661d7c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+}
+.cetvel{
+    width: 500px;
+    top: 0;
+    margin: 0 400px 5px 0;
+    padding: 0;
+    color: #864A97;
+}
+.uyelikLabel{
+    position: relative;
+    display: inline-block;
+    line-height: 25px;
+    color:#661d7c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    width: 280px;
+}
+.inputText{
+    position: relative;
+    display: inline-block;
+    line-height: 24px;
+    color:#661d7c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    width: 350px;
+    margin: 5px;
+}
+.selecting{
+    position: relative;
+    display: inline-block;
+    line-height: 30px;
+    width: 112px;
+    color:#661d7c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    margin-left: 5px;
+}
+.fileInput{
+    position: relative;
+    display: none;
+}
+.fileInputLabel{
+    position: relative;
+    display: inline-block;
+    line-height: 27px;
+    color:#661d7c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    width: 625px;
+    background-color: #864A97;
+    background-color: rgba(134,74,151,0.6);
+    margin: 7px 0;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.fileInputLabel:hover{
+    background-color: #925CA2;
+    background-color: rgba(134,74,151,0.3); 
+}
+.fileInputLabel .inputLabelDashed{
+    position: absolute;
+    width: 629px;
+    height: 36px;
+    left: 6px;
+    top: 4px;
+    background-color: transparent;
+    border: 2px dashed #661d7c;
+}
+.textareaLabel{
+    position: relative;
+    display: inline-block;
+    line-height: 30px;
+    color:#661d7c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    width: 280px;
+    vertical-align: top;
+}
+#hakkinda{
+    position: relative;
+    display: inline-block;
+    color:#661d7c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    width: 355px;
+    height: 90px;
+    margin-bottom: 5px;
+}
+/*  ------------------------ BUTTON ------------------------ */
+.button{
+  background: #c47ed9;
+  background-image: -webkit-linear-gradient(top, #c47ed9, #934fa8);
+  background-image: -moz-linear-gradient(top, #c47ed9, #934fa8);
+  background-image: -ms-linear-gradient(top, #c47ed9, #934fa8);
+  background-image: -o-linear-gradient(top, #c47ed9, #934fa8);
+  background-image: linear-gradient(to bottom, #c47ed9, #934fa8);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  text-shadow: 1px 1px 3px #c38ad4;
+  -webkit-box-shadow: 0px 1px 3px #c879e0;
+  -moz-box-shadow: 0px 1px 3px #c879e0;
+  box-shadow: 0px 1px 3px #c879e0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  border: solid #e4aef5 2px;
+  text-decoration: none;
+  cursor: pointer;
+  width: 645px;
+}
+
+.button:hover {
+  background: #d9ace6;
+  background-image: -webkit-linear-gradient(top, #d9ace6, #864A97);
+  background-image: -moz-linear-gradient(top, #d9ace6, #864A97);
+  background-image: -ms-linear-gradient(top, #d9ace6, #864A97);
+  background-image: -o-linear-gradient(top, #d9ace6, #864A97);
+  background-image: linear-gradient(to bottom, #d9ace6, #864A97);
+  text-decoration: none;
+}
+/*  ------------------------ BUTTON ------------------------ */
+
+a.linkStyle{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #661d7c;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    *display: inline;
+    *zoom:1;
+    padding: 5px;
+    margin-left: 520px;
+}
+a.linkStyle:hover{
+    color: #c38ad4;
+}
+
+.fotoKapsul{
+    position: relative;
+    width: 220px;
+    height: 260px;
+    background-color: #e4aef5;
+    margin: 0;
+    padding: 0;
+    float: left;
+    margin-right: 15px;
+}
+.fotoKapsul:before{
+    position: absolute;
+    content:"Fotoğraf";
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 260px;
+    width: 100%;
+    float: left;
+}
+.fotoKapsul img.profilFoto{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.formKullaniciBilgileri label{
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    line-height: 22px;
+    height: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#661d7c;
+    font-size: 14px;
+    width: 260px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+.formKullaniciBilgileri input[type=text], .formKullaniciBilgileri input[type=email]{
+    position: relative;
+    width: 202px;
+    line-height: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#661d7c;
+    font-size: 12px;
+    left: 0;
+    padding-left: 8px;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.formKullaniciBilgileri select{
+    position: relative;
+    width: 69px;
+    line-height: 24px;
+    height: 26px;
+    padding-left: 8px;
+}
+.button.guncelle{
+    width: 480px;
+    font-size: 15px;
+    padding: 8px;
+    margin: 0;
+}
+.button[disabled=disabled]{
+    background: #e4aef5;
+}
+
+.bildirimDiv{
+    position: relative;
+    width: 232px;
+    height: 40px;
+    background-color: #e4aef5;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    float: left;
+    font-weight: bold;
+    margin: 5px 10px 8px 0;
+}
+.bildirimDiv.olumlu{
+    background: rgb(176,230,14);
+    background: -moz-linear-gradient(top, rgb(176,230,14) 0%, rgb(90,135,47) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(176,230,14)), color-stop(100%, rgb(90,135,47)));
+    background: -webkit-linear-gradient(top, rgb(176,230,14) 0%, rgb(90,135,47) 100%);
+    background: -o-linear-gradient(top, rgb(176,230,14) 0%, rgb(90,135,47) 100%);
+    background: -ms-linear-gradient(top, rgb(176,230,14) 0%, rgb(90,135,47) 100%);
+    background: linear-gradient(to bottom, rgb(176,230,14) 0%, rgb(90,135,47) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0e60e', endColorstr='#5a872f', GradientType=0 );
+}
+.bildirimDiv.olumsuz{
+    background: rgb(252,173,164);
+    background: -moz-linear-gradient(top, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(252,173,164)), color-stop(100%, rgb(209,48,34)));
+    background: -webkit-linear-gradient(top, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
+    background: -o-linear-gradient(top, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
+    background: -ms-linear-gradient(top, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
+    background: linear-gradient(to bottom, rgb(252,173,164) 0%, rgb(209,48,34) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcada4', endColorstr='#d13022', GradientType=0 );
+}
+.bildirimDiv.uyari{
+    background: rgb(255,205,143);
+    background: -moz-linear-gradient(top, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(255,205,143)), color-stop(100%, rgb(230,137,23)));
+    background: -webkit-linear-gradient(top, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
+    background: -o-linear-gradient(top, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
+    background: -ms-linear-gradient(top, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
+    background: linear-gradient(to bottom, rgb(255,205,143) 0%, rgb(230,137,23) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcd8f', endColorstr='#e68917', GradientType=0 );
+}

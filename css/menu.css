@@ -1,0 +1,234 @@
+.Menu{
+    position: relative;
+    background-color: transparent;
+    margin: 0 auto;
+    width: 940px;
+    padding: 0;
+}
+.Menu .menuUL{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.Menu .menuUL .menuLI{
+    position: relative;
+    background-color: transparent;
+    height: 30px;
+    float: right;
+    margin-right: 8px;
+    line-height: 24px;
+    margin-top: 3px;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+.Menu .menuUL .menuLI span.Boldweight{
+    font-weight: bold;
+}
+.Menu .menuUL .menuLI:hover a.bord{
+    background-color: #864A97;
+}
+.Menu .menuUL .menuLI a.bord{
+    color: #fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    line-height: 24px;
+    height: 24px;
+    display: inline-block;
+    /*border-right: 1px solid #fff;*/
+    padding: 0px 5px;
+}
+.Menu .menuUL .menuLI a.yonetici{
+    color: #fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    line-height: 24px;
+    height: 24px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    /*border-right: 1px solid #fff;*/
+    padding: 0px 10px;
+    background-color: red;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: default;
+}
+.Menu .menuUL .menuLI a.yonetici.displaynone{
+    display: none;
+}
+/*
+.Menu .menuUL .menuLI:hover a.bord{
+    border-color: transparent;
+}
+*/
+.Menu .menuUL .menuLI a.bord:hover{
+    background-color: #864A97;
+        /*
+        rgba(134,74,151,0.4);
+        rgba(0,0,0,0.3);
+        */
+}
+.Menu .hu_social{
+    position: relative;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    float: right;
+    line-height: 30px;
+    width: 50px;
+}
+.Menu .hu_social:after{
+    clear: both;
+}
+.Menu .hu_social .social{
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    float: right;
+    margin: 0;
+    padding: 0;
+    margin: 4px 1px 0 0;
+    cursor: pointer;
+    background: url(../images/social.png);
+}
+.Menu .hu_social .facebook{
+    background-position: -96px 0px;
+}
+.Menu .hu_social .facebook:hover{
+    background-position: -96px 24px;
+}
+.Menu .hu_social .twitter{
+    background-position: -72px -0px;
+}
+.Menu .hu_social .twitter:hover{
+    background-position: -72px -24px;
+}
+
+.altMenu{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    z-index: 100;
+    display: none;
+}
+.altMenu .menuitem{
+    background-color: #43254b;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 5px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 160px;
+    cursor: pointer;
+    z-index: 100;
+}
+.altMenu .menuitem a.altLink{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 160px;
+}
+.altMenu .menuitem:hover{
+    background-color: #864A97;
+    background-color: rgba(134,74,151,0.9);
+}
+
+.Menu .menuUL .menuLI:hover  .altMenu{
+    display: block;
+}
+
+/*----------------------------------------------------------------------------*/
+
+.bannerMenu{
+    position: relative;
+    float: right;
+    background-color: transparent;
+    top: 20px;
+    right: 0px;
+}
+.bannerMenu .banMenu{
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: blue;
+    right: 0;
+}
+.bannerMenu .banMenu .banmenuitem{
+    position: relative;
+    float: right;
+}
+.bannerMenu .banMenu .banmenuitem:hover{
+    background-color: #43254b;
+    background-color: rgba(67,37,75,0.5);
+}
+.bannerMenu .banMenu .banmenuitem a.menuLink{
+    color: #fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 0 8px;
+    border-right: 1px solid #583263;
+    line-height: 26px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+a.kesMenu{
+    border-right: none !important;
+    border: none;
+    border-color: transparent;
+}
+.bannerMenu .banMenu .banmenuitem a.menuLink:hover{
+    background-color: #43254B;
+    background-color: rgba(67,37,75,0.8);
+    /*
+        background-color: rgba(0,0,0,0.4);
+        background-color: #43254B;
+    */
+}
+.bannerMenu .banMenu .banmenuitem .bannerUL{
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    z-index: 100;
+}
+.bannerMenu .banMenu .banmenuitem .bannerUL .bannerLi{
+    background-color: #43254b;
+    background-color: rgba(67,37,75,0.8);
+    width: 160px;
+    line-height: 24px;
+    padding: 5px;
+}
+.bannerMenu .banMenu .banmenuitem .bannerUL .bannerLi .altMenuLink{
+    color: #fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    width: 100%;
+    line-height: 24px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+.bannerMenu .banMenu .banmenuitem .bannerUL .bannerLi:hover{
+    background-color: #925CA2;
+    background-color: rgba(134,74,151,0.8);
+}
+.bannerMenu .banMenu .banmenuitem:hover .bannerUL{
+    display: block;
+}
