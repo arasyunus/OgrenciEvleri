@@ -1,10 +1,14 @@
 # OgrenciEvleri
 Öğrenci Evleri Yönetim Sistemi
 
-Damla AKDULUM
-Yunus ARAS
-Burak Karadaş
-Osman Kuzgun
-İpek Özcan
-Yakup Kadir ULUDAĞ
-Filiz UZUN
+<hr />
+
+<h1>Proje Ekibi</h1>
+Damla AKDULUM<br/>
+Yunus ARAS<br/>
+Burak Karadaş<br/>
+Osman Kuzgun<br/>
+İpek Özcan<br/>
+Yakup Kadir ULUDAĞ<br/>
+Filiz UZUN<br/>
+<hr />
