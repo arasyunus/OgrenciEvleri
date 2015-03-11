@@ -1,17 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="tr-TR">
-<head>
-    <!-- Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    
-    <!-- CSS Styles -->
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="css/menu.css" rel="stylesheet" type="text/css"/>
-    <link rel="icon" type="image/x-icon" href="images/icon.ico" />
-    
-    <title>Hacettepe Üniversitesi Öğrenci Evleri</title>
-</head>
+<?php include 'inc/head.html';?>
 <body>
     <?php include 'inc/banner-menu-kullanici.html'; ?>
 
@@ -58,7 +45,6 @@
             <div class="bildirimDiv uyari">Sular 3 Gün Kesik</div>
         </div>
     </div>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script>
         $("#adSoyad").on("click",function (){
             $(this).attr("disabled","disabled");
