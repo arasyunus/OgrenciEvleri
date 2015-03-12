@@ -129,7 +129,7 @@ body{
     width: 280px;
     vertical-align: top;
 }
-#hakkinda{
+#hakkinda, #arizaBilgisi{
     position: relative;
     display: inline-block;
     color:#661d7c;
@@ -138,6 +138,9 @@ body{
     width: 355px;
     height: 90px;
     margin-bottom: 5px;
+}
+#arizaBilgisi{
+    height: 120px;
 }
 /*  ------------------------ BUTTON ------------------------ */
 .button{
@@ -322,4 +325,47 @@ a.linkStyle:hover{
 }
 .bildirimDiv.uyari:hover{
     background: darkorange;
+}
+select.selectBox{
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#661d7c;
+    font-size: 16px;
+    height: 32px;
+    line-height: 32px;
+    width: 360px;
+    margin-bottom: 5px;
+}
+
+span.duyuru{
+    position: relative;
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+    width: 100%;
+    line-height: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #661d7c;
+    font-size: 16px;
+    height: 24px;
+}
+span.duyuru:before{
+    position: relative;
+    content:"";
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url(../images/icons/tag_red.png) no-repeat;
+    vertical-align: top;
+}
+span.duyuru.normal:before{
+    background: url(../images/icons/tag_blue.png) no-repeat;
+}
+span.duyuru.bilgi:before{
+    background: url(../images/icons/tag_green.png) no-repeat;
+}
+span.duyuru.soru:before{
+    background: url(../images/icons/tag_orange.png) no-repeat;
 }
