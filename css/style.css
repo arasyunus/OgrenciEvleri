@@ -371,3 +371,11 @@ span.duyuru.bilgi:before{
 span.duyuru.soru:before{
     background: url(../images/icons/tag_orange.png) no-repeat;
 }
+span.duyuru span.duyuruTarihi{
+    position: relative;
+    font-size: 8px;
+    margin-left: 15px;
+    font-style: italic;
+    color: #864A97;
+
+}
