@@ -15,7 +15,7 @@
                 <option value="ariza-5">ariza-5</option>
             </select><br />
             <label class="textareaLabel" for="hakkinda">Arızanız hakkında açıklama giriniz : </label>
-            <textarea name="arizaBilgisi" id="arizaBilgisi"></textarea>
+            <textarea name="arizaBilgisi" id="arizaBilgisi" required title="Arızanız hakkında ayrıntı verir misiniz?"></textarea>
             <input class="button" type="submit" value="Arızayı bildir." />
         </form>
     </div>

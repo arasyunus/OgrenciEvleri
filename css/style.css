@@ -357,6 +357,8 @@ span.duyuru:before{
     width: 24px;
     height: 24px;
     display: inline-block;
+    *display: inline;
+    *zoom: 1;
     background: url(../images/icons/tag_red.png) no-repeat;
     vertical-align: top;
 }

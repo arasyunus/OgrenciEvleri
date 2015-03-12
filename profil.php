@@ -10,10 +10,10 @@
             <h1 class="h1Tag">Profil Bilgileriniz.</h1>
             <hr class="cetvel" />
             <form class="formKullaniciBilgileri" action="#" method="POST" id="formOgrBilgiler">
-                <label for="adSoyad">Adınız ve Soyadınız : </label><input type="text" name="adSoyad" id="adSoyad" required placeholder="Mehmet Ahmet"  />
-                <label for="ogrNo">Öğrenci Numaranız   : </label><input type="text" name="ogrNo" id="ogrNo" required placeholder="21143333" disabled="disabled" />
-                <label for="telefon">Telefon Numaranız : </label><input type="text" name="telefon" id="telefon" required placeholder="05343443434" disabled="disabled" />
-                <label for="eposta">Elektronik Posta Adresiniz: </label><input type="email" name="eposta" id="eposta" required placeholder="at@at.com" disabled="disabled" />
+                <label for="adSoyad">Adınız ve Soyadınız : </label><input type="text" name="adSoyad" id="adSoyad" required placeholder="Mehmet Ahmet" required />
+                <label for="ogrNo">Öğrenci Numaranız   : </label><input type="text" name="ogrNo" id="ogrNo" required placeholder="21143333" disabled="disabled" required />
+                <label for="telefon">Telefon Numaranız : </label><input type="text" name="telefon" id="telefon" required placeholder="05343443434" disabled="disabled" required />
+                <label for="eposta">Elektronik Posta Adresiniz: </label><input type="email" name="eposta" id="eposta" required placeholder="at@at.com" disabled="disabled" required />
                 <label>Blok - Kat ve Oda Numaranız : </label><select name="blok" id="blok"  disabled="disabled">
                     <option selected value="A">A</option>
                     <option value="B">B</option>

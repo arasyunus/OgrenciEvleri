@@ -6,7 +6,7 @@
         <h1 class="h1Tag">Şifrenizi öğrenmek için öğrenci numaranızı giriniz.</h1>        
         <hr class="cetvel"/>
         <form id="formUyelik" class="uyelikFormu" action="#" method="POST">
-            <label for="ogrenciNo" class="uyelikLabel">Öğrenci Numaranız : </label>  <input class="inputText" type="text" name="ogrenciNo" id="ogrenciNo" />
+            <label for="ogrenciNo" class="uyelikLabel">Öğrenci Numaranız : </label>  <input class="inputText" type="text" name="ogrenciNo" id="ogrenciNo" required title="Öğrenci numarası girmelisiniz." />
             <input class="button" type="submit" value="Şifremi eposta adresime yolla." />
         </form>
     </div>
