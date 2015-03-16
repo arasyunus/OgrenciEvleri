@@ -51,6 +51,12 @@ body{
     font-size: 18px;
     font-weight: normal;
 }
+.h2Tag {
+    color:#661d7c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
 .cetvel{
     width: 500px;
     top: 0;
@@ -129,7 +135,7 @@ body{
     width: 280px;
     vertical-align: top;
 }
-#hakkinda, #arizaBilgisi{
+#hakkinda, #arizaBilgisi, #duyuruMetni, #odaDegisimTxt{
     position: relative;
     display: inline-block;
     color:#661d7c;
@@ -139,6 +145,23 @@ body{
     height: 90px;
     margin-bottom: 5px;
 }
+#odaDegisimTxt, #dilekceMetni{
+    width: 620px;
+    height: 240px;
+    font-size: 13px;
+    padding: 10px;
+    color: #000;
+}
+#dilekceMetni{
+    height: 360px;
+    resize: none;
+    margin-bottom: 10px;
+}
+/*
+.mce-tinymce{
+    width: 640px !important;
+    margin-bottom: 6px !important;
+}*/
 #arizaBilgisi{
     height: 120px;
 }
