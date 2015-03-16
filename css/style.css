@@ -418,7 +418,7 @@ span.duyuru span.duyuruTarihi{
     cursor: pointer;
 }
 .dilekceKapsul:hover{
-    background-color: #e4aef5;
+    background-color: #ECCCF9;
 }
 .dilekceKapsul .ogrFoto{
     width: 96px;
@@ -457,7 +457,7 @@ span.duyuru span.duyuruTarihi{
     position: absolute;
     right: 10px;
     width: 160px !important;
-    top: 10px;
+    bottom: 10px;
     text-align: center;   
 }
 div.dilekceOkumaSayfasi{
@@ -500,4 +500,86 @@ div.dilekceOkumaSayfasi div.a4Sayfa div.dilekceCevapla{
     right: 10px;
     bottom: -50px;
     margin-bottom: 60px;
+}
+div.arizaBildirimi{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#661d7c;
+    font-size: 15px;
+    border: 2px solid #864A97;
+    padding: 8px;
+    width: 100%;
+    min-height: 96px;
+    margin-bottom: 4px;
+}
+div.arizaBildirimi:hover{
+    background-color: #ECCCF9;
+}
+div.arizaBildirimi .ogrFoto{
+    width: 96px;
+    height: 96px;
+    float: left;
+    margin-right: 20px;
+}
+div.arizaBildirimi .ogrFoto img{
+    width: 100%;
+    height: 100%;
+}
+div.arizaBildirimi .ogrenciBilgileri{
+    position: relative;
+    width: 40%;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+div.arizaBildirimi .arizaicerigi{
+    position: relative;
+    float: left;
+    width: 46%;
+}
+div.arizaBildirimi .ogrenciBilgileri .ogrLbl{
+    position: relative;
+    width: 200px;
+    display: inline-block;
+    *display: inline;
+    *zoom:1;
+    font-weight: bold;
+    line-height: 19px;
+    border-bottom: 1px solid #e4aef5;
+}
+div.arizaBildirimi .ogrenciBilgileri .ogrBilgi{
+    line-height: 19px;
+}
+div.arizaBildirimi .ogrenciBilgileri .ogrBilgi:before{
+    content: ":";
+    margin-right: 10px;
+}
+
+div.arizaBildirimi .arizaicerigi span.arizaKategorisi{
+    position: relative;
+}
+
+div.arizaBildirimi span.kapatSil, .dilekceKapsul span.kapatSil{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: 0;
+    background-color: #864A97;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+div.arizaBildirimi span.kapatSil a, .dilekceKapsul span.kapatSil a{
+    color: #fff;
+    text-decoration: none;
+}
+div.arizaBildirimi:hover span.kapatSil, .dilekceKapsul:hover span.kapatSil{
+    display: block;
+}
+div.arizaBildirimi span.kapatSil:hover, .dilekceKapsul span.kapatSil:hover{
+    background-color: #c879e0;
 }
