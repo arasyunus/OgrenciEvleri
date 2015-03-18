@@ -3,7 +3,7 @@
     <?php include 'inc/banner-menu-kullanici.html'; ?>
     
         <div class="kapsul">
-            <h1 class="h1Tag">Kargosu gelen öğrenciye bildirim yolla.</h1>
+            <h1 class="h1Tag">Çamaşır randevusu almak için bir tarih seçerek istediğiniz saate tıklayınız.</h1>
             <hr class="cetvel" />
 
             <form id="camasir" class="camasir" action="#" method="POST">
