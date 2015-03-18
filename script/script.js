@@ -1,7 +1,18 @@
 $(function() {
 
+
+    $.ajaxSetup({
+        //timeout: 4000,
+        cache:false,
+        crossDomain: false,
+        jsonp: false,
+        datatype:"jsonp"
+    });
+    
+    
     var $editorPlaceholder = false;
     var $editorAciklama    = null;
+    
     tinymce.init({
         selector:'#dilekceMetni',
         language : 'tr_TR',
@@ -58,5 +69,19 @@ $(function() {
             */
         }
     });
+
+    
+    $.datepicker.setDefaults( $.datepicker.regional[ "tr" ] );
+    $('#zaman').datepicker({
+        dateFormat: "yy.mm.dd - DD",
+        maxDate: "+2w",
+        minDate: 0,
+        defaultDate:0,
+        onSelect: function(date){
+            $("#listeGunu").html(date);
+        }
+    });
+    $('#zaman').datepicker( "setDate" , new Date());
+    $("#listeGunu").html($('#zaman').val());
     
 });

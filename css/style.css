@@ -583,3 +583,58 @@ div.arizaBildirimi:hover span.kapatSil, .dilekceKapsul:hover span.kapatSil{
 div.arizaBildirimi span.kapatSil:hover, .dilekceKapsul span.kapatSil:hover{
     background-color: #c879e0;
 }
+
+table.camasirTablosu{
+    text-shadow: 1px 1px 0px #fff;
+    background: #ECCCF9;
+    margin: 20px;
+    border: #c38ad4 2px solid;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #661d7c;
+}
+table.camasirTablosu th {
+    padding: 10px;
+    border: #c38ad4 1px solid;
+    color: #661d7c;
+    text-align: center;
+}
+table.camasirTablosu thead{
+    background-color: #e4aef5;
+}
+table.camasirTablosu tbody{
+    background-color: #ECCCF9;
+}
+table.camasirTablosu td{
+    padding: 10px;
+    border: #d9ace6 1px solid;
+    background-color: #ECCCF9;
+    cursor: pointer;
+    text-align: center;
+}
+table.camasirTablosu td.musait:hover{
+    background-color: #F3E0FC;
+    border-color: #864A97;
+}
+table.camasirTablosu td.rezerve{
+    background-color: #F3E0FC;
+    cursor: default;
+    color: #c47ed9;
+}
+span#listeGunu{
+    margin-left: 20px;
+    font-weight: bold;
+    color: #934fa8
+}
+span#listeGunu:before{
+    content: "-";
+    margin-right: 20px;
+}
+.inputText.timepick{
+    width: 595px;
+    margin: 0 0 7px 0;
+    text-align: right;
+    padding-right: 20px;
+    font-size: 16px;
+}
