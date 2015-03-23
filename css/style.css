@@ -142,7 +142,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
     width: 355px;
-    height: 90px;
+    height: 100px;
     margin-bottom: 5px;
 }
 #odaDegisimTxt, #dilekceMetni{
@@ -681,4 +681,27 @@ table.camasirTablosu td.rezerve:hover span.tooltip{
     width: 280px;
     padding-left: 30px;
     height: 32px;
+}
+input[type=radio]{
+    display: none;
+}
+label.cinsiyetLabel{
+    background-color: #F3E0FC;
+    color: #661d7c;
+    display: inline-block;
+    height: 30px;
+    width: 170px;
+    text-align: center;
+    line-height: 30px;
+    margin: 6px 6px 0px 5px;
+    border: 1px solid #934fa8;
+    cursor: pointer;
+}
+input[type=radio]:checked + label.cinsiyetLabel{
+    background-color: #661d7c;
+    color: #fff;
+}
+label.cinsiyetLabel:hover{
+    background-color: #c47ed9;
+    color: #fff;
 }

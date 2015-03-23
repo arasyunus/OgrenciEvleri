@@ -54,6 +54,11 @@
                     <option value="16">16</option>
                     <option value="17">17</option>
                 </select>
+            
+            <label class="uyelikLabel" for="foto">Cinsiyet:</label>
+            <input type="radio" name="cinsiyet" id="erkek" checked /><label for="erkek" class="cinsiyetLabel">Erkek</label>
+            <input type="radio" name="cinsiyet" id="kadin" /><label for="kadin" class="cinsiyetLabel">Kadın</label>
+            
             <label class="fileInputLabel" for="foto">Profil fotoğrafınızı yüklemek için tıklayınız...<div class="inputLabelDashed"></div> </label><input class="fileInput" type="file" name="foto" id="foto"  accept="image/x-png, image/jpeg" />
             <label class="textareaLabel" for="hakkinda">Kendinizi Tanıtın : </label>
             <textarea name="hakkinda" id="hakkinda"  title="Hakkınızda bir cümle de olsa birşeyler yazar mısınız?" required ></textarea>
