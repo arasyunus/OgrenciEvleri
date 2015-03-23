@@ -593,12 +593,14 @@ table.camasirTablosu{
     margin: 0;
     padding: 0;
     color: #661d7c;
+    margin: 6px 0 0 0;
 }
 table.camasirTablosu th {
     padding: 10px;
     border: #c38ad4 1px solid;
     color: #661d7c;
     text-align: center;
+    background-color: #e4aef5;
 }
 table.camasirTablosu thead{
     background-color: #e4aef5;
@@ -612,6 +614,7 @@ table.camasirTablosu td{
     background-color: #ECCCF9;
     cursor: pointer;
     text-align: center;
+    position: relative;
 }
 table.camasirTablosu td.musait:hover{
     background-color: #F3E0FC;
@@ -621,6 +624,9 @@ table.camasirTablosu td.rezerve{
     background-color: #F3E0FC;
     cursor: default;
     color: #c47ed9;
+}
+table.camasirTablosu td.rezerve:hover{
+    border-color: #c879e0;
 }
 span#listeGunu{
     margin-left: 20px;
@@ -637,4 +643,42 @@ span#listeGunu:before{
     text-align: right;
     padding-right: 20px;
     font-size: 16px;
+}
+table.camasirTablosu td.rezerve span.tooltip{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: -24px;
+    min-width: 180px;
+    min-height: 24px;
+    background-color: #661d7c;
+    z-index: 100;
+    color: #ECCCF9;
+    font-size: 12px;
+    line-height: 24px;
+    border-radius: 5px;
+    text-shadow: none;
+    margin-left: 60px;
+    text-align: center;
+}
+table.camasirTablosu td.rezerve span.tooltip:before{
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: -14px;
+    margin: 0;padding: 0;
+    widows: 0;height: 0;
+    border: 8px solid transparent;
+    border-bottom: 8px solid #661d7c;
+}
+table.camasirTablosu td.rezerve:hover span.tooltip{
+    display: block;
+}
+.displaynon{display: none}
+.camasirbuton{width: 330px; margin-left: 5px;}
+.camasirblok{
+    margin-left: -4px;
+    width: 280px;
+    padding-left: 30px;
+    height: 32px;
 }

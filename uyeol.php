@@ -14,24 +14,45 @@
             <label for="eposta" class="uyelikLabel">E-posta Adresiniz : </label>  <input class="inputText"  type="email" name="eposta" id="eposta"  title="Geçerli bit elektronik posta adresi girmelisiniz." required />
             <label class="uyelikLabel">Blok / Kat / Oda numaranız : </label>
                 <select id="blok" name="blok" class="selecting">
-                    <option value="A" selected>A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
+                    <option value="A" selected>A Blok</option>
+                    <option value="B">B Blok</option>
+                    <option value="C">C Blok</option>
+                    <option value="D">D Blok</option>
+                    <option value="E">E Blok</option>
+                    <option value="F">F Blok</option>
+                    <option value="G">G Blok</option>
+                    <option value="ASTII">AST I Blok</option>
+                    <option value="ASTI">AST II Blok</option>
+                    <option value="J">J Blok</option>
+                    <option value="K">K Blok</option>
+                    <option value="L">L Blok</option>
+                    <option value="M">M Blok</option>
+                    <option value="N">N Blok</option>
                 </select>
-                <select id="blok" name="kat" class="selecting">
-                    <option value="1" selected>1</option>
+                <select id="kat" name="kat" class="selecting">
+                    <option value="0" selected>Zemin</option>
+                    <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
                 </select>
-                <select id="blok" name="oda" class="selecting">
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                <select id="oda" name="oda" class="selecting">
+                    <option value="01" selected>01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
                 </select>
             <label class="fileInputLabel" for="foto">Profil fotoğrafınızı yüklemek için tıklayınız...<div class="inputLabelDashed"></div> </label><input class="fileInput" type="file" name="foto" id="foto"  accept="image/x-png, image/jpeg" />
             <label class="textareaLabel" for="hakkinda">Kendinizi Tanıtın : </label>

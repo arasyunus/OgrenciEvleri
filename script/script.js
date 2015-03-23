@@ -84,4 +84,11 @@ $(function() {
     $('#zaman').datepicker( "setDate" , new Date());
     $("#listeGunu").html($('#zaman').val());
     
+    $("#camasir").on("click",function(e){
+        
+        $("table.camasirTablosu.displaynon").removeClass("displaynon");
+        
+        return false;
+        e.preventDefault();
+    });
 });
