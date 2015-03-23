@@ -165,6 +165,43 @@ body{
 #arizaBilgisi{
     height: 120px;
 }
+/*  ------------------------ BUTTON ------------------------ */
+.button{
+  background: #c47ed9;
+  background-image: -webkit-linear-gradient(top, #c47ed9, #934fa8);
+  background-image: -moz-linear-gradient(top, #c47ed9, #934fa8);
+  background-image: -ms-linear-gradient(top, #c47ed9, #934fa8);
+  background-image: -o-linear-gradient(top, #c47ed9, #934fa8);
+  background-image: linear-gradient(to bottom, #c47ed9, #934fa8);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  text-shadow: 1px 1px 3px #c38ad4;
+  -webkit-box-shadow: 0px 1px 3px #c879e0;
+  -moz-box-shadow: 0px 1px 3px #c879e0;
+  box-shadow: 0px 1px 3px #c879e0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-size: 16px;
+  padding: 6px;
+  border: solid #e4aef5 2px;
+  text-decoration: none;
+  cursor: pointer;
+  width: 645px;
+}
+
+.button:hover {
+  background: #d9ace6;
+  background-image: -webkit-linear-gradient(top, #d9ace6, #864A97);
+  background-image: -moz-linear-gradient(top, #d9ace6, #864A97);
+  background-image: -ms-linear-gradient(top, #d9ace6, #864A97);
+  background-image: -o-linear-gradient(top, #d9ace6, #864A97);
+  background-image: linear-gradient(to bottom, #d9ace6, #864A97);
+  text-decoration: none;
+}
+/*  ------------------------ BUTTON ------------------------ */
 
 a.linkStyle{
     position: relative;
