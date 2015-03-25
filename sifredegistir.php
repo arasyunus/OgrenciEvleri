@@ -1,6 +1,6 @@
 <?php include 'inc/head.php';?>
 <body>
-    <?php include 'inc/banner-menu-kullanici.html'; ?>
+    <?php include 'inc/banner-menu-kullanici.php'; ?>
 
     <div class="kapsul">
         <h1 class="h1Tag">Şifre değiştirmek için formu doldurmalısınız.</h1>        

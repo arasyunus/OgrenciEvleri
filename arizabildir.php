@@ -1,7 +1,7 @@
 <?php include 'inc/head.php';?>
 <body>
-    <?php include 'inc/banner-menu-kullanici.html'; ?>
-
+    <?php include 'inc/banner-menu-kullanici.php'; ?>
+    <?php include 'inc/userSessionManager.inc'; ?>
     <div class="kapsul">
         <h1 class="h1Tag">Formu doldurarak arızanızı bildiriniz, kısa sürede çözüme kavuşturulacaktır.</h1>        
         <hr class="cetvel"/>
@@ -19,6 +19,5 @@
             <input class="button" type="submit" value="Arızayı bildir." />
         </form>
     </div>
-
 </body>
 </html>

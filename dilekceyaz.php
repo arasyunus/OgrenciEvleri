@@ -1,6 +1,7 @@
 <?php include 'inc/head.php';?>
 <body>
-    <?php include 'inc/banner-menu-kullanici.html'; ?>
+    <?php include 'inc/banner-menu-kullanici.php'; ?>
+    <?php include 'inc/userSessionManager.inc'; ?>
     <div class="kapsul">
         <h1 class="h1Tag">Dilekçenizi metin düzenleyici ile kurallara uygun olarak yazınız.</h1>
         <hr class="cetvel" />

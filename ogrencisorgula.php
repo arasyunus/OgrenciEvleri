@@ -1,7 +1,7 @@
 <?php include 'inc/head.php';?>
 <body>
-    <?php include 'inc/banner-menu-yonetici.html'; ?>
-    
+    <?php include 'inc/banner-menu-yonetici.php'; ?>
+    <?php include 'inc/adminSessionManager.inc'; ?>
     <div class="kapsul">
         <h1 class="h1Tag">Öğrenci bilgilerini sorgula.</h1>
         <hr class="cetvel" />
