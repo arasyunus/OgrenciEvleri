@@ -1,11 +1,10 @@
-<?php include 'inc/head.html';?>
+<?php include 'inc/head.php';?>
 <body>
     <?php include 'inc/banner-menu-kullanici.html'; ?>
-
     <div class="kapsul">
         <h1 class="h1Tag">Üye olmak için formu eksiksiz doldurmalısınız.</h1>        
         <hr class="cetvel"/>
-        <form id="formUyelik" class="uyelikFormu" action="#" method="POST">
+        <form enctype="multipart/form-data" id="formUyelik" class="uyelikFormu" action="#" method="POST">
             <label for="adSoyad" class="uyelikLabel">Adınız ve Soyadınız : </label>  <input class="inputText" type="text" name="adSoyad" id="adSoyad" title="Adınızı ve Soyadınızı girmeyi unutmayın." required />
             <label for="ogrenciNo" class="uyelikLabel">Öğrenci Numaranız : </label>  <input class="inputText" type="text" name="ogrenciNo" id="ogrenciNo"  title="Lütfen öğrenci numaranızı giriniz." required />
             <label for="sifre" class="uyelikLabel">Şifreniz : </label>  <input class="inputText"  type="password" name="sifre" id="sifre"  title="Şifre oluşturmalısınız." required />
@@ -55,16 +54,90 @@
                     <option value="17">17</option>
                 </select>
             
-            <label class="uyelikLabel" for="foto">Cinsiyet:</label>
-            <input type="radio" name="cinsiyet" id="erkek" checked /><label for="erkek" class="cinsiyetLabel">Erkek</label>
-            <input type="radio" name="cinsiyet" id="kadin" /><label for="kadin" class="cinsiyetLabel">Kadın</label>
+            <label class="uyelikLabel">Cinsiyet:</label>
+            <input type="radio" name="cinsiyet" id="erkek" value="erkek" checked /><label for="erkek" class="cinsiyetLabel">Erkek</label>
+            <input type="radio" name="cinsiyet" id="kadin" value="kadin" /><label for="kadin" class="cinsiyetLabel">Kadın</label>
             
             <label class="fileInputLabel" for="foto">Profil fotoğrafınızı yüklemek için tıklayınız...<div class="inputLabelDashed"></div> </label><input class="fileInput" type="file" name="foto" id="foto"  accept="image/x-png, image/jpeg" />
             <label class="textareaLabel" for="hakkinda">Kendinizi Tanıtın : </label>
             <textarea name="hakkinda" id="hakkinda"  title="Hakkınızda bir cümle de olsa birşeyler yazar mısınız?" required ></textarea>
-            <input class="button" type="submit" value="Üye Ol" />
+            <input class="button" type="submit" name="uyeol" value="Üye Ol" />
         </form>
     </div>
 
+    <?php
+        $msgBoxDisplay = FALSE;
+        if(isset($_POST["uyeol"])){
+            if($_POST["sifre"] == $_POST["resifre"]){
+                if(isset($_FILES["foto"])){
+                    $fotografURL = UPLOADDir . $_POST["ogrenciNo"] . ".jpg";
+                    if(fileUpload($_FILES["foto"], $fotografURL, UPLOADDir)){
+                        echo "<H1>OKEYYYYYYYY</H1>";
+                    }else{
+                        $fotografURL = "images/profil.png";
+                    }
+                }else{
+                    $fotografURL = "images/profil.png";
+                }
+                $connectDB = DBConnect();
+                $sql = "INSERT INTO users (adsoyad, numara, sifre, eposta, telefon, blok, kat, oda, cinsiyet, fotograf, hakkinda, konum) "
+                        . "VALUES ('$_POST[adSoyad]', '$_POST[ogrenciNo]}', '$_POST[sifre]', '$_POST[eposta]', '$_POST[telefon]', '$_POST[blok]', '$_POST[kat]', '$_POST[oda]', '$_POST[cinsiyet]', '$fotografURL', '$_POST[hakkinda]', 'ogrenci')";
+                $query = mysql_query($sql);
+                $resultAffect = mysql_affected_rows();
+                if($resultAffect == 1){
+                    $msgBox["title"] = "Üye Kaydı Tamamlandı";
+                    $msgBox["content"] = "Sayın, $_POST[adSoyad] üyeliğiniz tamamlanmıştır. Giriş yaparak sistemi kullanmaya başlayabilirsiniz.";
+                    $msgBox["buttonLeft"]["href"] = "uyegiris.php";
+                    $msgBox["buttonLeft"]["name"] = "Giriş yap";
+                    $msgBox["buttonRight"]["href"] = "uyeol.php";
+                    $msgBox["buttonRight"]["name"] = "Kapat";
+                    echo showMsgBox($msgBox);
+                }else{
+                    $msgBox["title"] = "Hata Oluştu!";
+                    $msgBox["content"] = "Sayın, $_POST[adSoyad] üye kaydınız gerçekleştirilirken bir hata oluşmuştur. Formu dikkatlice tekrar doldurmalısınız.";
+                    $msgBox["buttonLeft"]["href"] = "uyeol.php";
+                    $msgBox["buttonLeft"]["name"] = "Tamam";
+                    $msgBox["buttonRight"]["href"] = "index.php";
+                    $msgBox["buttonRight"]["name"] = "Anasayfaya git";
+                    echo showMsgBox($msgBox);
+                }
+                mysqlClose($connectDB);
+            }else{
+                $msgBox["title"] = "Üye Kayıt Ekranı.";
+                $msgBox["content"] = "Sayın, $_POST[adSoyad] girdiğiniz şifreler uyuşmuyor dikkatlice formu tekrardan doldurmalısınız.";
+                $msgBox["buttonLeft"]["href"] = "uyeol.php";
+                $msgBox["buttonLeft"]["name"] = "Tamam";
+                $msgBox["buttonRight"]["href"] = "index.php";
+                $msgBox["buttonRight"]["name"] = "Anasayfaya git";
+                echo showMsgBox($msgBox);
+            }
+        }
+    ?>
+
 </body>
 </html>
+<!--
+    
+    ******* MESAJ KUTUSU ******
+
+<div class="modal">
+    <div class="msgBox">
+        <div class="msgTitle">Deneme Başlık Mesajı<span class="closeModal">X</span></div>
+        <div class="msgBody">
+            <span class="msgContent">Bir hata oluştu</span>
+            <a class="modalButton left" href="#">Tamam</a>
+            <a class="modalButton center" href="#">Tamam</a>
+            <a class="modalButton right" href="#">Kapat</a>
+        </div>
+    </div>
+</div>
+
+    *****************************
+    $msgBox = array(
+        "title"         => "Üye Kayıt Ekranı",
+        "content"       => "",
+        "buttonLeft"    => array("href" => "", "name" => "Giriş yap"),
+        "buttonCenter"  => array("href" => "", "name" => "Tamam"),
+        "buttonRight"   => array("href" => "", "name" => "Kapat"),
+    );
+-->

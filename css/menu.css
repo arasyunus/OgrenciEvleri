@@ -232,3 +232,132 @@ a.kesMenu{
 .bannerMenu .banMenu .banmenuitem:hover .bannerUL{
     display: block;
 }
+
+div.modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #ECCCF9;
+    background-color: rgba(88, 50, 99, 0.6);
+    z-index: 200;
+}
+div.modal div.msgBox{
+    position: relative;
+    margin: 0 auto;
+    width: 420px;
+    background-color: #F3E0FC;
+    top: 20%;
+    min-height: 150px;
+    z-index: 1; 
+    border: 2px solid #925CA2;
+    padding: 10px;
+    box-shadow: 0 0 5px 6px #934fa8;
+    -webkit-box-shadow: 0 0 5px 6px rgba(147, 79, 168, 0.7);
+    -moz-box-shadow: 0 0 5px 6px rgba(147, 79, 168, 0.7);
+    -o-box-shadow: 0 0 5px 6px rgba(147, 79, 168, 0.7);
+    -ms-box-shadow: 0 0 5px 6px rgba(147, 79, 168, 0.7);
+    box-shadow: 0 0 5px 6px rgba(147, 79, 168, 0.7);
+    overflow: hidden;
+    z-index: 201;
+}
+div.modal div.msgBox div.msgTitle{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 14px;
+    color: #43254B;
+    background-color: #934fa8;
+    color: #fff;
+    line-height: 25px;
+    height: 25px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+div.modal div.msgBox div.msgTitle span.closeModal{
+    position: absolute;
+    right: 2px;
+    background-color: #F3E0FC;
+    font-size: 11px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    border: 2px solid #F3E0FC;
+    line-height: 17px;
+    top: 2px;
+    color: #925CA2;
+    cursor: pointer;
+    font-weight: bold;
+}
+div.modal div.msgBox div.msgTitle span.closeModal a{
+    text-decoration: none;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    padding: 0 3px;
+    box-sizing: border-box;
+}
+div.modal div.msgBox div.msgTitle span.closeModal:hover{
+    border-color: #fff;
+    background-color: #c879e0;
+    color: #fff;
+}
+div.modal div.msgBox div.msgTitle span.closeModal:active{
+    background-color: #fff;
+    color: #43254B;
+}
+div.modal div.msgBox div.msgBody{
+    position: relative;
+    background-color: red;
+    min-height: 100px;
+    padding: 10px;
+    background-color: #ECCCF9;
+    border: 1px solid #c879e0;    
+}
+div.modal div.msgBox div.msgBody span.msgContent{
+    color: #43254B;
+    font-size: 13px;
+}
+div.modal div.msgBox a.modalButton{
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+}
+div.modal div.msgBox a.modalButton:link{
+    position: absolute;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #934fa8;
+    color: #fff;
+    padding: 5px;
+    width: 120px;
+    text-align: center;
+    bottom: -12px;
+    border: 1px #934fa8 solid;
+    line-height: 15px;
+    height: 15px;
+}
+div.modal div.msgBox a.modalButton.left{
+    left: 45px;
+}
+div.modal div.msgBox a.modalButton.right{
+    right: 45px;
+}
+div.modal div.msgBox a.modalButton.center{
+    left: 50%;
+    margin-left: -65px;
+}
+div.modal div.msgBox a.modalButton:hover{
+    background-color: #ECCCF9;
+    color: #43254B;
+}
+div.modal div.msgBox a.modalButton:active{
+    background-color: #F3E0FC;
+    color: #000;
+    border-color: #000;
+}

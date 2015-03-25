@@ -1,4 +1,4 @@
-<?php include 'inc/head.html';?>
+<?php include 'inc/head.php';?>
 <body>
     <?php include 'inc/banner-menu-yonetici.html'; ?>
     
@@ -7,7 +7,7 @@
         <hr class="cetvel" />
         
         <form id="ogrenciSorgula" class="ogrenciSorgula" action="#" method="POST">
-            <label for="ogrenciNo" class="uyelikLabel">Kargosu gelen öğrencinin numarası : </label>
+            <label for="ogrenciNo" class="uyelikLabel">Sorgulamak istediğiniz öğrencinin numarası : </label>
             <input class="inputText"  type="number" name="ogrenciNo" id="ogrenciNo" required title="Öğrenci numarasını girmelisiniz!" />
             <input class="button" type="submit" value="Öğrenciye kargosunun geldiğini bildir." />
         </form>
