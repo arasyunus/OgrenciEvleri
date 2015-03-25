@@ -249,7 +249,7 @@ div.modal div.msgBox{
     width: 420px;
     background-color: #F3E0FC;
     top: 20%;
-    min-height: 150px;
+    min-height: 120px;
     z-index: 1; 
     border: 2px solid #925CA2;
     padding: 10px;
@@ -314,10 +314,12 @@ div.modal div.msgBox div.msgTitle span.closeModal:active{
 div.modal div.msgBox div.msgBody{
     position: relative;
     background-color: red;
-    min-height: 100px;
+    min-height: 80px;
     padding: 10px;
     background-color: #ECCCF9;
-    border: 1px solid #c879e0;    
+    border: 1px solid #c879e0; 
+    padding-bottom: 15px;
+    margin-bottom: 5px;
 }
 div.modal div.msgBox div.msgBody span.msgContent{
     color: #43254B;
@@ -337,10 +339,10 @@ div.modal div.msgBox a.modalButton:link{
     padding: 5px;
     width: 120px;
     text-align: center;
-    bottom: -12px;
+    bottom: -13px;
     border: 1px #934fa8 solid;
-    line-height: 15px;
-    height: 15px;
+    line-height: 14px;
+    height: 14px;
 }
 div.modal div.msgBox a.modalButton.left{
     left: 45px;

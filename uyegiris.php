@@ -6,7 +6,6 @@
             $connectDB = DBConnect();
             $sql = "SELECT * FROM users";
             $query = mysql_query($sql);
-            $userCount = mysql_num_rows($query);
             $isSession = FALSE;
             while($row =  mysql_fetch_assoc($query)) {
                 if($_POST["ogrenciNo"] == $row["numara"] && $_POST["sifre"] == $row["sifre"]){
@@ -25,7 +24,7 @@
                 echo showMsgBox($msgBox);
             }else{
                 $msgBox["title"] = "Üye Kaydı Bulunamadı!";
-                $msgBox["content"] = "Sayın, $row[adsoyad]. sistemde kayıtlı üyeliğiniz bulunmamaktadır!";
+                $msgBox["content"] = "Sayın, kullanıcı sistemde kayıtlı üyeliğiniz bulunmamaktadır!";
                 $msgBox["buttonLeft"]["href"] = "uyeol.php";
                 $msgBox["buttonLeft"]["name"] = "Kayıt ol";
                 $msgBox["buttonRight"]["href"] = "uyegiris.php";
