@@ -1,9 +1,9 @@
 <?php
     if(isset($_SESSION["userData"])){
         if(isset($_SESSION["userData"]["adsoyad"])){
-            if($_SESSION["userData"]["konum"] <> "ogrenci"){
-                header("Locatin: uyegiris.php");
-            }
+//            if($_SESSION["userData"]["konum"] <> "ogrenci"){
+//                header("Locatin: uyegiris.php");
+//            }
         }else{
             $msgBox["title"] = "Erişim İzniniz Yok!";
             $msgBox["content"] = "Bu sayfaya erişim sağlayabilmek için kullanıcı girişi yapmalısınız! Kullanıcı verilerinize erişilemiyor...";

@@ -4,7 +4,7 @@
         <a href="https://www.facebook.com/groups/792380500841287"><div class="social facebook"></div></a>
     </div>
     <ul class="menuUL">
-        <li class="menuLI"><a class="bord">Üyelik İşlemleri</a><span class="Boldweight">::</span>
+        <li class="menuLI"><a class="bord">Kullanıcı işlemleri</a><span class="Boldweight">::</span>
             <ul class="altMenu">
                 <li class="menuitem"><a class="altLink" href="profil.php">Profiline Git</a></li>
                 <li class="menuitem"><a class="altLink" href="uyegiris.php">Üye Girişi</a></li>

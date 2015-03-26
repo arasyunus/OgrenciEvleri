@@ -1,5 +1,5 @@
 <?php
-    include 'configuration.inc';
+include 'configuration.inc';
     function DBConnect(){
         $connectDB      = mysql_connect(DBServer, DBUser, DBPass);
         $selectDB       = mysql_select_db(DBName);
@@ -58,10 +58,44 @@
         return $return;
     }
     
+    function oturumKapat() {
+        if(isset($_GET["oturumuKapat"])){
+            if($_GET["oturumuKapat"] == "kapat"){
+                session_destroy();
+                header("Location: index.php");
+            }                
+        }
+    }
+    
+    function mailGonder($mailTitle,$mailContent,$sendAdress) {
+        require_once 'inc/PHPMailer/PHPMailerAutoload.php';
+        $mail = new PHPMailer;
+        $mail->IsSMTP(); // enable SMTP
+	$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
+	$mail->SMTPAuth = true;  // authentication enabled
+        $mail->setLanguage("tr", "inc/PHPMailer/language");
+        $mail->CharSet="UTF-8";
+        $mail->IsHTML(true);
+	$mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for Gmail
+        $mail->Host = 'smtp.yandex.com';
+        $mail->Port = 587;
+	$mail->Username = "hacettepeetkinlik@yandex.com";
+	$mail->Password = "hacettepeBote211";
+	$mail->SetFrom("hacettepeetkinlik@yandex.com", "Yunus ARAS");
+	$mail->Subject = $mailTitle;
+	$mail->Body = $mailContent;
+	$mail->AddAddress($sendAdress);
+	if(!$mail->Send()) {
+                return FALSE;
+	} else {
+		return TRUE;
+	}
+    }
 
-        /*
+    
+    /*
          * mysql_affected_rows() bu fonksiyon başarılı mı kaç başarılı onu soyler
          * mysql_real_escape_string kaçış karakteri
          * 
-         */
+    */
 ?>

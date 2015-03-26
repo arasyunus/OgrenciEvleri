@@ -1,9 +1,9 @@
 <?php
-session_start();
-ob_start();
-
+    session_start();
+    ob_start();
 ?>
 <?php include 'inc/dbFunctions.inc'; ?>
+<?php oturumKapat(); ?>
 <!DOCTYPE HTML>
 <html lang="tr-TR">
 <head>
