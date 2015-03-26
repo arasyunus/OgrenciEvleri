@@ -3,6 +3,6 @@
     define("DBPass"     , "");
     define("DBServer"   , "localhost");
     define("DBName"     , "dboevleri");
-    define("DBFile"     , "dboevleri.sql");
+    define("DBFile"     , "inc/dboevleri.sql");
     define("UPLOADDir"     , "IMGProfil/");
 ?>

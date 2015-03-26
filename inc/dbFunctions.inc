@@ -10,10 +10,10 @@ include 'configuration.inc';
     }
     
     
-    function createTable(){
+    function createDatabaseAndTables(){
         $conn = DBConnect();
         $isDB = mysql_query("CREATE DATABASE IF NOT EXISTS " . DBName);
-        if(!$isDB){
+        if($isDB){
             $fp = fopen(DBFile, 'r');
             $sql = fread($fp, filesize(DBFile));
             fclose($fp);
@@ -24,8 +24,9 @@ include 'configuration.inc';
                 }
             }
         }
-        mysqlClose();
+        mysqlClose($conn);
     }
+    
     function mysqlClose($conn){
         mysql_close($conn);
     }
