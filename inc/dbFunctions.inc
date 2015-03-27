@@ -11,20 +11,26 @@ include 'configuration.inc';
     
     
     function createDatabaseAndTables(){
+        $return = FALSE;
         $conn = DBConnect();
         $isDB = mysql_query("CREATE DATABASE IF NOT EXISTS " . DBName);
         if($isDB){
+            $return = TRUE;
             $fp = fopen(DBFile, 'r');
             $sql = fread($fp, filesize(DBFile));
             fclose($fp);
             $queryArray = explode(";", $sql);
             foreach ($queryArray as $key => $value) {
                 if($value <> ""){
-                    $retval = mysql_query( $value, $conn );   
+                    $retval = mysql_query( $value, $conn );
+                    if(!$retval){
+                        $return = FALSE;
+                    }
                 }
             }
         }
         mysqlClose($conn);
+        return $return;
     }
     
     function mysqlClose($conn){
