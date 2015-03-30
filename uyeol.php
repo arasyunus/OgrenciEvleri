@@ -72,7 +72,7 @@
                 if(isset($_FILES["foto"])){
                     $fotografURL = UPLOADDir . $_POST["ogrenciNo"] . ".jpg";
                     if(fileUpload($_FILES["foto"], $fotografURL, UPLOADDir)){
-                        echo "<H1>OKEYYYYYYYY</H1>";
+                        //echo "<H1>OKEYYYYYYYY</H1>";
                     }else{
                         $fotografURL = "images/profil.png";
                     }

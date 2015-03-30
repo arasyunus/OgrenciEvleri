@@ -1,6 +1,7 @@
 <?php
     session_start();
     ob_start();
+    $basename = basename($_SERVER['PHP_SELF']);
 ?>
 <?php include 'inc/dbFunctions.inc'; ?>
 <?php oturumKapat(); ?>

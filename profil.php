@@ -2,6 +2,39 @@
 <body>
     <?php include 'inc/banner-menu-kullanici.php'; ?>
     <?php include 'inc/userSessionManager.inc'; ?>
+    
+    <?php
+        if(isset($_POST["profilGuncelle"])){
+            $row = array();
+            $connectDB = DBConnect();
+            $sql = "UPDATE users SET adsoyad='$_POST[adSoyad]',numara='$_POST[ogrNo]',telefon='$_POST[telefon]',eposta='$_POST[eposta]',blok='$_POST[blok]',kat='$_POST[kat]',oda='$_POST[oda]' WHERE numara='$_POST[ogrNo]'";
+            $query = mysql_query($sql);
+            mysqlClose($connectDB);
+            if($query){
+                $msgBox["title"] = "Profiliniz güncellendi.";
+                $msgBox["content"] = "Profil bilgileriniz gerektiği gibi güncellenmiştir.";
+                $msgBox["buttonCenter"]["href"] = $basename;
+                $msgBox["buttonCenter"]["name"] = "Tamam";
+                echo showMsgBox($msgBox);
+                $connectingDB = DBConnect();
+                $sql = "SELECT * FROM users";
+                $query = mysql_query($sql);
+                while($row =  mysql_fetch_assoc($query)) {
+                    if($_POST["ogrNo"] == $row["numara"]){
+                        $_SESSION["userData"] = $row;
+                    }
+                }
+                mysqlClose($connectingDB);
+            }else{
+                $msgBox["title"] = "HATA!";
+                $msgBox["content"] = "Profil bilgileriniz güncellenirken hata oluştu.";
+                $msgBox["buttonCenter"]["href"] = $basename;
+                $msgBox["buttonCenter"]["name"] = "Tamam";
+                echo showMsgBox($msgBox);
+            }
+        }
+    ?>
+
     <div class="kapsul">
         <div class="fotoKapsul">
             <img class="profilFoto" src="<?php echo $_SESSION['userData']['fotograf']; ?>" alt="Profil Fotoğrafı"/>
@@ -11,10 +44,10 @@
             <hr class="cetvel" />
             <form class="formKullaniciBilgileri" action="#" method="POST" id="formOgrBilgiler">
                 <label for="adSoyad">Adınız ve Soyadınız : </label><input type="text" name="adSoyad" id="adSoyad" value="<?php echo $_SESSION['userData']['adsoyad']; ?>" required />
-                <label for="ogrNo">Öğrenci Numaranız   : </label><input type="text" name="ogrNo" id="ogrNo" disabled="disabled" value="<?php echo $_SESSION['userData']['numara']; ?>" required />
-                <label for="telefon">Telefon Numaranız : </label><input type="text" name="telefon" id="telefon" disabled="disabled" value="<?php echo $_SESSION['userData']['telefon']; ?>" required />
-                <label for="eposta">Elektronik Posta Adresiniz: </label><input type="email" name="eposta" id="eposta" disabled="disabled" value="<?php echo $_SESSION['userData']['eposta']; ?>" required />
-                <label>Blok - Kat ve Oda Numaranız : </label><select name="blok" id="blok"  disabled="disabled">
+                <label for="ogrNo">Öğrenci Numaranız   : </label><input type="text" name="ogrNo" id="ogrNo" value="<?php echo $_SESSION['userData']['numara']; ?>" required />
+                <label for="telefon">Telefon Numaranız : </label><input type="text" name="telefon" id="telefon" value="<?php echo $_SESSION['userData']['telefon']; ?>" required />
+                <label for="eposta">Elektronik Posta Adresiniz: </label><input type="email" name="eposta" id="eposta" value="<?php echo $_SESSION['userData']['eposta']; ?>" required />
+                <label>Blok - Kat ve Oda Numaranız : </label><select name="blok" id="blok">
                     <option value="<?php echo $_SESSION['userData']['blok']; ?>" selected><?php echo $_SESSION['userData']['blok']; ?></option>
                     <option value="B">A Blok</option>
                     <option value="B">B Blok</option>
@@ -31,16 +64,16 @@
                     <option value="M">M Blok</option>
                     <option value="N">N Blok</option>
                 </select>
-                <select name="kat" id="kat"  disabled="disabled">
+                <select name="kat" id="kat">
                     <option value="<?php echo $_SESSION['userData']['kat']; ?>" selected><?php echo $_SESSION['userData']['kat']; ?></option>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
-                <select name="oda" id="oda"  disabled="disabled">
+                <select name="oda" id="oda">
                     <option value="<?php echo $_SESSION['userData']['oda']; ?>" selected><?php echo $_SESSION['userData']['oda']; ?></option>
-                    <option value="01" selected>01</option>
+                    <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
                     <option value="04">04</option>
@@ -58,7 +91,7 @@
                     <option value="16">16</option>
                     <option value="17">17</option>
                 </select>
-                <input type="submit" value="Profil Bilgilerimi Güncelle" class="button guncelle" disabled="disabled"/>
+                <input id="profilGuncelle" name="profilGuncelle" type="submit" value="Profil Bilgilerimi Güncelle" class="button guncelle" disabled="disabled"/>
             </form>
             
         </div>
@@ -72,12 +105,32 @@
         </div>
     </div>
     <script>
-        $("#adSoyad").on("click",function (){
-            $(this).attr("disabled","disabled");
-        });
-        $("#adSoyad").dblclick(function() {
-            alert( "Handler for .dblclick() called." );
-        });
+        var oldInputValues = {
+                "adSoyad"   : $("#adSoyad").val(),
+                "ogrNo"     : $("#ogrNo").val(),
+                "telefon"   : $("#telefon").val(),
+                "eposta"    : $("#eposta").val(),
+                "blok"      : $("#blok").val(),
+                "kat"       : $("#kat").val(),
+                "oda"       : $("#oda").val()
+            }
+            $("input").keyup(changed);
+            $("select").change(changed);
+            function changed(){
+                $this = $(this);
+                if(oldInputValues.adSoyad != $("#adSoyad").val() || oldInputValues.ogrNo != $("#ogrNo").val() || oldInputValues.telefon != $("#telefon").val()  || oldInputValues.eposta != $("#eposta").val() || oldInputValues.blok != $("#blok").val() || oldInputValues.kat != $("#kat").val() || oldInputValues.oda != $("#oda").val()){
+                    $("#profilGuncelle").removeAttr("disabled");                    
+                }else{
+                    $("#profilGuncelle").attr("disabled","disabled");
+                }
+                /*
+                if(oldInputValues[$this.attr("name")] != $this.val()){
+                    $("#profilGuncelle").removeAttr("disabled");
+                }else{
+                    $("#profilGuncelle").attr("disabled","disabled");
+                }
+                */
+            }
     </script>
 </body>
 </html>
