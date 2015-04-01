@@ -304,17 +304,18 @@ a.linkStyle:hover{
 
 .bildirimDiv{
     position: relative;
-    width: 232px;
+    min-width: 232px;
     height: 40px;
     background-color: #e4aef5;
     line-height: 40px;
     color: #fff;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 5px;
     float: left;
     font-weight: bold;
     margin: 5px 10px 8px 0;
     cursor: pointer;
+    padding: 0 20px;
 }
 .bildirimDiv.olumlu{
     background: rgb(176,230,14);
@@ -518,6 +519,15 @@ div.arizaBildirimi{
     min-height: 96px;
     margin-bottom: 4px;
 }
+div.arizaBildirimi.redBorder{
+    border-left: red 5px solid;
+}
+div.arizaBildirimi.orangeBorder{
+    border-left: orange 5px solid;
+}
+div.arizaBildirimi.greenBorder{
+    border-left: green 5px solid;
+}
 div.arizaBildirimi:hover{
     background-color: #ECCCF9;
 }
@@ -565,7 +575,7 @@ div.arizaBildirimi .arizaicerigi span.arizaKategorisi{
     position: relative;
 }
 
-div.arizaBildirimi span.kapatSil, .dilekceKapsul span.kapatSil{
+div.arizaBildirimi span.kapatSil, .dilekceKapsul span.kapatSil, div.arizaBildirimi span.gorevliYolla,div.arizaBildirimi span.arizaSil{
     position: absolute;
     width: 20px;
     height: 20px;
@@ -579,17 +589,33 @@ div.arizaBildirimi span.kapatSil, .dilekceKapsul span.kapatSil{
     font-weight: bold;
     font-size: 15px;
 }
-div.arizaBildirimi span.kapatSil a, .dilekceKapsul span.kapatSil a{
+div.arizaBildirimi span.kapatSil a, .dilekceKapsul span.kapatSil a, div.arizaBildirimi span.gorevliYolla a,div.arizaBildirimi span.arizaSil a{
     color: #fff;
     text-decoration: none;
 }
-div.arizaBildirimi:hover span.kapatSil, .dilekceKapsul:hover span.kapatSil{
+div.arizaBildirimi:hover span.kapatSil, .dilekceKapsul:hover span.kapatSil, div.arizaBildirimi:hover span.gorevliYolla,div.arizaBildirimi:hover span.arizaSil{
     display: block;
 }
-div.arizaBildirimi span.kapatSil:hover, .dilekceKapsul span.kapatSil:hover{
+div.arizaBildirimi span.kapatSil:hover, .dilekceKapsul span.kapatSil:hover, div.arizaBildirimi span.gorevliYolla:hover,div.arizaBildirimi span.arizaSil:hover{
     background-color: #c879e0;
 }
-
+div.arizaBildirimi span.gorevliYolla,div.arizaBildirimi span.arizaSil{
+    background: url(../images/repair.png) no-repeat center center;
+    right: 23px;
+    border: #925CA2 solid 1px;
+    width: 18px;
+    height: 18px;
+}
+div.arizaBildirimi span.gorevliYolla a:before,div.arizaBildirimi span.arizaSil a:before{
+    content: "";
+    display: inline-block;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+}
+div.arizaBildirimi span.arizaSil{
+    background: url(../images/check.png) no-repeat center center;
+}
 table.camasirTablosu{
     text-shadow: 1px 1px 0px #fff;
     background: #ECCCF9;
@@ -710,4 +736,41 @@ input[type=radio]:checked + label.cinsiyetLabel{
 label.cinsiyetLabel:hover{
     background-color: #c47ed9;
     color: #fff;
+}
+span.bildirimKapat{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    line-height: 10px;
+    height: 10px;
+    font-size: 10px;
+    display: none;
+    padding: 2px 3px;
+    border-radius: 3px;
+    text-align: center;
+}
+span.bildirimKapat a{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 100%;
+    height: 100%;
+}
+.bildirimDiv:hover span.bildirimKapat{display: block}
+.bildirimDiv.olumlu span.bildirimKapat{
+    background-color: #1dc116;
+    border: #008000 1px solid;
+}
+.bildirimDiv.olumsuz span.bildirimKapat{
+    background-color: #FF5E5E;
+    border: #d01d33 1px solid;
+}
+.bildirimDiv.uyari span.bildirimKapat{
+    background-color: #FC3;
+    border: #F90 1px solid;
 }

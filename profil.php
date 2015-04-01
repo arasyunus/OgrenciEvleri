@@ -4,6 +4,35 @@
     <?php include 'inc/userSessionManager.inc'; ?>
     
     <?php
+        if(isset($_GET["silKargo"])){
+            $connectDB = DBConnect();
+            $sql = "UPDATE kargolar SET durumu='Silinmis', gorulmeTarihi=CURRENT_TIMESTAMP WHERE INCREMENT=".$_GET["silKargo"];
+            $query = mysql_query($sql);
+            if(mysql_affected_rows()){
+                $msgBox["title"] = "Kargo bildirimi silindi.";
+                $msgBox["content"] = "Profilinizdeki kargo bldirimi silindi. Bir dahaki kargo bildirimine kadar profilinizde gözükmeyecek.";
+                $msgBox["buttonCenter"]["href"] = $basename;
+                $msgBox["buttonCenter"]["name"] = "Tamam";
+                echo showMsgBox($msgBox);
+            }
+            mysqlClose($connectDB);
+        }
+        if(isset($_GET["silAriza"])){
+            $connectDB = DBConnect();
+            $sql = "UPDATE arizalar SET arizadurumu='3', onarimtarihi=CURRENT_TIMESTAMP WHERE INCREMENT=".$_GET["silAriza"];
+            $query = mysql_query($sql);
+            if(mysql_affected_rows()){
+                $msgBox["title"] = "Arızanız giderildi.";
+                $msgBox["content"] = "Profilinizdeki arıza bldirimi silindi. Arızanız tekrar oluştuğu taktirde tekrar bildirimle bulunursanız en kısa sürede ilgileneceğiz.";
+                $msgBox["buttonCenter"]["href"] = $basename;
+                $msgBox["buttonCenter"]["name"] = "Tamam";
+                echo showMsgBox($msgBox);
+            }
+            mysqlClose($connectDB);
+        }
+    ?>
+    
+    <?php
         if(isset($_POST["profilGuncelle"])){
             $row = array();
             $connectDB = DBConnect();
@@ -16,6 +45,7 @@
                 $msgBox["buttonCenter"]["href"] = $basename;
                 $msgBox["buttonCenter"]["name"] = "Tamam";
                 echo showMsgBox($msgBox);
+                
                 $connectingDB = DBConnect();
                 $sql = "SELECT * FROM users";
                 $query = mysql_query($sql);
@@ -99,9 +129,37 @@
         <div class="profilBildirimleri">
             <h1 class="h1Tag">Profilinize Gelen Bildirimler.</h1>
             <hr class="cetvel" />
+            <?php
+                // * * * Kargo Bildirimleri
+                $connectDB  = DBConnect();
+                $sql        = "SELECT * FROM kargolar WHERE durumu='Yeni' AND ogrenciNo=".$_SESSION['userData']['numara'] . " LIMIT 1";
+                $query      = mysql_query($sql);
+                if(mysql_num_rows($query) > 0){
+                    $kargo      = mysql_fetch_assoc($query);
+                    echo "<div class='bildirimDiv olumlu'>Kargonuz Geldi<span class='bildirimKapat'><a href='?silKargo=$kargo[INCREMENT]'>X</a></span></div>";
+                }
+                // * * * Arıza Bildirimleri
+                $sql        = "SELECT * FROM arizalar WHERE arizadurumu='1' AND ogrenciNo=".$_SESSION['userData']['numara'] . " LIMIT 1";
+                $query      = mysql_query($sql);
+                if(mysql_num_rows($query) > 0){
+                    $ariza  = mysql_fetch_assoc($query);
+                    echo "<div class='bildirimDiv uyari'>Arızanızı Görevlilere Bildirildi.</span></div>";
+                }
+                
+                $sql        = "SELECT * FROM arizalar WHERE arizadurumu='2' AND ogrenciNo=".$_SESSION['userData']['numara'] . " LIMIT 1";
+                $query      = mysql_query($sql);
+                if(mysql_num_rows($query) > 0){
+                    $ariza  = mysql_fetch_assoc($query);
+                    echo "<div class='bildirimDiv olumlu'>Arızanızı Onarıldı.<span class='bildirimKapat'><a href='?silAriza=$ariza[INCREMENT]'>X</a></span></div>";
+                }
+                
+                mysqlClose($connectDB);
+            ?>
+            <!--
             <div class="bildirimDiv olumlu">Kargonuz Geldi</div>
-            <div class="bildirimDiv olumsuz">Arızanızı Onaramıyoruz</div>
-            <div class="bildirimDiv uyari">Sular 3 Gün Kesik</div>
+            <div class="bildirimDiv olumsuz">Arızanızı Onaramıyoruz<span class='bildirimKapat'><a href='#'>X</a></span></div>
+            <div class="bildirimDiv uyari">Sular 3 Gün Kesik<span class='bildirimKapat'><a href='#'>X</a></span></div>
+            -->
         </div>
     </div>
     <script>

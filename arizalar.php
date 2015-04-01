@@ -6,6 +6,51 @@
         <h1 class="h1Tag">Gönderilen dilekçeler listesi.</h1>
         <hr class="cetvel" />
         <?php
+            
+            if(isset($_GET["arizaCheck"])){
+                $basename = basename($_SERVER['PHP_SELF']);
+                $connectDB = DBConnect();
+                $sql = "UPDATE  arizalar SET arizadurumu='2' WHERE INCREMENT=".$_GET["arizaCheck"];
+                //$sql = "DELETE FROM arizalar WHERE INCREMENT=" . $_GET["sil"];
+                $query = mysql_query($sql);
+                if($query){
+                    $msgBox["title"] = "Arıza Onarıldı.";
+                    $msgBox["content"] = "Arızanın onarımının sona erdiği mesajı yollandı.";
+                    $msgBox["buttonCenter"]["href"] = $basename;
+                    $msgBox["buttonCenter"]["name"] = "Tamam";
+                    echo showMsgBox($msgBox);
+                }else{
+                    $msgBox["title"] = "HATA!";
+                    $msgBox["content"] = "Arıza onarıldı mesajı yollanırken hata oluştu!";
+                    $msgBox["buttonCenter"]["href"] = $basename;
+                    $msgBox["buttonCenter"]["name"] = "Tamam";
+                    echo showMsgBox($msgBox);
+                }
+                mysqlClose($connectDB);
+            }
+            
+            if(isset($_GET["onar"])){
+                $basename = basename($_SERVER['PHP_SELF']);
+                $connectDB = DBConnect();
+                $sql = "UPDATE  arizalar SET arizadurumu='1' WHERE INCREMENT=".$_GET["onar"];
+                //$sql = "DELETE FROM arizalar WHERE INCREMENT=" . $_GET["sil"];
+                $query = mysql_query($sql);
+                if($query){
+                    $msgBox["title"] = "Görevli Görevlendirme Başarılı.";
+                    $msgBox["content"] = "Onarım için bi görevli görevlendirdiniz.";
+                    $msgBox["buttonCenter"]["href"] = $basename;
+                    $msgBox["buttonCenter"]["name"] = "Tamam";
+                    echo showMsgBox($msgBox);
+                }else{
+                    $msgBox["title"] = "HATA!";
+                    $msgBox["content"] = "Onarım için görevli yollamada hata oluştu. Tekrar dener misiniz?";
+                    $msgBox["buttonCenter"]["href"] = $basename;
+                    $msgBox["buttonCenter"]["name"] = "Tamam";
+                    echo showMsgBox($msgBox);
+                }
+                mysqlClose($connectDB);
+            }
+        
             if(isset($_GET["sil"])){
                 $basename = basename($_SERVER['PHP_SELF']);
                 $connectDB = DBConnect();
@@ -29,12 +74,24 @@
             }
             
             $connectDB = DBConnect();
-            $sql = "SELECT * FROM users JOIN arizalar ON users.numara = arizalar.ogrencino WHERE arizalar.arizadurumu<>'3' ORDER BY arizalar.arizadurumu ASC, arizalar.olusmatarihi DESC";
+            $sql = "SELECT * FROM users JOIN arizalar ON users.numara = arizalar.ogrencino WHERE arizalar.arizadurumu<'3' ORDER BY arizalar.arizadurumu ASC, arizalar.olusmatarihi DESC";
             $query = mysql_query($sql);
             $count = mysql_num_rows($query);
             if($count > 0){
+                
                 while($row =  mysql_fetch_assoc($query)) {
-                    echo "<div class='arizaBildirimi'>
+                    if($row["arizadurumu"] == 0){
+                        $border = "redBorder";
+                        $arizaDurumu = "<span class='gorevliYolla'><a alt='Onarmak için görevliy yolla.' href='arizalar.php?onar=$row[INCREMENT]'></a></span>";
+                    }else{
+                        $arizaDurumu = "";
+                        $border = "orangeBorder";
+                        $arizaDurumu = "<span class='arizaSil'><a alt='Onarmak için görevliy yolla.' href='arizalar.php?arizaCheck=$row[INCREMENT]'></a></span>";
+                    }
+                    if($row["arizadurumu"] == 2){
+                        $border = "greenBorder";
+                    }
+                    echo "<div class='arizaBildirimi $border'>
                             <div class='ogrFoto'>
                                 <img src='$row[fotograf]' alt='Öğrencinin fotoğrafı'/>
                             </div>
@@ -52,7 +109,8 @@
                                 <span class='ogrLbl'>Arıza Onarım Tarihi</span><span class='ogrBilgi'>$row[onarimtarihi]</span><br>
                             </div>
                             <div class='clr'></div>
-                            <span class='kapatSil'><a href='arizalar.php?sil=$row[INCREMENT]'>X</a></span>
+                            <span class='kapatSil'><a alt='Arıza bildirimini yoksay' href='arizalar.php?sil=$row[INCREMENT]'>X</a></span>
+                            $arizaDurumu
                         </div>";  
                 }
             }else{

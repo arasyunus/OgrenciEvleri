@@ -34,7 +34,7 @@
                         <th colspan="15">Çamaşır Listesi<span id="listeGunu"></span></th>
                     </tr>
                     <tr>
-                        <th> KAT </th>
+                        <th></th>
                         <th>09.00 - 13.00</th>
                         <th>13.00 - 16.00</th>
                         <th>16.00 - 19.00</th>
@@ -42,14 +42,14 @@
                     </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr data-kat="1">
                     <th>I. Kat</th>
                     <td class="randevusaati musait"></td>
                     <td class="randevusaati musait"></td>
                     <td class="randevusaati rezerve">Mehmet KARA<span class="tooltip">K Blok - 2 Numaralı oda</span></td>
                     <td class="randevusaati rezerve">Mehmet KARA<span class="tooltip">K Blok - 2 Numaralı oda</span></td>
                 </tr>
-                <tr>
+                <tr data-kat="2">
                     <th>II. Kat</th>
                     <td class="randevusaati rezerve">Mehmet KARA<span class="tooltip">K Blok - 2 Numaralı oda</span></td>
                     <td class="randevusaati musait"></td>
@@ -59,5 +59,25 @@
             </tbody>
         </table>
     </div>
+
+<script type="text/javascript">
+    var saatler = [null, "09.00 - 13.00", "13.00 - 16.00", "16.00 - 19.00", "19.00 - 22.00"];
+    var tarih    = null;
+    var blok    = null;
+    var kat     = null;
+    var saat    = null;
+    var sql     = null;
+    
+    $(".randevusaati.musait").on("click", function(){
+        tarih   = $("#zaman").val().split('/')[0].trim();
+        blok    = $("#blok").val();
+        kat     = $(this).parent("tr").attr("data-kat");
+        saat    = saatler[$(this).index()];
+        sql     = "INSERT INTO cmsiraal VALUES('21144319', '"+blok+"', '"+kat+"', '"+tarih+"', '"+saat+"')";
+        console.log(sql);
+    });
+
+</script>
+
 </body>
 </html>

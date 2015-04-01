@@ -73,7 +73,7 @@ $(function() {
     
     $.datepicker.setDefaults( $.datepicker.regional[ "tr" ] );
     $('#zaman').datepicker({
-        dateFormat: "yy.mm.dd - DD",
+        dateFormat: "yy-mm-dd / DD",
         maxDate: "+2w",
         minDate: 0,
         defaultDate:0,
