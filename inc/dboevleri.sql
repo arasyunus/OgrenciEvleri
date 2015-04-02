@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Anamakine: localhost
--- Üretim Zamanı: 01 Nis 2015, 16:15:25
+-- Üretim Zamanı: 02 Nis 2015, 16:21:49
 -- Sunucu sürümü: 5.6.12-log
 -- PHP Sürümü: 5.4.12
 
@@ -60,12 +60,25 @@ INSERT INTO `arizalar` (`ogrencino`, `arizaturu`, `arizametni`, `olusmatarihi`, 
 --
 
 CREATE TABLE IF NOT EXISTS `cmsiraal` (
-  `ogrno` int(8) NOT NULL,
-  `blok` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
-  `kat` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
-  `tarihi` date NOT NULL,
-  `saati` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+  `cmsrogrno` int(8) NOT NULL,
+  `cmsrblok` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
+  `cmsrkat` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
+  `cmsrtarihi` date NOT NULL,
+  `cmsrsaati` varchar(15) COLLATE utf8_turkish_ci NOT NULL,
+  `cmsrINCREMENT` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`cmsrINCREMENT`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=6 ;
+
+--
+-- Tablo döküm verisi `cmsiraal`
+--
+
+INSERT INTO `cmsiraal` (`cmsrogrno`, `cmsrblok`, `cmsrkat`, `cmsrtarihi`, `cmsrsaati`, `cmsrINCREMENT`) VALUES
+(21143811, 'A', '1', '2015-04-02', '09.00 - 13.00', 1),
+(21143811, 'A', '2', '2015-04-02', '16.00 - 19.00', 2),
+(21143811, 'A', '1', '2015-04-02', '19.00 - 22.00', 3),
+(21143811, 'D', '2', '2015-04-02', '13.00 - 16.00', 4),
+(21143811, 'D', '1', '2015-04-02', '09.00 - 13.00', 5);
 
 -- --------------------------------------------------------
 

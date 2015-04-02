@@ -5,7 +5,7 @@ $(function() {
         //timeout: 4000,
         cache:false,
         crossDomain: false,
-        jsonp: false,
+        jsonp: true,
         datatype:"jsonp"
     });
     
@@ -83,12 +83,11 @@ $(function() {
     });
     $('#zaman').datepicker( "setDate" , new Date());
     $("#listeGunu").html($('#zaman').val());
-    
-    $("#camasir").on("click",function(e){
-        
+    /*
+    $("#camasirRandevusu").on("click",function(e){
         $("table.camasirTablosu.displaynon").removeClass("displaynon");
-        
         return false;
         e.preventDefault();
     });
+    */
 });

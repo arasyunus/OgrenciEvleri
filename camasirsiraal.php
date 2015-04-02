@@ -2,6 +2,20 @@
 <body>
     <?php include 'inc/banner-menu-kullanici.php'; ?>
     <?php include 'inc/userSessionManager.inc'; ?>
+    <?php
+        $connectDB = DBConnect();
+        $sql = "SELECT * FROM cmsiraal";
+        $query = mysql_query($sql);
+        while($record =  mysql_fetch_assoc($query)) {
+            date_default_timezone_set('Europe/Istanbul');
+            $gunfarki = floor((time() - strtotime($record["cmsrtarihi"]))/(60*60*24));
+            if($gunfarki>0){
+                $silSQL = "DELETE FROM cmsiraal WHERE cmsrINCREMENT=".$record["cmsrINCREMENT"];
+                mysql_query($silSQL);
+            }
+        }
+        mysqlClose($connectDB);
+    ?>
     <div class="kapsul">
         <h1 class="h1Tag">Çamaşır randevusu almak istediğiniz tarihi ve bloğunuzu seçerek randevu al butonuna tıklayınız.</h1>
         <hr class="cetvel" />
@@ -25,6 +39,7 @@
                 <option value="M">M Blok</option>
                 <option value="N">N Blok</option>
             </select>
+            <input type="hidden" id="ogrencinumarasi" name="ogrencinumarasi" value="<?php echo $_SESSION['userData']['numara']?>" />
             <input id="camasirRandevusu" class="button camasirbuton" type="submit" value="Çamaşır randevusu al." />
         </form>
 
@@ -41,42 +56,172 @@
                         <th>19.00 - 22.00</th>
                     </tr>
             </thead>
-            <tbody>
-                <tr data-kat="1">
-                    <th>I. Kat</th>
-                    <td class="randevusaati musait"></td>
-                    <td class="randevusaati musait"></td>
-                    <td class="randevusaati rezerve">Mehmet KARA<span class="tooltip">K Blok - 2 Numaralı oda</span></td>
-                    <td class="randevusaati rezerve">Mehmet KARA<span class="tooltip">K Blok - 2 Numaralı oda</span></td>
-                </tr>
-                <tr data-kat="2">
-                    <th>II. Kat</th>
-                    <td class="randevusaati rezerve">Mehmet KARA<span class="tooltip">K Blok - 2 Numaralı oda</span></td>
-                    <td class="randevusaati musait"></td>
-                    <td class="randevusaati rezerve">Mehmet KARA<span class="tooltip">K Blok - 2 Numaralı oda</span></td>
-                    <td class="randevusaati musait"></td>
-                </tr>
-            </tbody>
+            <tbody></tbody>
         </table>
+        
+        <div class="ajaxLoader">
+            <img src="images/712.GIF" alt=""/>
+        </div>       
+        
     </div>
 
 <script type="text/javascript">
     var saatler = [null, "09.00 - 13.00", "13.00 - 16.00", "16.00 - 19.00", "19.00 - 22.00"];
-    var tarih    = null;
+    var tarih   = null;
     var blok    = null;
     var kat     = null;
     var saat    = null;
     var sql     = null;
+    var ogrNo   = $("#ogrencinumarasi").val();
     
-    $(".randevusaati.musait").on("click", function(){
+    
+    
+    $(document).on("click", ".randevusaati.musait", function(){
         tarih   = $("#zaman").val().split('/')[0].trim();
         blok    = $("#blok").val();
         kat     = $(this).parent("tr").attr("data-kat");
         saat    = saatler[$(this).index()];
-        sql     = "INSERT INTO cmsiraal VALUES('21144319', '"+blok+"', '"+kat+"', '"+tarih+"', '"+saat+"')";
-        console.log(sql);
-    });
+        sql     = "INSERT INTO cmsiraal VALUES('"+ogrNo+"', '"+blok+"', '"+kat+"', '"+tarih+"', '"+saat+"','')";
 
+        $.ajax({
+            type: "POST",
+            url: "inc/camasirAjax.php",
+            data: {
+                sql: sql,
+                insert: "true",
+                select: "false"
+            },
+            cache: false,
+            beforeSend:function(){
+                $(".ajaxLoader").addClass("load");
+            },
+            success: function(data) {
+                data = JSON.parse(data);
+                if(data.sonuc){
+                    var message = "<div class='modal'><div class='msgBox'><div class='msgTitle'>Çamaşır Randevusu Alındı<span class='closeModal'>X</span></div><div class='msgBody'><span class='msgContent'>Çamaşır randevunuz sisteme kayıt edilmiştir. Günü ve saatini geçirmeden çamaşır randevunuza uygun bir şekilde çamaşır odasını kullanınız.</span><a class='modalButton center' href='"+ window.location.href +"'>Kapat</a></div></div></div>";
+                    $(document.body).append(message);
+                }else{
+                    var message = "<div class='modal'><div class='msgBox'><div class='msgTitle'>HATA!<span class='closeModal'>X</span></div><div class='msgBody'><span class='msgContent'>Çamaşır randevunuz kayıt edilememiştir. Lütfen tekrar deneyiniz. Eğer yine arıza ile karşılaşırsanız yöneticiye bildiriniz.</span><a class='modalButton center' href='"+ window.location.href +"'>Kapat</a></div></div></div>";
+                    $(document.body).append(message);
+                }
+            },
+            complete: function(){
+                $(".ajaxLoader").removeClass("load");
+            }
+        });
+        
+        
+
+    });
+    
+    
+    //SELECT CAMARSIR LISTS
+    $(document).on("click", "#camasirRandevusu", function(e){
+        var tarih   = $("#zaman").val().split('/')[0].trim();
+        var blok    = $("#blok").val();
+        var sql     = "SELECT * FROM cmsiraal JOIN users ON users.numara = cmsiraal.cmsrogrno WHERE cmsiraal.cmsrblok='" + blok + "' AND cmsiraal.cmsrtarihi='" + tarih +"' ORDER BY cmsiraal.cmsrkat ASC , cmsiraal.cmsrsaati ASC";
+        
+        var tableOfAppointment = {
+            1: {
+                1:null,
+                2:null,
+                3:null,
+                4:null,
+            },
+            2: {
+                1:null,
+                2:null,
+                3:null,
+                4:null,
+            }
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "inc/camasirAjax.php",
+            data: {
+                sql: sql,
+                insert: "false",
+                select: "true"
+            },
+            cache: false,
+            beforeSend:function(){
+                console.log(sql);
+                $(".ajaxLoader").addClass("load");
+            },
+            success: function(data) {
+                data = JSON.parse(data);
+                if(data.sonuc){
+                    var DBData = data.veri;
+                    for(var i = 0; i < DBData.length; i++){
+                        
+                        //1.katlar
+                        if(DBData[i]["cmsrkat"] == "1" && DBData[i]["cmsrsaati"] == "09.00 - 13.00"){
+                            tableOfAppointment[1][1] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                        }
+                        if(DBData[i]["cmsrkat"] == "1" && DBData[i]["cmsrsaati"] == "13.00 - 16.00"){
+                            tableOfAppointment[1][2] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                        }
+                        if(DBData[i]["cmsrkat"] == "1" && DBData[i]["cmsrsaati"] == "16.00 - 19.00"){
+                            tableOfAppointment[1][3] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                        }
+                        if(DBData[i]["cmsrkat"] == "1" && DBData[i]["cmsrsaati"] == "19.00 - 22.00"){
+                            tableOfAppointment[1][4] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                        }
+                        //2.katlar
+                        if(DBData[i]["cmsrkat"] == "2" && DBData[i]["cmsrsaati"] == "09.00 - 13.00"){
+                            tableOfAppointment[2][1] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                        }
+                        if(DBData[i]["cmsrkat"] == "2" && DBData[i]["cmsrsaati"] == "13.00 - 16.00"){
+                            tableOfAppointment[2][2] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                        }
+                        if(DBData[i]["cmsrkat"] == "2" && DBData[i]["cmsrsaati"] == "16.00 - 19.00"){
+                            tableOfAppointment[2][3] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                        }
+                        if(DBData[i]["cmsrkat"] == "2" && DBData[i]["cmsrsaati"] == "19.00 - 22.00"){
+                            tableOfAppointment[2][4] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                        }
+                        
+                        
+                    }
+                    console.log(tableOfAppointment);
+                    //object data fetch to table contents
+                    $("table.camasirTablosu tbody").empty();
+                    var tbodyy = "";
+                    
+                    tableOfAppointment[1][1] != null ? tbodyy += "<tr data-kat='1'><th>I. Kat</th><td class='randevusaati rezerve'>"+tableOfAppointment[1][1]+"<span class='tooltip'>"+tableOfAppointment[1][1]+"</span></td>" : tbodyy += "<tr data-kat='1'><th>I. Kat</th><td class='randevusaati musait'></td>";
+                    tableOfAppointment[1][2] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[1][2]+"<span class='tooltip'>"+tableOfAppointment[1][2]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
+                    tableOfAppointment[1][3] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[1][3]+"<span class='tooltip'>"+tableOfAppointment[1][3]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
+                    tableOfAppointment[1][4] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[1][4]+"<span class='tooltip'>"+tableOfAppointment[1][4]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td></tr>";
+                    
+                    tableOfAppointment[2][1] != null ? tbodyy += "<tr data-kat='2'><th>I. Kat</th><td class='randevusaati rezerve'>"+tableOfAppointment[2][1]+"<span class='tooltip'>"+tableOfAppointment[2][1]+"</span></td>" : tbodyy += "<tr data-kat='2'><th>II. Kat</th><td class='randevusaati musait'></td>";
+                    tableOfAppointment[2][2] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[2][2]+"<span class='tooltip'>"+tableOfAppointment[2][2]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
+                    tableOfAppointment[2][3] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[2][3]+"<span class='tooltip'>"+tableOfAppointment[2][3]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
+                    tableOfAppointment[2][4] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[2][4]+"<span class='tooltip'>"+tableOfAppointment[2][4]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td></tr>";
+                    
+                    $("table.camasirTablosu tbody").append(tbodyy);
+                    
+                    
+                    
+                }else{
+                    $("table.camasirTablosu tbody").empty();
+                    $("table.camasirTablosu tbody").append("<tr data-kat='1'><th>I. Kat</th><td class='randevusaati musait'></td><td class='randevusaati musait'></td><td class='randevusaati musait'></td><td class='randevusaati musait'></td></tr><tr data-kat='2'><th>II. Kat</th><td class='randevusaati musait'></td><td class='randevusaati musait'></td><td class='randevusaati musait'></td><td class='randevusaati musait'></td></tr>");
+                }
+            },
+            complete: function(){
+                $("table.camasirTablosu").removeClass("displaynon");
+                $(".ajaxLoader").removeClass("load");
+            }
+        });
+        
+        e.preventDefault();
+        
+    });
+    //CAMASIR LISTS ENDED
+    
+    $(document).ready(function() {
+        //--
+    });
 </script>
 
 </body>

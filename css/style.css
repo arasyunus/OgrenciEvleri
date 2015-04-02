@@ -774,3 +774,26 @@ span.bildirimKapat a{
     background-color: #FC3;
     border: #F90 1px solid;
 }
+
+div.ajaxLoader{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(134,74,151,0.33);
+    left: 0;
+    top: 0;
+    text-align: center;
+}
+div.ajaxLoader.load{
+    display: block;
+}
+div.ajaxLoader img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    margin-top: -50px;
+    left: 50%;
+    margin-left: -50px;
+}
