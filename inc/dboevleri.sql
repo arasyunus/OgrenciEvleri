@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS `arizalar` (
   `ogrencino` int(8) NOT NULL,
   `arizaturu` varchar(20) COLLATE utf8_turkish_ci NOT NULL,
   `arizametni` varchar(600) COLLATE utf8_turkish_ci NOT NULL,
-  `olusmatarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `onarimtarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `olusmatarihi` timestamp,
+  `onarimtarihi` timestamp,
   `arizadurumu` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
   `INCREMENT` int(2) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
@@ -88,7 +88,7 @@ INSERT INTO `cmsiraal` (`cmsrogrno`, `cmsrblok`, `cmsrkat`, `cmsrtarihi`, `cmsrs
 
 CREATE TABLE IF NOT EXISTS `duyurular` (
   `duyurumetni` varchar(600) COLLATE utf8_turkish_ci NOT NULL,
-  `duyurutarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `duyurutarihi` timestamp,
   `duyuruoncelik` varchar(12) COLLATE utf8_turkish_ci NOT NULL,
   `duyuruekleyen` int(8) NOT NULL,
   `INCREMENT` int(100) NOT NULL AUTO_INCREMENT,
@@ -103,8 +103,8 @@ CREATE TABLE IF NOT EXISTS `duyurular` (
 
 CREATE TABLE IF NOT EXISTS `kargolar` (
   `ogrenciNo` int(8) NOT NULL,
-  `gelisTarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `gorulmeTarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `gelisTarihi` timestamp,
+  `gorulmeTarihi` timestamp,
   `durumu` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
   `INCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
@@ -126,7 +126,7 @@ INSERT INTO `kargolar` (`ogrenciNo`, `gelisTarihi`, `gorulmeTarihi`, `durumu`, `
 CREATE TABLE IF NOT EXISTS `odtalepleri` (
   `ogrno` int(8) NOT NULL,
   `talepmetni` varchar(600) COLLATE utf8_turkish_ci NOT NULL,
-  `taleptarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `taleptarihi` timestamp,
   `talepdurumu` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
   `INCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
