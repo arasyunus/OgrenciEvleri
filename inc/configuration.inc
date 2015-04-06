@@ -5,4 +5,5 @@
     define("DBName"     , "dboevleri");
     define("DBFile"     , "inc/dboevleri.sql");
     define("UPLOADDir"     , "IMGProfil/");
+    define("CamasirSiniri"     , 2);
 ?>

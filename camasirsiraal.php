@@ -97,11 +97,16 @@
             },
             success: function(data) {
                 data = JSON.parse(data);
+                var message = "";
                 if(data.sonuc){
-                    var message = "<div class='modal'><div class='msgBox'><div class='msgTitle'>Çamaşır Randevusu Alındı<span class='closeModal'>X</span></div><div class='msgBody'><span class='msgContent'>Çamaşır randevunuz sisteme kayıt edilmiştir. Günü ve saatini geçirmeden çamaşır randevunuza uygun bir şekilde çamaşır odasını kullanınız.</span><a class='modalButton center' href='"+ window.location.href +"'>Kapat</a></div></div></div>";
+                    message = "<div class='modal'><div class='msgBox'><div class='msgTitle'>Çamaşır Randevusu Alındı<span class='closeModal'>X</span></div><div class='msgBody'><span class='msgContent'>Çamaşır randevunuz sisteme kayıt edilmiştir. Günü ve saatini geçirmeden çamaşır randevunuza uygun bir şekilde çamaşır odasını kullanınız.</span><a class='modalButton center' href='"+ window.location.href +"'>Kapat</a></div></div></div>";
                     $(document.body).append(message);
                 }else{
-                    var message = "<div class='modal'><div class='msgBox'><div class='msgTitle'>HATA!<span class='closeModal'>X</span></div><div class='msgBody'><span class='msgContent'>Çamaşır randevunuz kayıt edilememiştir. Lütfen tekrar deneyiniz. Eğer yine arıza ile karşılaşırsanız yöneticiye bildiriniz.</span><a class='modalButton center' href='"+ window.location.href +"'>Kapat</a></div></div></div>";
+                    if(data.veri == "FAZLA"){
+                        message = "<div class='modal'><div class='msgBox'><div class='msgTitle'>HATA!<span class='closeModal'>X</span></div><div class='msgBody'><span class='msgContent'>2'den fazla çamaşır randevusu talep edemezsiniz. Sistemde kayıtlı randevularınızın günü geçtikten sonra yeniden deneyiniz.</span><a class='modalButton center' href='"+ window.location.href +"'>Kapat</a></div></div></div>";
+                    }else{
+                        message = "<div class='modal'><div class='msgBox'><div class='msgTitle'>HATA!<span class='closeModal'>X</span></div><div class='msgBody'><span class='msgContent'>Çamaşır randevunuz kayıt edilememiştir. Lütfen tekrar deneyiniz. Eğer yine arıza ile karşılaşırsanız yöneticiye bildiriniz.</span><a class='modalButton center' href='"+ window.location.href +"'>Kapat</a></div></div></div>";
+                    }
                     $(document.body).append(message);
                 }
             },
@@ -184,7 +189,7 @@
                         
                         
                     }
-                    console.log(tableOfAppointment);
+                    //console.log(tableOfAppointment);
                     //object data fetch to table contents
                     $("table.camasirTablosu tbody").empty();
                     var tbodyy = "";

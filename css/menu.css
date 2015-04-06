@@ -14,6 +14,8 @@
 .Menu .menuUL .menuLI{
     position: relative;
     background-color: transparent;
+    margin: 0;
+    padding: 0;
     height: 30px;
     float: right;
     margin-right: 8px;
@@ -120,11 +122,18 @@
     z-index: 100;
     display: none;
 }
+.altMenu a{
+    width: 100%;
+    background-color: transparent;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    padding: 5px;
+}
 .altMenu .menuitem{
     background-color: #43254b;
     background-color: rgba(0,0,0,0.8);
-    color: #fff;
-    padding: 5px;
+    color: #fff;   
     display: inline-block;
     *display: inline;
     *zoom: 1;
