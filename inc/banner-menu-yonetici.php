@@ -7,7 +7,7 @@
         <li class="menuLI"><a class="bord">Kullanıcı işlemleri</a><span class="Boldweight">::</span>
             <ul class="altMenu">
                 <li class="menuitem"><a class="altLink" href="ogrencisorgula.php">Öğrenci Sorgula</a></li>
-                <li class="menuitem"><a class="altLink" href="sifredegistir.php">Şifre Değiştirme</a></li>
+                <li class="menuitem"><a class="altLink" href="yonsifredegistir.php">Şifre Değiştirme</a></li>
                 <li class="menuitem"><a class="altLink" href="?oturumuKapat=kapat">Oturumu Kapat</a></li>
             </ul>
         </li>
@@ -22,7 +22,7 @@
     <div class="bannerMenu">
         <ul class="banMenu">
             <li class="banmenuitem"><a class="menuLink kesMenu" href="dilekceoku.php">Dilekçeleri Oku</a></li>
-            <li class="banmenuitem"><a class="menuLink" href="camasirsiraal.php">Çamaşır Listesine Gözat</a></li>
+            <li class="banmenuitem"><a class="menuLink" href="camasirsirakontrol.php">Çamaşır Listesine Gözat</a></li>
             <li class="banmenuitem"><a class="menuLink" href="arizalar.php">Arıza Bildirimlerine Gözat</a></li>
             <li class="banmenuitem"><a class="menuLink" href="kargobildir.php">Gelen Kargo Bildir</a></li>
         </ul>

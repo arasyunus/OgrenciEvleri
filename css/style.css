@@ -657,6 +657,12 @@ table.camasirTablosu td.rezerve{
     cursor: default;
     color: #c47ed9;
 }
+table.camasirTablosu td.rezerve.boldd{
+    color: #661d7c;
+}
+table.camasirTablosu td.rezerve.boldd span.tooltip{
+    text-align: left;
+}
 table.camasirTablosu td.rezerve:hover{
     border-color: #c879e0;
 }
@@ -680,8 +686,8 @@ table.camasirTablosu td.rezerve span.tooltip{
     display: none;
     position: absolute;
     left: 0;
-    bottom: -24px;
-    min-width: 180px;
+    top: 44px;
+    min-width: 230px;
     min-height: 24px;
     background-color: #661d7c;
     z-index: 100;
@@ -692,6 +698,7 @@ table.camasirTablosu td.rezerve span.tooltip{
     text-shadow: none;
     margin-left: 60px;
     text-align: center;
+    padding: 5px;
 }
 table.camasirTablosu td.rezerve span.tooltip:before{
     position: absolute;

@@ -15,9 +15,14 @@
             }
             mysqlClose($connectDB);
             if($isSession){
+                if($_SESSION["userData"]["konum"] == "yonetici"){
+                    $hreff = "yonetici.php";
+                }else{
+                    $hreff = "profil.php";
+                }
                 $msgBox["title"] = "Üye Girişi Yapıldı.";
                 $msgBox["content"] = "Hoşgeldiniz Sayın, $row[adsoyad]. Üye girişiniz yapılmıştır. Sistem kullanmaya başlayabilirsiniz";
-                $msgBox["buttonLeft"]["href"] = "uyegiris.php";
+                $msgBox["buttonLeft"]["href"] = $hreff;
                 $msgBox["buttonLeft"]["name"] = "Tamam";
                 $msgBox["buttonRight"]["href"] = "index.php";
                 $msgBox["buttonRight"]["name"] = "Anasayfaya git";

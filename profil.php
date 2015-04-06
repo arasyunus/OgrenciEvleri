@@ -153,6 +153,13 @@
                     echo "<div class='bildirimDiv olumlu'>Arızanızı Onarıldı.<span class='bildirimKapat'><a href='?silAriza=$ariza[INCREMENT]'>X</a></span></div>";
                 }
                 
+                $sql        = "SELECT * FROM cmsiraal WHERE cmsrogrno=".$_SESSION['userData']["numara"]." ORDER BY cmsiraal.cmsrkat ASC , cmsiraal.cmsrsaati ASC";
+                $query      = mysql_query($sql);
+                if(mysql_num_rows($query) > 0){
+                    $camasir  = mysql_fetch_assoc($query);
+                    echo "<div class='bildirimDiv uyari'>Çamaşır Randevunuz Var : $camasir[cmsrtarihi] - $camasir[cmsrsaati]</div>";
+                }
+                
                 mysqlClose($connectDB);
             ?>
             <!--
