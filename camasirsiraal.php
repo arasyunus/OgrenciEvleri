@@ -21,7 +21,7 @@
         <hr class="cetvel" />
 
         <form id="camasir" class="camasir" action="#" method="POST">
-            <label for="zaman" class="uyelikLabel">Gün seçiniz :</label><input class="inputText timepick" type="text" id="zaman" name="zaman" placeholder="Çamaşır randevu saatleri" />
+            <label for="zaman" class="uyelikLabel">Gün seçiniz : </label><input class="inputText timepick" type="text" id="zaman" name="zaman" placeholder="Çamaşır randevu saatleri" />
             <label class="uyelikLabel">Blok seçiniz</label>
             <select id="blok" name="blok" class="selecting camasirblok">
                 <option value="A" selected>A Blok</option>
@@ -140,7 +140,62 @@
                 4:null,
             }
         }
-        
+        //-----------------
+        var tableOfAppointmentObj = {
+            1: {
+                1:{
+                    isim    :null,
+                    numara  :null,
+                    telefon :null,
+                    blodkat :null
+                },
+                2:{
+                    isim    :null,
+                    numara  :null,
+                    telefon :null,
+                    blodkat :null
+                },
+                3:{
+                    isim    :null,
+                    numara  :null,
+                    telefon :null,
+                    blodkat :null
+                },
+                4:{
+                    isim    :null,
+                    numara  :null,
+                    telefon :null,
+                    blodkat :null
+                }
+            },
+            2: {
+                1:{
+                    isim    :null,
+                    numara  :null,
+                    telefon :null,
+                    blodkat :null
+                },
+                2:{
+                    isim    :null,
+                    numara  :null,
+                    telefon :null,
+                    blodkat :null
+                },
+                3:{
+                    isim    :null,
+                    numara  :null,
+                    telefon :null,
+                    blodkat :null
+                },
+                4:{
+                    isim    :null,
+                    numara  :null,
+                    telefon :null,
+                    blodkat :null
+                }
+            }
+        }
+        //-----------------
         $.ajax({
             type: "POST",
             url: "inc/camasirAjax.php",
@@ -151,7 +206,7 @@
             },
             cache: false,
             beforeSend:function(){
-                console.log(sql);
+                //console.log(sql);
                 $(".ajaxLoader").addClass("load");
             },
             success: function(data) {
@@ -162,47 +217,80 @@
                         
                         //1.katlar
                         if(DBData[i]["cmsrkat"] == "1" && DBData[i]["cmsrsaati"] == "09.00 - 13.00"){
-                            tableOfAppointment[1][1] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            //tableOfAppointment[1][1] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            tableOfAppointmentObj[1][1]["isim"] = DBData[i]["adsoyad"];
+                            tableOfAppointmentObj[1][1]["telefon"] = "<strong>Telefon: </strong>" + DBData[i]["telefon"];
+                            tableOfAppointmentObj[1][1]["numara"] = "<strong>Numara: </strong>" +  DBData[i]["numara"];
+                            tableOfAppointmentObj[1][1]["blodkat"] = "<strong>Blok / Kat / Oda: </strong>" + DBData[i]["blok"] + " Blok " + DBData[i]["kat"] + ".Kat " + DBData[i]["oda"] + ". Oda";
                         }
                         if(DBData[i]["cmsrkat"] == "1" && DBData[i]["cmsrsaati"] == "13.00 - 16.00"){
-                            tableOfAppointment[1][2] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            //tableOfAppointment[1][2] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            tableOfAppointmentObj[1][2]["isim"] = DBData[i]["adsoyad"];
+                            tableOfAppointmentObj[1][2]["telefon"] = "<strong>Telefon: </strong>" + DBData[i]["telefon"];
+                            tableOfAppointmentObj[1][2]["numara"] = "<strong>Numara: </strong>" +  DBData[i]["numara"];
+                            tableOfAppointmentObj[1][2]["blodkat"] = "<strong>Blok / Kat / Oda: </strong>" + DBData[i]["blok"] + " Blok " + DBData[i]["kat"] + ".Kat " + DBData[i]["oda"] + ". Oda";
                         }
                         if(DBData[i]["cmsrkat"] == "1" && DBData[i]["cmsrsaati"] == "16.00 - 19.00"){
-                            tableOfAppointment[1][3] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            //tableOfAppointment[1][3] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            tableOfAppointmentObj[1][3]["isim"] = DBData[i]["adsoyad"];
+                            tableOfAppointmentObj[1][3]["telefon"] = "<strong>Telefon: </strong>" + DBData[i]["telefon"];
+                            tableOfAppointmentObj[1][3]["numara"] = "<strong>Numara: </strong>" +  DBData[i]["numara"];
+                            tableOfAppointmentObj[1][3]["blodkat"] = "<strong>Blok / Kat / Oda: </strong>" + DBData[i]["blok"] + " Blok " + DBData[i]["kat"] + ".Kat " + DBData[i]["oda"] + ". Oda";
                         }
                         if(DBData[i]["cmsrkat"] == "1" && DBData[i]["cmsrsaati"] == "19.00 - 22.00"){
-                            tableOfAppointment[1][4] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            //tableOfAppointment[1][4] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            tableOfAppointmentObj[1][4]["isim"] = DBData[i]["adsoyad"];
+                            tableOfAppointmentObj[1][4]["telefon"] = "<strong>Telefon: </strong>" + DBData[i]["telefon"];
+                            tableOfAppointmentObj[1][4]["numara"] = "<strong>Numara: </strong>" +  DBData[i]["numara"];
+                            tableOfAppointmentObj[1][4]["blodkat"] = "<strong>Blok / Kat / Oda: </strong>" + DBData[i]["blok"] + " Blok " + DBData[i]["kat"] + ".Kat " + DBData[i]["oda"] + ". Oda";
                         }
                         //2.katlar
                         if(DBData[i]["cmsrkat"] == "2" && DBData[i]["cmsrsaati"] == "09.00 - 13.00"){
-                            tableOfAppointment[2][1] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            //tableOfAppointment[2][1] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            tableOfAppointmentObj[2][1]["isim"] = DBData[i]["adsoyad"];
+                            tableOfAppointmentObj[2][1]["numara"] = "<strong>Telefon: </strong>" + DBData[i]["numara"];
+                            tableOfAppointmentObj[2][1]["telefon"] = "<strong>Numara: </strong>" +  DBData[i]["telefon"];
+                            tableOfAppointmentObj[2][1]["blodkat"] = "<strong>Blok / Kat / Oda: </strong>" + DBData[i]["blok"] + " Blok " + DBData[i]["kat"] + ".Kat " + DBData[i]["oda"] + ". Oda";
                         }
                         if(DBData[i]["cmsrkat"] == "2" && DBData[i]["cmsrsaati"] == "13.00 - 16.00"){
-                            tableOfAppointment[2][2] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            //tableOfAppointment[2][2] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            tableOfAppointmentObj[2][2]["isim"] = DBData[i]["adsoyad"];
+                            tableOfAppointmentObj[2][2]["numara"] = "<strong>Telefon: </strong>" + DBData[i]["numara"];
+                            tableOfAppointmentObj[2][2]["telefon"] = "<strong>Numara: </strong>" +  DBData[i]["telefon"];
+                            tableOfAppointmentObj[2][2]["blodkat"] = "<strong>Blok / Kat / Oda: </strong>" + DBData[i]["blok"] + " Blok " + DBData[i]["kat"] + ".Kat " + DBData[i]["oda"] + ". Oda";
                         }
                         if(DBData[i]["cmsrkat"] == "2" && DBData[i]["cmsrsaati"] == "16.00 - 19.00"){
-                            tableOfAppointment[2][3] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            //tableOfAppointment[2][3] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            tableOfAppointmentObj[2][2]["isim"] = DBData[i]["adsoyad"];
+                            tableOfAppointmentObj[2][3]["numara"] = "<strong>Telefon: </strong>" + DBData[i]["numara"];
+                            tableOfAppointmentObj[2][3]["telefon"] = "<strong>Numara: </strong>" +  DBData[i]["telefon"];
+                            tableOfAppointmentObj[2][3]["blodkat"] = "<strong>Blok / Kat / Oda: </strong>" + DBData[i]["blok"] + " Blok " + DBData[i]["kat"] + ".Kat " + DBData[i]["oda"] + ". Oda";
                         }
                         if(DBData[i]["cmsrkat"] == "2" && DBData[i]["cmsrsaati"] == "19.00 - 22.00"){
-                            tableOfAppointment[2][4] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            //tableOfAppointment[2][4] = DBData[i]["adsoyad"] + " - " + DBData[i]["telefon"];
+                            tableOfAppointmentObj[2][4]["isim"] = DBData[i]["adsoyad"];
+                            tableOfAppointmentObj[2][4]["numara"] = "<strong>Telefon: </strong>" + DBData[i]["numara"];
+                            tableOfAppointmentObj[2][4]["telefon"] = "<strong>Numara: </strong>" +  DBData[i]["telefon"];
+                            tableOfAppointmentObj[2][4]["blodkat"] = "<strong>Blok / Kat / Oda: </strong>" + DBData[i]["blok"] + " Blok " + DBData[i]["kat"] + ".Kat " + DBData[i]["oda"] + ". Oda";
                         }
                         
                         
                     }
+                    //console.log(tableOfAppointmentObj);
                     //console.log(tableOfAppointment);
                     //object data fetch to table contents
                     $("table.camasirTablosu tbody").empty();
                     var tbodyy = "";
                     
-                    tableOfAppointment[1][1] != null ? tbodyy += "<tr data-kat='1'><th>I. Kat</th><td class='randevusaati rezerve'>"+tableOfAppointment[1][1]+"<span class='tooltip'>"+tableOfAppointment[1][1]+"</span></td>" : tbodyy += "<tr data-kat='1'><th>I. Kat</th><td class='randevusaati musait'></td>";
-                    tableOfAppointment[1][2] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[1][2]+"<span class='tooltip'>"+tableOfAppointment[1][2]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
-                    tableOfAppointment[1][3] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[1][3]+"<span class='tooltip'>"+tableOfAppointment[1][3]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
-                    tableOfAppointment[1][4] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[1][4]+"<span class='tooltip'>"+tableOfAppointment[1][4]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td></tr>";
+                    tableOfAppointmentObj[1][1]["isim"] != null ? tbodyy += "<tr data-kat='1'><th>I. Kat</th><td class='randevusaati rezerve'>"+tableOfAppointmentObj[1][1]["isim"]+"<span class='tooltip'>"+tableOfAppointmentObj[1][1]["numara"]+"<br/>"+tableOfAppointmentObj[1][1]["telefon"]+"<br/>"+tableOfAppointmentObj[1][1]["blodkat"]+"</span></td>" : tbodyy += "<tr data-kat='1'><th>I. Kat</th><td class='randevusaati musait'></td>";
+                    tableOfAppointmentObj[1][2]["isim"] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointmentObj[1][2]["isim"]+"<span class='tooltip'>"+tableOfAppointmentObj[1][2]["numara"]+"<br/>"+tableOfAppointmentObj[1][2]["telefon"]+"<br/>"+tableOfAppointmentObj[1][2]["blodkat"]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
+                    tableOfAppointmentObj[1][3]["isim"] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointmentObj[1][3]["isim"]+"<span class='tooltip'>"+tableOfAppointmentObj[1][3]["numara"]+"<br/>"+tableOfAppointmentObj[1][3]["telefon"]+"<br/>"+tableOfAppointmentObj[1][3]["blodkat"]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
+                    tableOfAppointmentObj[1][4]["isim"] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointmentObj[1][4]["isim"]+"<span class='tooltip'>"+tableOfAppointmentObj[1][4]["numara"]+"<br/>"+tableOfAppointmentObj[1][4]["telefon"]+"<br/>"+tableOfAppointmentObj[1][4]["blodkat"]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td></tr>";
                     
-                    tableOfAppointment[2][1] != null ? tbodyy += "<tr data-kat='2'><th>I. Kat</th><td class='randevusaati rezerve'>"+tableOfAppointment[2][1]+"<span class='tooltip'>"+tableOfAppointment[2][1]+"</span></td>" : tbodyy += "<tr data-kat='2'><th>II. Kat</th><td class='randevusaati musait'></td>";
-                    tableOfAppointment[2][2] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[2][2]+"<span class='tooltip'>"+tableOfAppointment[2][2]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
-                    tableOfAppointment[2][3] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[2][3]+"<span class='tooltip'>"+tableOfAppointment[2][3]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
-                    tableOfAppointment[2][4] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointment[2][4]+"<span class='tooltip'>"+tableOfAppointment[2][4]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td></tr>";
+                    tableOfAppointmentObj[2][1]["isim"] != null ? tbodyy += "<tr data-kat='2'><th>I. Kat</th><td class='randevusaati rezerve'>"+tableOfAppointmentObj[2][1]["isim"]+"<span class='tooltip'>"+tableOfAppointmentObj[2][1]["numara"]+"<br/>"+tableOfAppointmentObj[2][1]["telefon"]+"<br/>"+tableOfAppointmentObj[2][1]["blodkat"]+"</span></td>" : tbodyy += "<tr data-kat='2'><th>II. Kat</th><td class='randevusaati musait'></td>";
+                    tableOfAppointmentObj[2][2]["isim"] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointmentObj[2][2]["isim"]+"<span class='tooltip'>"+tableOfAppointmentObj[2][2]["numara"]+"<br/>"+tableOfAppointmentObj[2][2]["telefon"]+"<br/>"+tableOfAppointmentObj[2][2]["blodkat"]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
+                    tableOfAppointmentObj[2][3]["isim"] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointmentObj[2][3]["isim"]+"<span class='tooltip'>"+tableOfAppointmentObj[2][3]["numara"]+"<br/>"+tableOfAppointmentObj[2][3]["telefon"]+"<br/>"+tableOfAppointmentObj[2][3]["blodkat"]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td>";
+                    tableOfAppointmentObj[2][4]["isim"] != null ? tbodyy += "<td class='randevusaati rezerve'>"+tableOfAppointmentObj[2][4]["isim"]+"<span class='tooltip'>"+tableOfAppointmentObj[2][4]["numara"]+"<br/>"+tableOfAppointmentObj[2][4]["telefon"]+"<br/>"+tableOfAppointmentObj[2][4]["blodkat"]+"</span></td>" : tbodyy += "<td class='randevusaati musait'></td></tr>";
                     
                     $("table.camasirTablosu tbody").append(tbodyy);
                     

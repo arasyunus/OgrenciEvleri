@@ -697,7 +697,7 @@ table.camasirTablosu td.rezerve span.tooltip{
     border-radius: 5px;
     text-shadow: none;
     margin-left: 60px;
-    text-align: center;
+    text-align: left;
     padding: 5px;
 }
 table.camasirTablosu td.rezerve span.tooltip:before{
@@ -803,4 +803,17 @@ div.ajaxLoader img{
     margin-top: -50px;
     left: 50%;
     margin-left: -50px;
+}
+.silbtn, .silbtn a{
+    font-weight: bold;
+    font-size: 21px;
+    color: #661d7c;
+    text-decoration: none;
+}
+.silbtn a{
+    display: inline-block;
+    *display:inline;
+    *zoom: 1;
+    width: 100%;
+    height: 100%;
 }

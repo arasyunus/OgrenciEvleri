@@ -8,6 +8,10 @@
             <?php
             //Eski çamaşır randevuları siliniyorr...
             $connectDB = DBConnect();
+            if(isset($_GET["silcmsr"])){
+                $sql = "DELETE FROM cmsiraal WHERE cmsrINCREMENT=".$_GET["silcmsr"];
+                $query = mysql_query($sql);
+            }
             $sql = "SELECT * FROM cmsiraal";
             $query = mysql_query($sql);
             $randevuSayisi = mysql_num_rows($query);
@@ -25,15 +29,16 @@
             if($randevuSayisi > 0){
                 $connectDB = DBConnect();
                 $tableHeader = "<table class='camasirTablosu' cellspacing='0'>
-                            <thead><tr><th colspan='15'>Öğrenci Evleri Çamaşır Listesi</th></tr><tr>
+                            <thead><tr><th colspan='7'>Öğrenci Evleri Çamaşır Listesi</th></tr><tr>
                                 <th colspan='3'>Öğrenci Bilgileri</th>
-                                <th colspan='3'>Çamaşır Randevu Bilgileri</th>
+                                <th colspan='4'>Çamaşır Randevu Bilgileri</th>
                                 </tr><tr>
                                 <th colspan='2'>Kişisel Bilgiler</th>
-                                <th colspan='1'>Öğrencinin Odası</th>
-                                <th colspan='1'>Randevu Tarihi</th>
-                                <th colspan='1'>Randevu Saati</th>
-                                <th colspan='1'>Çamaşır Blok-Kat</th>
+                                <th>Öğrencinin Odası</th>
+                                <th>Randevu Tarihi</th>
+                                <th>Randevu Saati</th>
+                                <th>Çamaşır Blok-Kat</th>
+                                <th>Sil</th>
                                 </tr></thead><tbody>";
                 $tableFooter = "</tbody></table>";
                 $sql = "SELECT * FROM cmsiraal JOIN users ON users.numara = cmsiraal.cmsrogrno ORDER BY cmsiraal.cmsrkat ASC , cmsiraal.cmsrsaati ASC";
@@ -42,7 +47,7 @@
                 while($record =  mysql_fetch_assoc($query)) {
                     //var_dump($record);
                     $record["kat"] = $record["kat"] == "0" ? "Zemin": $record["kat"];
-                    echo "<tr><td  class='randevusaati rezerve boldd'>$record[adsoyad] <span class='tooltip'><strong>E-posta:</strong> $record[eposta]<br/><strong>Telefon Numarası:</strong> $record[telefon]</span> </td><td class='randevusaati rezerve boldd'>$record[numara]</td><td class='randevusaati rezerve boldd'>$record[blok] blok $record[kat] kat $record[oda]. oda</td><td class='randevusaati rezerve boldd'>$record[cmsrtarihi]</td><td class='randevusaati rezerve boldd'>$record[cmsrsaati]</td><td class='randevusaati rezerve boldd'>$record[cmsrblok] Blok - $record[cmsrkat].Kat</td></tr>";
+                    echo "<tr><td  class='randevusaati rezerve boldd'>$record[adsoyad] <span class='tooltip'><strong>E-posta:</strong> $record[eposta]<br/><strong>Telefon Numarası:</strong> $record[telefon]</span> </td><td class='randevusaati rezerve boldd'>$record[numara]</td><td class='randevusaati rezerve boldd'>$record[blok] blok $record[kat] kat $record[oda]. oda</td><td class='randevusaati rezerve boldd'>$record[cmsrtarihi]</td><td class='randevusaati rezerve boldd'>$record[cmsrsaati]</td><td class='randevusaati rezerve boldd'>$record[cmsrblok] Blok - $record[cmsrkat].Kat</td><td class='randevusaati musait silbtn'><a href='?silcmsr=$record[cmsrINCREMENT]'>x</a></td></tr>";
                 }
                 echo $tableFooter;
                 mysqlClose($connectDB);
