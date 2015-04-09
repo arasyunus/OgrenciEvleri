@@ -1,7 +1,7 @@
 html{font-family: Arial, Helvetica, sans-serif;}
 body{
     position: relative;
-    background: url(../images/bg_grad.png) no-repeat;
+    background: url(../images/bg_grad.png) repeat-x;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;

@@ -20,7 +20,7 @@
 </div>
 <div class="banner">
 
-    <a href="#"><div class="hupng"></div></a>
+    <a href="index.php"><div class="hupng"></div></a>
 
     <div class="bannerMenu">
         <ul class="banMenu">
