@@ -6,61 +6,78 @@
         <h1 class="h1Tag">Gönderilen dilekçeler listesi.</h1>
         <hr class="cetvel" />
         
-        <div class="dilekceKapsul">
-            <div class="ogrFoto">
-                <img src="images/profil.png" alt="Öğrencinin fotoğrafı"/>
-            </div>
-            <div class="ogrenciBilgileri">
-                <span class="ogrLbl">Adı ve soyadı</span><span class="ogrBilgi">Ahmet Karatoprak</span><br>
-                <span class="ogrLbl">Numarası</span><span class="ogrBilgi">21143555</span><br>
-                <span class="ogrLbl">Blok</span><span class="ogrBilgi">K Blok</span><br>
-                <span class="ogrLbl">Kat</span><span class="ogrBilgi">5. Kat</span><br>
-                <span class="ogrLbl">Oda</span><span class="ogrBilgi">6 Numaralı Oda</span>
-            </div>
-            <a href="?oku=oku"><div class="dilekceOkuBtn button">Dilekçesini Oku</div></a>
-            <span class="kapatSil"><a href="#">X</a></span>
-        </div>
         
-        <div class="dilekceKapsul">
-            <div class="ogrFoto">
-                <img src="images/profil.png" alt="Öğrencinin fotoğrafı"/>
+        <?php
+        
+            if(isset($_GET["silDilekce"])){
+                $connectDB = DBConnect();
+                $sql = "UPDATE dilekceler SET dDurumu='SILINMIS' WHERE INCREMENT=$_GET[inc]";
+                $query = mysql_query($sql);
+                mysqlClose($connectDB);
+            }
+            $connectDB = DBConnect();
+            $sql = "SELECT * FROM users JOIN dilekceler ON users.numara = dilekceler.dOgrNo WHERE dilekceler.dDurumu = 'YENI'";
+            $query = mysql_query($sql);
+            if(mysql_num_rows($query) > 0){
+                while($row =  mysql_fetch_assoc($query)) {
+                    echo "<div class='dilekceKapsul'>
+                            <div class='ogrFoto'>
+                                <img src='".$row["fotograf"]."' alt='Öğrencinin fotoğrafı'/>
+                            </div>
+                            <div class='ogrenciBilgileri'>
+                                <span class='ogrLbl'>Adı ve soyadı</span><span class='ogrBilgi'>".$row["adsoyad"]."</span><br>
+                                <span class='ogrLbl'>Numarası</span><span class='ogrBilgi'>".$row["numara"]."</span><br>
+                                <span class='ogrLbl'>Blok</span><span class='ogrBilgi'>".$row["blok"]."</span><br>
+                                <span class='ogrLbl'>Kat</span><span class='ogrBilgi'>".$row["kat"]."</span><br>
+                                <span class='ogrLbl'>Oda</span><span class='ogrBilgi'>".$row["oda"]." Numaralı Oda</span>
+                            </div>
+                            <a href='?oku=oku&inc=".$row["INCREMENT"]."'><div class='dilekceOkuBtn button'>Dilekçesini Oku</div></a>
+                            <span class='kapatSil'><a href='?silDilekce=sil&inc=".$row["INCREMENT"]."'>X</a></span>
+                        </div>";
+                }
+            }else{
+                echo '<h2 class="h2Tag">Cevaplanmamış dilekçe bulunmuyor.</h2>';
+            }            
+            mysqlClose($connectDB);
+        ?>
+        
+        <!--
+        <div class='dilekceKapsul'>
+            <div class='ogrFoto'>
+                <img src='images/profil.png' alt='Öğrencinin fotoğrafı'/>
             </div>
-            <div class="ogrenciBilgileri">
-                <span class="ogrLbl">Adı ve soyadı</span><span class="ogrBilgi">Ahmet Karatoprak</span><br>
-                <span class="ogrLbl">Numarası</span><span class="ogrBilgi">21143555</span><br>
-                <span class="ogrLbl">Blok</span><span class="ogrBilgi">K Blok</span><br>
-                <span class="ogrLbl">Kat</span><span class="ogrBilgi">5. Kat</span><br>
-                <span class="ogrLbl">Oda</span><span class="ogrBilgi">6 Numaralı Oda</span>
+            <div class='ogrenciBilgileri'>
+                <span class='ogrLbl'>Adı ve soyadı</span><span class='ogrBilgi'>Ahmet Karatoprak</span><br>
+                <span class='ogrLbl'>Numarası</span><span class='ogrBilgi'>21143555</span><br>
+                <span class='ogrLbl'>Blok</span><span class='ogrBilgi'>K Blok</span><br>
+                <span class='ogrLbl'>Kat</span><span class='ogrBilgi'>5. Kat</span><br>
+                <span class='ogrLbl'>Oda</span><span class='ogrBilgi'>6 Numaralı Oda</span>
             </div>
-            <a href="?oku=oku"><div class="dilekceOkuBtn button">Dilekçesini Oku</div></a>
-            <span class="kapatSil"><a href="#">X</a></span>
+            <a href='?oku=oku&inc=123'><div class='dilekceOkuBtn button'>Dilekçesini Oku</div></a>
+            <span class='kapatSil'><a href='#'>X</a></span>
         </div>
+        -->
         
     </div>
     
 
 <?php
+
     if(isset($_GET["oku"])){
         if($_GET["oku"] == "oku"){
-?>
-<div class="dilekceOkumaSayfasi">
-    <div class="a4Sayfa">
-        <h2>SOSYAL BİLİMLER MESLEK YÜKSEKOKULU MÜDÜRLÜĞÜ’NE</h2>
-        <p>Yüksekokulunuz…………………………………………..programı ……………nolu  öğrencisiyim.…../…../…….ile……/…../…….tarihleri arasında……………………………….  ………………………………………………………..programına katılacağım.</p>
-	<p>Katılım belgemin ve Nüfus Cüzdanımın fotokopisi dilekçemin ekinde sunulmuştur. Emniyetten Harçsız pasaport alabilmem için gerekli belgenin tarafıma verilmesini arz ederim.</p>
+            $connectDB = DBConnect();
+            $sql = "SELECT * FROM dilekceler WHERE INCREMENT=$_GET[inc] LIMIT 1";
+            $query = mysql_query($sql);
+            $dilekce = mysql_fetch_assoc($query);
 
-            …../……/201
-                                                                                            Adı ve Soyadı
-                                                                                                 İmzası
-            Dilekçe Eki: 1 Adet davet yazımın fotokopisi
-                             1 Adet Nüfus Cüzdanı Fotokopisi
-            Adres:
-            Telefon:
-            <a href="?oku=kapat"><div class="dilekceKapat">X</div></a>
-            <a href="dilekceCevapla.php?id=234892374873249"><div class="dilekceCevapla button">Dilekçeyi cevapla</div></a>
-    </div>
-</div>
-<?php 
+            echo "<div class='dilekceOkumaSayfasi'>
+                    <div class='a4Sayfa'>
+                    $dilekce[dMetni]
+                    <a href='?oku=kapat'><div class='dilekceKapat'>X</div></a>
+                    <a href='dilekcevapla.php?inc=$dilekce[INCREMENT]'><div class='dilekceCevapla button'>Dilekçeyi cevapla</div></a>
+                    </div>
+                </div>";
+            mysqlClose($connectDB);
         }
     }
 ?>

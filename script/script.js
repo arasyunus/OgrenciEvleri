@@ -48,8 +48,10 @@ $(function() {
         setup: function (theEditor) {
             theEditor.on("submit", function(data) {
                 $editorAciklama = tinyMCE.get('dilekceMetni').getContent();
+                /*
                 console.log($editorAciklama);
                 return false;
+                */
             });
             theEditor.on("focus",function(){
                 if($editorPlaceholder == false){

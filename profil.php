@@ -30,6 +30,19 @@
             }
             mysqlClose($connectDB);
         }
+        if(isset($_GET["silDilekce"])){
+            $connectDB = DBConnect();
+            $sql = "UPDATE dilekceler SET dDurumu='SILINMIS' WHERE INCREMENT=".$_GET["silDilekce"];
+            $query = mysql_query($sql);
+            if(mysql_affected_rows()){
+                $msgBox["title"] = "Dilekçe bildirimi silindi.";
+                $msgBox["content"] = "Profilinizdekidilekçe bldirimi silindi. Bir dahaki dilekçe bildirimine kadar profilinizde gözükmeyecek.";
+                $msgBox["buttonCenter"]["href"] = $basename;
+                $msgBox["buttonCenter"]["name"] = "Tamam";
+                echo showMsgBox($msgBox);
+            }
+            mysqlClose($connectDB);
+        }
     ?>
     
     <?php
@@ -136,7 +149,7 @@
                 $query      = mysql_query($sql);
                 if(mysql_num_rows($query) > 0){
                     $kargo      = mysql_fetch_assoc($query);
-                    echo "<div class='bildirimDiv olumlu'>Kargonuz Geldi<span class='bildirimKapat'><a href='?silKargo=$kargo[INCREMENT]'>X</a></span></div>";
+                    echo "<div class='bildirimDiv olumlu'>Kargonuz Geldi<span class='bildirimKapat curpoint'><a href='?silKargo=$kargo[INCREMENT]'>X</a></span></div>";
                 }
                 // * * * Arıza Bildirimleri
                 $sql        = "SELECT * FROM arizalar WHERE arizadurumu='1' AND ogrenciNo=".$_SESSION['userData']['numara'] . " LIMIT 1";
@@ -150,16 +163,22 @@
                 $query      = mysql_query($sql);
                 if(mysql_num_rows($query) > 0){
                     $ariza  = mysql_fetch_assoc($query);
-                    echo "<div class='bildirimDiv olumlu'>Arızanızı Onarıldı.<span class='bildirimKapat'><a href='?silAriza=$ariza[INCREMENT]'>X</a></span></div>";
+                    echo "<div class='bildirimDiv olumlu'>Arızanızı Onarıldı.<span class='bildirimKapat curpoint'><a href='?silAriza=$ariza[INCREMENT]'>X</a></span></div>";
                 }
-                
+                // * * * Çamaşır Bildirimleri
                 $sql        = "SELECT * FROM cmsiraal WHERE cmsrogrno=".$_SESSION['userData']["numara"]." ORDER BY cmsiraal.cmsrkat ASC , cmsiraal.cmsrsaati ASC";
                 $query      = mysql_query($sql);
                 if(mysql_num_rows($query) > 0){
                     $camasir  = mysql_fetch_assoc($query);
                     echo "<div class='bildirimDiv uyari'>Çamaşır Randevunuz Var : $camasir[cmsrtarihi] - $camasir[cmsrsaati]</div>";
                 }
-                
+                // * * * Dilekçe Bildirimleri
+                $sql        = "SELECT * FROM dilekceler WHERE dDurumu NOT IN ('SILINMIS','YENI') AND dOgrNo=".$_SESSION['userData']["numara"];
+                $query      = mysql_query($sql);
+                if(mysql_num_rows($query) > 0){
+                    $dilekce  = mysql_fetch_assoc($query);
+                    echo "<div class='bildirimDiv uyari'><a class='dilekceokua' href='?dilekceOku=$dilekce[INCREMENT]'>Dilekceniz Cevaplandı</a><span class='bildirimKapat curpoint'><a href='?silDilekce=$dilekce[INCREMENT]'>X</a></span></div>";
+                }
                 mysqlClose($connectDB);
             ?>
             <!--
@@ -169,6 +188,22 @@
             -->
         </div>
     </div>
+<?php
+    if(isset($_GET["dilekceOku"])){
+        $connectDB = DBConnect();
+        $sql = "SELECT * FROM dilekceler WHERE INCREMENT=$_GET[dilekceOku] LIMIT 1";
+        $query = mysql_query($sql);
+        $dilekce = mysql_fetch_assoc($query);
+
+        echo "<div class='dilekceOkumaSayfasi'>
+                <div class='a4Sayfa'>
+                $dilekce[dMetni]
+                <a href='?oku=kapat'><div class='dilekceKapat'>X</div></a>
+                </div>
+            </div>";
+        mysqlClose($connectDB);
+    }
+?>
     <script>
         var oldInputValues = {
                 "adSoyad"   : $("#adSoyad").val(),
