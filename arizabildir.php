@@ -8,11 +8,11 @@
         <form id="formUyelik" class="uyelikFormu" action="#" method="POST">
             <label for="arizaTuru" class="uyelikLabel">Arızanız için bir kategori seçiniz : </label>
             <select class="selectBox" name="arizaTuru" id="arizaTuru">
-                <option value="ariza-1" selected>ariza-1</option>
-                <option value="ariza-2">ariza-2</option>
-                <option value="ariza-3">ariza-3</option>
-                <option value="ariza-4">ariza-4</option>
-                <option value="ariza-5">ariza-5</option>
+                <option value="Mobilya" selected>Mobilya</option>
+                <option value="Elektrik">Elektrik</option>
+                <option value="Su">Su</option>
+                <option value="İnternet">İnternet</option>
+                <option value="Diğer">Diğer</option>
             </select><br />
             <label class="textareaLabel" for="arizaBilgisi">Arızanız hakkında açıklama giriniz : </label>
             <textarea name="arizaBilgisi" id="arizaBilgisi" required title="Arızanız hakkında ayrıntı verir misiniz?"></textarea>

@@ -6,12 +6,12 @@
         <h1 class="h1Tag">Formu doldurarak güncel bir duyuru ekleyebilirsiniz.</h1>        
         <hr class="cetvel"/>
         <form id="formUyelik" class="uyelikFormu" action="#" method="POST">
-            <label for="aciliyet" class="uyelikLabel">Duyurunun aciliyet durumu: </label>
+            <label for="aciliyet" class="uyelikLabel">Duyurunun aciliyet durum kodu: </label>
             <select class="selectBox" name="aciliyet" id="aciliyet">
-                <option value="acil" selected>Acil Duyuru</option>
-                <option value="soru">Soru Duyurusu</option>
-                <option value="bilgi">Bilgi Duyurusu</option>
-                <option value="normal">Normal Duyuru</option>
+                <option value="acil" selected>Kırmızı</option>
+                <option value="soru">Turuncu</option>
+                <option value="bilgi">Mavi</option>
+                <option value="normal">Yeşil</option>
             </select><br />
             <label class="textareaLabel" for="duyuruMetni">Duyuru metnini buraya giriniz : </label>
             <textarea name="duyuruMetni" id="duyuruMetni" required title="Duyuru içerik mesajını girmelisiniz!"></textarea>
