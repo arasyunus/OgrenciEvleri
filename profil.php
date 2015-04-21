@@ -4,6 +4,19 @@
     <?php include 'inc/userSessionManager.inc'; ?>
     
     <?php
+        $connectDB = DBConnect();
+        $sql = "SELECT * FROM cmsiraal";
+        $query = mysql_query($sql);
+        while($record =  mysql_fetch_assoc($query)) {
+            date_default_timezone_set('Europe/Istanbul');
+            $gunfarki = floor((time() - strtotime($record["cmsrtarihi"]))/(60*60*24));
+            if($gunfarki>0){
+                $silSQL = "DELETE FROM cmsiraal WHERE cmsrINCREMENT=".$record["cmsrINCREMENT"];
+                mysql_query($silSQL);
+            }
+        }
+        mysqlClose($connectDB);
+
         if(isset($_GET["silKargo"])){
             $connectDB = DBConnect();
             $sql = "UPDATE kargolar SET durumu='Silinmis', gorulmeTarihi=CURRENT_TIMESTAMP WHERE INCREMENT=".$_GET["silKargo"];
@@ -198,6 +211,8 @@
         echo "<div class='dilekceOkumaSayfasi'>
                 <div class='a4Sayfa'>
                 $dilekce[dMetni]
+                <hr>
+                $dilekce[dCevabi]
                 <a href='?oku=kapat'><div class='dilekceKapat'>X</div></a>
                 </div>
             </div>";
