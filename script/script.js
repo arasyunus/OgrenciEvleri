@@ -158,19 +158,15 @@ $(function() {
                 $(".mesajGorWrp").empty();
                 data.forEach(function(el){
                     $(".mesajGorWrp").empty();
-                    console.log(el)
+                    //console.log(el)
                     if(el.gonderenNo == $("#ogrencinumarasi").attr("data-id")){
                         msj += "<span data-id='"+el["INCREMENT"]+"' class='mesajGelen'>"+el["mesaj"]+"<i>"+el["msjTarihi"]+"</i></span><div class='clr'></div>";
                     }else{
                         msj += "<span data-id='"+el["INCREMENT"]+"' class='mesajGiden'>"+el["mesaj"]+"<i>"+el["msjTarihi"]+"</i></span><div class='clr'></div>";
                     }
-                    
-                    $(".mesajGorWrp").append(msj);
-                    $(".mesajGorWrp").animate({'scrollTop': $(".mesajGorWrp").outerHeight()*999999}, 300);
                 });
-                /*
-                <span data-id='$mesaj[INCREMENT]' class='mesajGiden'>$mesaj[mesaj]<i>$mesaj[msjTarihi]</i></span><div class='clr'></div>
-                */
+                $(".mesajGorWrp").append(msj);
+                $(".mesajGorWrp").animate({'scrollTop': $(".mesajGorWrp").outerHeight()*999999}, 300);
             }
 
         });
