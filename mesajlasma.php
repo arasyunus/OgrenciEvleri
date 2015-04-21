@@ -60,6 +60,87 @@
         </form>
         
     </div>
-    
+<script type="text/javascript">
+$("div.wrpMesaj").height($(window).height() - 118);
+   
+   
+   $(".mesajProfil").on("click",function(){
+       $("#kime").attr("src", $(this).children("img").attr("src"));
+       $("#kime").attr("data-id", $(this).attr("data-id"));
+       $("#kime").removeClass("kimseyok");
+       $("#mesajMetni").removeClass("msjAlaniKayip");
+   });
+   
+   
+   $("textarea.txtMesajlasma").keypress(function(e){
+	if (e.which == 13 && !e.shiftKey){
+            //console.log(e.currentTarget.value)
+            //$("#frmMesaj").submit();
+            if($("#mesajMetni").val().trim()=="" || $("kime").attr("data-id") == ""){return false;}
+            var sql = "INSERT INTO mesajlasma VALUES ('"+$("#ogrencinumarasi").attr("data-id")+"','"+$("#kime").attr("data-id")+"','"+$("#mesajMetni").val()+"',CURRENT_TIMESTAMP,'')";
+            
+            $.ajax({
+                type: "POST",
+                url: "inc/mesajlasmaAjax.php",
+                data: {
+                    sql: sql,
+                    insert: "true",
+                    mesajoku: "false"
+                },
+                cache: false,
+                
+                success: function(data) {
+                    data = JSON.parse(data);
+                    if(data.sonuc){
+                        $("#mesajMetni").val("");
+                        $(".msgError").css('display','none');
+                    }else{
+                        $(".msgError").fadeIn(400);
+                    }
+                }
+                
+            });
+            
+            return false; 
+	}        
+   });
+   
+   
+   
+    setInterval(function(){
+
+        if($("#kime").attr("data-id").trim() != ""){
+           $.ajax({
+            type: "POST",
+            url: "inc/mesajlasmaAjax.php",
+            data: {
+                kimlen: $("#kime").attr("data-id"),
+                insert: "false",
+                mesajoku: "true"
+            },
+            cache: false,
+
+            success: function(data) {
+                data = JSON.parse(data);
+                var msj = "";
+                $(".mesajGorWrp").empty();
+                data.forEach(function(el){
+                    $(".mesajGorWrp").empty();
+                    //console.log(el)
+                    if(el.gonderenNo == $("#ogrencinumarasi").attr("data-id")){
+                        msj += "<span data-id='"+el["INCREMENT"]+"' class='mesajGelen'>"+el["mesaj"]+"<i>"+el["msjTarihi"]+"</i></span><div class='clr'></div>";
+                    }else{
+                        msj += "<span data-id='"+el["INCREMENT"]+"' class='mesajGiden'>"+el["mesaj"]+"<i>"+el["msjTarihi"]+"</i></span><div class='clr'></div>";
+                    }
+                });
+                $(".mesajGorWrp").append(msj);
+                $(".mesajGorWrp").animate({'scrollTop': $(".mesajGorWrp").outerHeight()*999999}, 300);
+            }
+
+        });
+       }
+      
+    }, 800);
+</script>
 </body>
 </html>
