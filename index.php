@@ -42,40 +42,52 @@
 
 <div class="slideshow">
     <div class="slides">
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
-        <div class="slide"><img src="images/slide_1.jpg" alt="" /></div>
+        <?php
+            $connectDB = DBConnect();
+            $sql = "SELECT * FROM slayt ORDER BY sira ASC";
+            $query = mysql_query($sql);
+            $count = mysql_num_rows($query);
+            if($count > 0){
+                while($resim =  mysql_fetch_assoc($query)) {
+                    echo "<div class='slide'><a href='$resim[link]'><img src='$resim[resim]' alt='$resim[ekTarihi]' /></a></div>";
+                }
+            }else{
+                echo "<div class='slide'><a href='#'><img src='slaytIMG/default.jpg' alt='Hacettepe Üniversitesi' /></a></div>";
+            }            
+            mysqlClose($connectDB);
+        ?>
     </div>
     <div class="slideButtonWrp">
-        <a href="#1">1</a>
-        <a href="#2">2</a>
-        <a href="#3">3</a>
-        <a href="#4">4</a>
-        <a href="#5">5</a>
-        <a href="#6">6</a>
-        <a href="#7">7</a>
-        <a href="#8">8</a>
-        <a href="#9">9</a>
-        <a href="#10">10</a>
-        <a href="#11">11</a>
-        <a href="#12">12</a>
-        <a href="#13">13</a>
-        <a href="#14">14</a>
-        <a href="#15">15</a>
+        <?php
+            $connectDB = DBConnect();
+            $sql = "SELECT * FROM slayt";
+            $query = mysql_query($sql);
+            $count = mysql_num_rows($query);
+            $i = 0;
+            if($count > 0){
+                while($resim =  mysql_fetch_assoc($query)) {
+                    $i++;
+                    if($i == 1){$cls="sclicked";}else{$cls = "";}
+                    echo "<a class='slideBtn $cls' href='#'>$i</a> ";
+                }
+            }    
+            mysqlClose($connectDB);
+        ?>
     </div>
 </div>
-
+<script type="text/javascript">
+    $(".slideBtn").on("click",function(e){
+        $(".slideBtn").removeClass("sclicked");
+        $(this).addClass("sclicked");
+        var hiz = $(this).index() == 0 ? 800 : $(this).index() * 140;
+       $(".slides").animate({
+           "margin-left":"-"+$(this).index()*900+"px",
+           opacity: '0.8'
+       },hiz,"easeInOutQuint").animate({
+           opacity: '1'
+       },300,"easeOutQuart");
+    e.preventDefault();
+    });
+</script>
 </body>
 </html>
