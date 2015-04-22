@@ -6,8 +6,8 @@
         <h1 class="h1Tag">Kargosu gelen öğrenciye bildirim yolla.</h1>
         <hr class="cetvel" />
         <form id="kargoBildir" class="kargoBildir" action="#" method="POST">
-            <label for="ogrNo" class="uyelikLabel">Kargosu gelen öğrencinin numarası : </label>
-            <input class="inputText"  type="text" name="ogrNo" id="ogrNo" required title="Öğrencinin numarasını girmelisiniz!" />
+            <label for="ogrNo" class="uyelikLabel">Kargosu gelen öğrencinin telefon numarası : </label>
+            <input class="inputText"  type="text" name="ogrNo" id="ogrNo" required title="Öğrencinin telefon numarasını girmelisiniz!" />
             <input class="button" type="submit" name="kargoBildir" value="Öğrenciye kargosunun geldiğini bildir." />
         </form>
     </div>
@@ -19,13 +19,20 @@
      * 1 - Silinmiş
     */
     if(isset($_POST["kargoBildir"])){
+        $ogrNo = $_POST["ogrNo"];
         $connectDB = DBConnect();
-        $sql       = "SELECT * FROM users WHERE konum='ogrenci' AND numara=" . $_POST["ogrNo"];
+        
+        $sql       = "SELECT * FROM users WHERE konum='ogrenci' AND telefon='$ogrNo' LIMIT 1";
         $query     = mysql_query($sql);
-        if(mysql_num_rows($query)){
+        $ogrSorgu  = mysql_fetch_assoc($query);
+        $ogrNo     = $ogrSorgu["numara"];
+        
+        $sql       = "SELECT * FROM users WHERE konum='ogrenci' AND numara='$ogrNo'";
+        $query     = mysql_query($sql);
+        if(mysql_num_rows($query) > 0){
             $result    = mysql_fetch_assoc($query);
             $eposta    = "<div style='background-color: #F3E0FC;color: #934fa8; padding:50px; display:inline-block;'><h2>Kargonuz Gelmiştir.</h2><h3>Sayın $result[adsoyad], kargonuzu teslim almak için $result[blok] Blok kargo odasına uğramalısınız.</h3></div>";
-            $sql       = "INSERT INTO kargolar VALUES('$_POST[ogrNo]', CURRENT_TIMESTAMP,'','Yeni','')";
+            $sql       = "INSERT INTO kargolar VALUES('$ogrNo', CURRENT_TIMESTAMP,'','Yeni','')";
             $query     = mysql_query($sql);
             if(mysql_affected_rows()){
                 if(mailGonder("Öğrenci Evleri Kargo Sistemi: Kargonuz Geldi...", $eposta, $result["eposta"])){
@@ -50,7 +57,7 @@
             }
         }else{
             $msgBox["title"] = "HATA!";
-            $msgBox["content"] = "Bu numara sisteme kayıtlı bir öğrenciye ait değildir!";
+            $msgBox["content"] = "Bu telefon numarası sisteme kayıtlı bir öğrenciye ait değildir!";
             $msgBox["buttonCenter"]["href"] = $basename;
             $msgBox["buttonCenter"]["name"] = "Tamam";
             echo showMsgBox($msgBox);
