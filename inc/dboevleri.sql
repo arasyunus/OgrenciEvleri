@@ -93,3 +93,5 @@ CREATE TABLE IF NOT EXISTS `users` (
   `konum` varchar(8) COLLATE utf8_turkish_ci NOT NULL,
   PRIMARY KEY (`numara`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+INSERT INTO  `dboevleri`.`users` (`adsoyad` ,`numara` ,`sifre` ,`eposta` ,`telefon` ,`blok` ,`kat` ,`oda` ,`cinsiyet` ,`fotograf` ,`hakkinda` ,`konum`) VALUES ('Yönetici Bey',  'admin',  '12345qwe',  'yunus.aras@mynet.com',  '05445444444',  '-',  '-',  '-',  'erkek',  'images/profil.png', 'Öğrenci Evleri Yönetim Sistemi Koordinatörü.',  'yonetici');

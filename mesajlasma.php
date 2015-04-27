@@ -6,14 +6,31 @@
             
         <div class="yoneticiProfile">
             <?php
+            
                 $connectDB = DBConnect();
                 $sql    = "SELECT * FROM users WHERE konum='yonetici' AND numara!=".$_SESSION["userData"]["numara"];
                 $query  = mysql_query($sql);
                 if(mysql_num_rows($query) > 0){
                     while($user =  mysql_fetch_assoc($query)) {
+                        
+                        $comeCount = 0;
+                        $sqlComing = "SELECT * FROM mesajlasma WHERE (gonderenNo='".$_SESSION["userData"]["numara"]."' AND alanNo='$user[numara]') OR (gonderenNo='$user[numara]' AND alanNo='".$_SESSION["userData"]["numara"]."')";
+                        $query  = mysql_query($sqlComing);
+                        while ($mesaj = mysql_fetch_assoc($query)) {
+                            if($mesaj["gonderenNo"] == $_SESSION["userData"]["numara"]){
+                                $comeCount = 0;
+                            }
+                            if($mesaj["alanNo"] == $_SESSION["userData"]["numara"]){
+                                $comeCount++;
+                            }
+                        }
+                        
+                        $comeCount > 0 ? $msjIncoming = "<div class='msgIncoming'>$comeCount</div>" : $msjIncoming = "";
+                        
                         echo "<div data-id='$user[numara]' class='mesajProfil'>
                                 <img src='$user[fotograf]' alt='Profil resmi'/>
                                 <span>$user[adsoyad]</span>
+                                $msjIncoming
                             </div>";
                     }
                 }else{
@@ -28,13 +45,34 @@
 
             <?php
                 $connectDB = DBConnect();
+
+                $msjIncoming = "<div class='msgIncoming'>12</div>";
+                
                 $sql    = "SELECT * FROM users WHERE konum='ogrenci' AND numara!=".$_SESSION["userData"]["numara"];
                 $query  = mysql_query($sql);
                 if(mysql_num_rows($query) > 0){
                     while($user =  mysql_fetch_assoc($query)) {
+                        
+                        
+                        $comeCount = 0;
+                        $sqlComing = "SELECT * FROM mesajlasma WHERE (gonderenNo='".$_SESSION["userData"]["numara"]."' AND alanNo='$user[numara]') OR (gonderenNo='$user[numara]' AND alanNo='".$_SESSION["userData"]["numara"]."')";
+                        $query  = mysql_query($sqlComing);
+                        while ($mesaj = mysql_fetch_assoc($query)) {
+                            if($mesaj["gonderenNo"] == $_SESSION["userData"]["numara"]){
+                                $comeCount = 0;
+                            }
+                            if($mesaj["alanNo"] == $_SESSION["userData"]["numara"]){
+                                $comeCount++;
+                            }
+                        }
+                        
+                        $comeCount > 0 ? $msjIncoming = "<div class='msgIncoming'>$comeCount</div>" : $msjIncoming = "";
+                        
+                        
                         echo "<div data-id='$user[numara]' class='mesajProfil'>
                                 <img src='$user[fotograf]' alt='Profil resmi'/>
                                 <span>$user[adsoyad]</span>
+                                $msjIncoming                                    
                             </div>";
                     }
                 }else{
@@ -94,6 +132,8 @@ $("div.wrpMesaj").height($(window).height() - 118);
                     if(data.sonuc){
                         $("#mesajMetni").val("");
                         $(".msgError").css('display','none');
+                        var dataiid=$("#kime").attr("data-id");
+                        $(".mesajProfil[data-id='"+dataiid+"']").children(".msgIncoming").remove();
                     }else{
                         $(".msgError").fadeIn(400);
                     }
