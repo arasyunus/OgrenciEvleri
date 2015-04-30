@@ -94,5 +94,5 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`numara`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
-INSERT INTO `dboevleri`.`users` (`adsoyad` ,`numara` ,`sifre` ,`eposta` ,`telefon` ,`blok` ,`kat` ,`oda` ,`cinsiyet` ,`fotograf` ,`hakkinda` ,`konum`) VALUES ('Yönetici Bey',  '6800',  '12345qwe',  'yunus.aras@mynet.com',  '05445444444',  '-',  '-',  '-',  'erkek',  'images/profil.png', 'Öğrenci Evleri Yönetim Sistemi Koordinatörü.',  'yonetici');
+INSERT INTO `dboevleri`.`users` (`adsoyad` ,`numara` ,`sifre` ,`eposta` ,`telefon` ,`blok` ,`kat` ,`oda` ,`cinsiyet` ,`fotograf` ,`hakkinda` ,`konum`) VALUES ('Yonetici Bey',  '6800',  '12345qwe',  'yunus.aras@mynet.com',  '05445444444',  '-',  '-',  '-',  'erkek',  'images/profil.png', 'Öğrenci Evleri Yönetim Sistemi Koordinatörü.',  'yonetici');
 INSERT INTO `dboevleri`.`users` (`adsoyad`, `numara`, `sifre`, `eposta`, `telefon`, `blok`, `kat`, `oda`, `cinsiyet`, `fotograf`, `hakkinda`, `konum`) VALUES ('Yunus ARAS', '21143811', '123456', 'yunus.kariha@gmail.com', '05440000000', 'D', '3', '10', 'erkek', 'IMGProfil/21144319.jpg', 'BOTE', 'ogrenci');
