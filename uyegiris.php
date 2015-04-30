@@ -21,7 +21,7 @@
                     $hreff = "profil.php";
                 }
                 $msgBox["title"] = "Üye Girişi Yapıldı.";
-                $msgBox["content"] = "Hoşgeldiniz Sayın, $row[adsoyad]. Üye girişiniz yapılmıştır. Sistem kullanmaya başlayabilirsiniz";
+                $msgBox["content"] = "Hoşgeldiniz Sayın, ". $_SESSION["userData"]["adsoyad"] .". Üye girişiniz yapılmıştır. Sistem kullanmaya başlayabilirsiniz";
                 $msgBox["buttonLeft"]["href"] = $hreff;
                 $msgBox["buttonLeft"]["name"] = "Tamam";
                 $msgBox["buttonRight"]["href"] = "index.php";

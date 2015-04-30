@@ -90,10 +90,9 @@
         <form class="uyelikFormu" name="frmMesaj" id="frmMesaj" action="mesajlasma.php" method="POST">
             <img id="ogrencinumarasi" data-id="<?php echo $_SESSION['userData']['numara']?>" src="<?php echo $_SESSION['userData']['fotograf']?>" class="profileMe" />
             <img id="kime" data-id="" src="" class="profileYou kimseyok" />
-            <div class="mesajGorWrp">
-                
-            </div>
+            <div class="mesajGorWrp"></div>
             <textarea placeholder="Mesajınızı buraya giriniz..." class="txtMesajlasma msjAlaniKayip" name="mesajMetni" id="mesajMetni"></textarea>
+            <input type="submit" name="msgGonder" id="msgGonder" class="msjAlaniKayip" value="" />
             <span class="msgError">Mesaj Gönderilemedi!</span>
         </form>
         
@@ -107,6 +106,7 @@ $("div.wrpMesaj").height($(window).height() - 118);
        $("#kime").attr("data-id", $(this).attr("data-id"));
        $("#kime").removeClass("kimseyok");
        $("#mesajMetni").removeClass("msjAlaniKayip");
+       $("#msgGonder").removeClass("msjAlaniKayip");
    });
    
    
@@ -144,7 +144,39 @@ $("div.wrpMesaj").height($(window).height() - 118);
             return false; 
 	}        
    });
-   
+   $("#msgGonder").click(function(e){
+
+            if($("#mesajMetni").val().trim()=="" || $("kime").attr("data-id") == ""){return false;}
+            var sql = "INSERT INTO mesajlasma VALUES ('"+$("#ogrencinumarasi").attr("data-id")+"','"+$("#kime").attr("data-id")+"','"+$("#mesajMetni").val()+"',CURRENT_TIMESTAMP,'')";
+            
+            $.ajax({
+                type: "POST",
+                url: "inc/mesajlasmaAjax.php",
+                data: {
+                    sql: sql,
+                    insert: "true",
+                    mesajoku: "false"
+                },
+                cache: false,
+                
+                success: function(data) {
+                    data = JSON.parse(data);
+                    if(data.sonuc){
+                        $("#mesajMetni").val("");
+                        $(".msgError").css('display','none');
+                        var dataiid=$("#kime").attr("data-id");
+                        $(".mesajProfil[data-id='"+dataiid+"']").children(".msgIncoming").remove();
+                    }else{
+                        $(".msgError").fadeIn(400);
+                    }
+                }
+                
+            });
+            
+            return false; 
+            e.preventDefault();
+	      
+   });
    
    
     setInterval(function(){

@@ -8,11 +8,12 @@
     <ul class="menuUL">
         <li class="menuLI"><a class="bord">Kullanıcı işlemleri</a><span class="Boldweight">::</span>
             <ul class="altMenu">
-                <li class="menuitem"><a class="altLink" href="profil.php">Profiline Git</a></li>
-                <li class="menuitem"><a class="altLink" href="uyegiris.php">Üye Girişi</a></li>
-                <li class="menuitem"><a class="altLink" href="uyeol.php">Üye Kaydı</a></li>
+                <?php if(isset($_SESSION["userData"])){ echo '<li class="menuitem"><a class="altLink" href="profil.php">Profiline Git</a></li>'; }?>
+                <?php if(!isset($_SESSION["userData"])){ echo '<li class="menuitem"><a class="altLink" href="uyegiris.php">Üye Girişi</a></li>'; }?>
+                <?php if(!isset($_SESSION["userData"])){ echo '<li class="menuitem"><a class="altLink" href="uyeol.php">Üye Kaydı</a></li>'; }?>
                 <li class="menuitem"><a class="altLink" href="sifredegistir.php">Şifre Değiştirme</a></li>
-                <li class="menuitem"><a class="altLink" href="?oturumuKapat=kapat">Oturumu Kapat</a></li>
+                <?php if(!isset($_SESSION["userData"])){ echo '<li class="menuitem"><a class="altLink" href="sifreunuttum.php">Şifremi Unuttum</a></li>'; }?>
+                <?php if(isset($_SESSION["userData"])){ echo '<li class="menuitem"><a class="altLink" href="?oturumuKapat=kapat">Oturumu Kapat</a></li>'; }?>
             </ul>
         </li>
         <li class="menuLI"><a class="bord" href="mesajlasma.php">Mesajlaşma</a><span class="Boldweight">::</span></li>

@@ -18,7 +18,7 @@
                     $sql = "UPDATE users SET sifre='$_POST[yeniSifre]' WHERE numara=$_POST[ogrenciNo]";
                     $sifreDegistir = mysql_query($sql);
                     mysqlClose($connectDB);
-                    session_destroy();
+                    //session_destroy();
                     if($sifreDegistir){
                         $msgBox["title"] = "Şifreniz değiştirildi.";
                         $msgBox["content"] = "Şifreniz başarılı bir şekilde değiştirilmiştir.";

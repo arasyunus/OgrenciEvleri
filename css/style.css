@@ -906,6 +906,10 @@ div.mesajGorWrp{
     height: 280px;
     overflow: hidden;
     overflow-y: auto;
+    
+    -webkit-box-shadow: 0px 1px 3px #c879e0;
+    -moz-box-shadow: 0px 1px 3px #c879e0;
+    box-shadow: 0px 1px 3px #c879e0;
 }
 div.mesajGorWrp span{
     position: relative;
@@ -958,13 +962,17 @@ div.mesajGorWrp span.mesajGiden{
     float: right;
 }
 .txtMesajlasma{
-    width: 698px;
+    width: 699px;
     padding: 4px;
     resize: none;
     outline: #661d7c;
     border: #F9EEFC solid 1px;
     height: 60px;
     color: #4a1e7f;
+    
+    -webkit-box-shadow: 0px 1px 3px #c879e0;
+    -moz-box-shadow: 0px 1px 3px #c879e0;
+    box-shadow: 0px 1px 3px #c879e0;
 }
 img.profileMe, img.profileYou{
     width: 50px;
@@ -1016,4 +1024,22 @@ span.msgError{
     -moz-border-radius: 10px;
     -o-border-radius: 10px;
     -ms-border-radius: 10px;
+}
+#msgGonder{
+    position: absolute;
+    background: url(../images/send.png) no-repeat center center;
+    width: 55px;
+    height: 70px;
+    border: none;
+    outline: 0;
+    background-color: #ECCCF9;
+    text-shadow: 1px 1px 3px #c38ad4;
+    
+    color: #fff;
+    font-size: 16px;
+    border: solid #e4aef5 2px;
+    text-decoration: none;
+    cursor: pointer;
+    right: 202px;
+    bottom: 17px;
 }

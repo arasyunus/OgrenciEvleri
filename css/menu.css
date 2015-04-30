@@ -161,10 +161,10 @@
 /*----------------------------------------------------------------------------*/
 
 .bannerMenu{
-    position: relative;
+    position: absolute;
     float: right;
     background-color: transparent;
-    top: 20px;
+    bottom: 0px;
     right: 0px;
 }
 .bannerMenu .banMenu{

@@ -60,7 +60,7 @@
             
             <label class="fileInputLabel" for="foto">Profil fotoğrafınızı yüklemek için tıklayınız...<div class="inputLabelDashed"></div> </label><input class="fileInput" type="file" name="foto" id="foto"  accept="image/x-png, image/jpeg" />
             <label class="textareaLabel" for="hakkinda">Kendinizi Tanıtın : </label>
-            <textarea name="hakkinda" id="hakkinda" maxlength="500"  title="Hakkınızda bir cümle de olsa birşeyler yazar mısınız?" required ></textarea>
+            <textarea name="hakkinda" id="hakkinda" maxlength="500"  title="Hakkınızda bir cümle de olsa birşeyler yazar mısınız?"></textarea>
             <input class="button" type="submit" name="uyeol" value="Üye Ol" />
         </form>
     </div>

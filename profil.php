@@ -16,7 +16,15 @@
             }
         }
         mysqlClose($connectDB);
-
+        
+        
+        if(isset($_GET["cmsrndsil"])){
+            $connectDB = DBConnect();
+            $sql = "DELETE FROM cmsiraal WHERE cmsrINCREMENT=".$_GET["cmsrndsil"];
+            $query = mysql_query($sql);
+            mysqlClose($connectDB);
+        }
+        
         if(isset($_GET["silKargo"])){
             $connectDB = DBConnect();
             $sql = "UPDATE kargolar SET durumu='Silinmis', gorulmeTarihi=CURRENT_TIMESTAMP WHERE INCREMENT=".$_GET["silKargo"];
@@ -183,7 +191,7 @@
                 $query      = mysql_query($sql);
                 if(mysql_num_rows($query) > 0){
                     $camasir  = mysql_fetch_assoc($query);
-                    echo "<div class='bildirimDiv uyari'>Çamaşır Randevunuz Var : $camasir[cmsrtarihi] - $camasir[cmsrsaati]</div>";
+                    echo "<div class='bildirimDiv uyari'>Çamaşır Randevunuz Var : $camasir[cmsrtarihi] - $camasir[cmsrsaati]<span class='bildirimKapat curpoint'><a href='?cmsrndsil=$camasir[cmsrINCREMENT]'>X</a></span></div>";
                 }
                 // * * * Dilekçe Bildirimleri
                 $sql        = "SELECT * FROM dilekceler WHERE dDurumu NOT IN ('SILINMIS','YENI') AND dOgrNo=".$_SESSION['userData']["numara"];
