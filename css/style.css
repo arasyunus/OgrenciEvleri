@@ -1043,3 +1043,141 @@ span.msgError{
     right: 202px;
     bottom: 17px;
 }
+.indexExtra{
+    position: relative;
+    background-color: #dfdfdf;
+    width: 900px;
+    max-height: 300px;
+    margin: 0 auto;
+    padding: 0px;
+    margin-top: 25px;
+}
+.indexExtra .duyurular{
+    padding-top: 20px !important;
+}
+.indexExtra .indexWRP{
+    max-height: 260px;
+    overflow: auto;
+    
+}
+.indexExtra .indexWRP span.duyuru{
+    font-size: 13px;
+    margin-bottom: 15px !important;
+}
+
+.indexExtra .duyurular,.indexExtra .hizmetler{
+    position: relative;
+    width: 500px;
+    border: #661d7c 1px solid;
+    padding: 10px;
+    font-size: 13px !important;
+    float: left;
+    margin-bottom: 10px;
+}
+.indexExtra .hizmetler{
+    margin-left: 10px;
+    width: 344px;
+}
+.indexExtra .duyurular:before, .indexExtra .hizmetler:before{
+    content: "Güncel Duyurular";
+    position: absolute;
+    background-color: #925CA2;
+    color: #fff;
+    left: 20px;
+    width: 160px;
+    font-size: 15px;
+    text-align: center;
+    padding: 3px;
+    line-height: 16px;
+    top: -15px;
+    border-top: #661d7c 4px solid;
+}
+.indexExtra .hizmetler:before{
+    content: "Hizmetlerimiz";
+}
+.indexExtra .hizmetlerUL{
+    list-style: none;
+    padding: 0;
+}
+.indexExtra .hizmetlerUL li{
+    line-height: 20px;
+    font-size: 14px;
+    color: #4a1e7f;
+}
+.indexExtra .hizmetlerUL li:before{
+    position:relative;
+    content: "\25B8";
+    margin-right: 7px;
+    font-size: 22px;
+    margin-left: 8px;
+    line-height: 20px;
+}
+.indexExtra .hizmetlerUL li a{
+    text-decoration: none;
+}
+
+.resimDuzUyarilar{
+    position: relative;
+    width: 700px;
+    background-color: #ECCCF9;
+    border: #925CA2 3px double;
+    margin: 10px 0;
+}
+.resimDuzUyarilar:hover{
+    border-color: #c38ad4;
+}
+
+.resimDuzUyarilar:before{
+    content: url(../images/info.png);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -20px;
+    width: 40px;
+    height: 40px;
+}
+.resimDuzUyarilar ul{
+    line-height: 22px;
+    font-size: 14px;
+    list-style: none;
+    padding: 0;
+    margin-left: 10px;
+}
+.resimDuzUyarilar ul li:before{
+    position:relative;
+    content: "\25B8";
+    margin-right: 10px;
+    font-size: 22px;
+}
+ul.duyuruduzenle{
+    cursor: move;
+}
+ul.duyuruduzenle li{
+    position: relative;
+    padding: 10px;
+}
+ul.duyuruduzenle li:hover{
+    background-color: #F9EEFC
+}
+ul.duyuruduzenle li a{
+    position: absolute;
+    color: #fff;
+    background-color: #925CA2;
+    width: 15px;
+    height: 15px;
+    font-size: 13px;
+    text-align: center;
+    display: inline-block;
+    *display:inline;
+    *zoom: 1;
+    text-decoration: none;
+    right: 0px;
+    top: 0;
+    display: none;
+}
+ul.duyuruduzenle li a:hover{
+    background-color: #c38ad4
+}
+ul.duyuruduzenle li:hover a{
+    display: block;
+}

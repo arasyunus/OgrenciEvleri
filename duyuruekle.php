@@ -22,7 +22,7 @@
     
     if (isset($_POST["duyuruEkle"])) {
         $connectDB = DBConnect();
-        $sql = "INSERT INTO duyurular VALUES('".$_POST["duyuruMetni"]."', CURRENT_TIMESTAMP,'".$_POST["aciliyet"]."','".$_SESSION["userData"]["numara"]."','')";
+        $sql = "INSERT INTO duyurular VALUES('".$_POST["duyuruMetni"]."', CURRENT_TIMESTAMP,'".$_POST["aciliyet"]."','".$_SESSION["userData"]["numara"]."','0','')";
         $query = mysql_query($sql);
         $basename = basename($_SERVER['PHP_SELF']);
         if($query){

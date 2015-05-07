@@ -53,7 +53,7 @@
                     echo "<div class='slide'><a href='$resim[link]'><img src='$resim[resim]' alt='$resim[ekTarihi]' /></a></div>";
                 }
             }else{
-                echo "<div class='slide'><a href='#'><img src='slaytIMG/default.jpg' alt='Hacettepe Üniversitesi' /></a></div>";
+                echo "<div class='slide'><img src='slaytIMG/default.jpg' alt='Hacettepe Üniversitesi' /></div>";
             }            
             mysqlClose($connectDB);
         ?>
@@ -76,6 +76,38 @@
         ?>
     </div>
 </div>
+    <div class="indexExtra">
+        <div class="duyurular">
+            <div class="indexWRP">
+            <?php
+                $connectDB = DBConnect();
+                $sql = "SELECT * FROM duyurular ORDER BY sira ASC, duyurutarihi ASC";
+                $query = mysql_query($sql);
+                $count = mysql_num_rows($query);
+                if($count > 0){
+                    while($row =  mysql_fetch_assoc($query)) {
+                        echo "<span class='duyuru $row[duyuruoncelik]'>$row[duyurumetni]<span class='duyuruTarihi'>$row[duyurutarihi]</span></span>";
+                    }
+                }else{
+                    echo '<h2 class="h2Tag">Henüz duyuru bulunmuyor.</h2>';
+                }            
+                mysqlClose($connectDB);
+            ?>
+            </div>
+        </div>
+        <div class="hizmetler">
+            <div class="indexWRP">
+                <ul class="hizmetlerUL">
+                    <li><a href="arizalar.php">Arıza Bildirim Sitemi</a></li>
+                    <li><a href="camasirsiraal.php">Çamaşır Randevu Sistemi</a></li>
+                    <li><a href="dilekceyaz.php">Dilekçe Yönetim Sitemi</a></li>
+                    <li><a href="odadegisimtalebi.php">Oda Değişim Talepleri</a></li>
+                    <li><a href="mesajlasma.php">Mesajlaşma Sistemi</a></li>
+                    <li><a href="duyurular.php">Güncel Duyurular</a></li>
+                </ul>
+            </div>
+        </div>       
+    </div>
 <script type="text/javascript">
     $(".slideBtn").on("click",function(e){
         $(".slideBtn").removeClass("sclicked");

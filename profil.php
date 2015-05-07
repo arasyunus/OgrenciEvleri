@@ -191,7 +191,7 @@
                 $query      = mysql_query($sql);
                 if(mysql_num_rows($query) > 0){
                     $camasir  = mysql_fetch_assoc($query);
-                    echo "<div class='bildirimDiv uyari'>Çamaşır Randevunuz Var : $camasir[cmsrtarihi] - $camasir[cmsrsaati]<span class='bildirimKapat curpoint'><a href='?cmsrndsil=$camasir[cmsrINCREMENT]'>X</a></span></div>";
+                    echo "<div class='bildirimDiv uyari'>Çamaşır Randevunuz: &nbsp; $camasir[cmsrblok] Blok - $camasir[cmsrkat] Kat &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;  $camasir[cmsrtarihi] / $camasir[cmsrsaati]<span class='bildirimKapat curpoint'><a href='?cmsrndsil=$camasir[cmsrINCREMENT]'>X</a></span></div>";
                 }
                 // * * * Dilekçe Bildirimleri
                 $sql        = "SELECT * FROM dilekceler WHERE dDurumu NOT IN ('SILINMIS','YENI') AND dOgrNo=".$_SESSION['userData']["numara"];

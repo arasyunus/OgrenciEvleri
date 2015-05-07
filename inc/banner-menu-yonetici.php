@@ -11,7 +11,12 @@
                 <li class="menuitem"><a class="altLink" href="?oturumuKapat=kapat">Oturumu Kapat</a></li>
             </ul>
         </li>
-        <li class="menuLI"><a class="bord" href="duyuruekle.php">Duyuru Ekle</a><span class="Boldweight">::</span></li>
+        <li class="menuLI"><a class="bord" href="duyuruekle.php">Duyuru İşlemleri</a><span class="Boldweight">::</span>
+            <ul class="altMenu">
+                <li class="menuitem"><a class="altLink" href="duyuruekle.php">Duyuru Ekle</a></li>
+                <li class="menuitem"><a class="altLink" href="duyuruduzenle.php">Duyuru Düzenle</a></li>
+            </ul>
+        </li>
         <li class="menuLI"><a class="yonetici">Yönetici</a></li>
     </ul>
 </div>

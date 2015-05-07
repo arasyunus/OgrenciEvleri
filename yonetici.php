@@ -8,12 +8,19 @@
             <div id="tab2" class="tab">Galeriyi Düzenle</div>
             <div class="clr"></div>
         </div>
-        <h1 class="h1Tag">Anasayfada bulunan resim galerisini düzenleme sayfase.</h1>
+        <h1 class="h1Tag">Anasayfada bulunan resim galerisini düzenleme sayfası</h1>
         <hr class="cetvel" />
         <div class="resimekle">
             <form action="yonetici.php" method="POST" enctype="multipart/form-data">
-                <h2 class="h2Tag">Bir ve ya birden çok resim yükleybilirsiniz.<br>Yüklemek için resim dosyası seçmelisiniz.<br>Resim dosyasının boyutları 900x275 px boyutlarında  olalıdır.</h2>
-                <label  class="uyelikLabel">Link vermek için URL giriniz: <input class="inputText" type="text" name="linking" id="linking" /></label><br/>
+                <div class="resimDuzUyarilar">
+                    <ul>
+                        <li><strong><i>Bir</i></strong> ve ya <strong><i>birden çok</i></strong> resim yükleybilirsiniz.</li>
+                        <li>Birden çok resim yüklemek için <strong><i>"ctrl"</i></strong> tuşuna basılı tutarak çoklu seçim yapabilirsiniz.</li>
+                        <li>Sadece resim dosyaları<strong><i>(png/jpg)</i></strong> seçmelisiniz.</li>
+                        <li>Resim dosyasının boyutları <strong><i>900x275px</i></strong> boyutlarında  olmalıdır.</li>
+                    </ul>
+                </div>
+                <label style="font-size: 15px" class="uyelikLabel"><strong>Link vermek için URL giriniz:</strong> <input class="inputText" type="text" name="linking" id="linking" placeholder="http://url.com"/></label><br/>
                 <input type="file" name="slaytResmi[]" id="slaytResmi" multiple="" accept="image/x-png, image/jpeg"/><br>
                 <input style="width: 200px;margin-top:15px" type="submit" value="EKLE" name="slaytEkle" class="button" />
             </form>

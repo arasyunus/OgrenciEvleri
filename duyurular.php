@@ -7,7 +7,7 @@
         <hr class="cetvel" />
         <?php
             $connectDB = DBConnect();
-            $sql = "SELECT * FROM duyurular";
+            $sql = "SELECT * FROM duyurular ORDER BY sira ASC, duyurutarihi ASC";
             $query = mysql_query($sql);
             $count = mysql_num_rows($query);
             if($count > 0){
