@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `arizalar` (
   `arizadurumu` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
   `INCREMENT` int(2) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
 
 CREATE TABLE IF NOT EXISTS `cmsiraal` (
   `cmsrogrno` int(8) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `cmsiraal` (
   `cmsrsaati` varchar(15) COLLATE utf8_turkish_ci NOT NULL,
   `cmsrINCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`cmsrINCREMENT`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
 
 CREATE TABLE IF NOT EXISTS `dilekceler` (
   `dOgrNo` int(8) NOT NULL,
@@ -31,16 +31,22 @@ CREATE TABLE IF NOT EXISTS `dilekceler` (
   `dOkumaTarihi` timestamp NOT NULL,
   `INCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
 
 CREATE TABLE IF NOT EXISTS `duyurular` (
   `duyurumetni` varchar(600) COLLATE utf8_turkish_ci NOT NULL,
   `duyurutarihi` timestamp NOT NULL,
   `duyuruoncelik` varchar(12) COLLATE utf8_turkish_ci NOT NULL,
   `duyuruekleyen` int(8) NOT NULL,
+  `sira` int(2) NOT NULL,
   `INCREMENT` int(100) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+
+INSERT INTO `duyurular` (`duyurumetni`, `duyurutarihi`, `duyuruoncelik`, `duyuruekleyen`, `sira`, `INCREMENT`) VALUES
+('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lorem nulla, feugiat a ligula et, dapibus rutrum nulla. Aenean rutrum ante ac consequat malesuada. Aenean in blandit mi. Aliquam leo urna, condimentum eget metus et, dictum maximus ex. Vivamus venenatis lorem eu odio hendrerit maximus non ac ipsum. Integer semper scelerisque sapien non elementum.', '2015-05-07 12:47:32', 'bilgi', 6800, 0, 6),
+('Fusce pellentesque tellus eu justo bibendum, et pellentesque lectus tempus. Vivamus varius suscipit arcu, vel ultrices erat posuere ac. Proin pulvinar diam tellus. Quisque sed laoreet neque, id accumsan velit.', '2015-05-07 12:47:32', 'soru', 6800, 1, 7),
+('Vel ultrices erat posuere ac. Proin pulvinar diam tellus. Quisque sed laoreet neque, id accumsan velit.', '2015-05-07 12:47:32', 'normal', 6800, 2, 8);
 
 CREATE TABLE IF NOT EXISTS `kargolar` (
   `ogrenciNo` int(8) NOT NULL,
@@ -49,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `kargolar` (
   `durumu` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
   `INCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
 
 CREATE TABLE IF NOT EXISTS `mesajlasma` (
   `gonderenNo` int(8) NOT NULL,
@@ -58,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `mesajlasma` (
   `msjTarihi` timestamp NOT NULL,
   `INCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
 
 CREATE TABLE IF NOT EXISTS `odtalepleri` (
   `ogrno` int(8) NOT NULL,
@@ -67,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `odtalepleri` (
   `talepdurumu` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
   `INCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
 
 CREATE TABLE IF NOT EXISTS `slayt` (
   `resim` varchar(300) COLLATE utf8_turkish_ci NOT NULL,
@@ -76,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `slayt` (
   `sira` int(2) NOT NULL,
   `INCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
 
 CREATE TABLE IF NOT EXISTS `users` (
   `adsoyad` varchar(60) COLLATE utf8_turkish_ci NOT NULL,
@@ -89,10 +95,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `oda` int(2) NOT NULL,
   `cinsiyet` varchar(5) COLLATE utf8_turkish_ci NOT NULL,
   `fotograf` varchar(120) COLLATE utf8_turkish_ci NOT NULL,
-  `hakkinda` varchar(500) COLLATE utf8_turkish_ci,
+  `hakkinda` varchar(500) COLLATE utf8_turkish_ci DEFAULT NULL,
   `konum` varchar(8) COLLATE utf8_turkish_ci NOT NULL,
   PRIMARY KEY (`numara`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
-INSERT INTO `dboevleri`.`users` (`adsoyad` ,`numara` ,`sifre` ,`eposta` ,`telefon` ,`blok` ,`kat` ,`oda` ,`cinsiyet` ,`fotograf` ,`hakkinda` ,`konum`) VALUES ('Yonetici Bey',  '6800',  '12345qwe',  'yunus.aras@mynet.com',  '05445444444',  '-',  '-',  '-',  'erkek',  'images/profil.png', 'Öğrenci Evleri Yönetim Sistemi Koordinatörü.',  'yonetici');
-INSERT INTO `dboevleri`.`users` (`adsoyad`, `numara`, `sifre`, `eposta`, `telefon`, `blok`, `kat`, `oda`, `cinsiyet`, `fotograf`, `hakkinda`, `konum`) VALUES ('Yunus ARAS', '21143811', '123456', 'yunus.kariha@gmail.com', '05440000000', 'D', '3', '10', 'erkek', 'IMGProfil/21144319.jpg', 'BOTE', 'ogrenci');
+INSERT INTO `users` (`adsoyad`, `numara`, `sifre`, `eposta`, `telefon`, `blok`, `kat`, `oda`, `cinsiyet`, `fotograf`, `hakkinda`, `konum`) VALUES
+('Yonetici Bey', 6800, '12345qwe', 'yunus.aras@mynet.com', '05445444444', '-', 0, 0, 'erkek', 'images/profil.png', 'Öğrenci Evleri Yönetim Sistemi Koordinatörü.', 'yonetici'),
+('Yunus ARAS', 21143811, '123456', 'yunus.kariha@gmail.com', '05440000000', 'D', 3, 10, 'erkek', 'IMGProfil/21144319.jpg', 'BOTE', 'ogrenci');
