@@ -17,6 +17,7 @@
                 <li class="menuitem"><a class="altLink" href="duyuruduzenle.php">Duyuru Düzenle</a></li>
             </ul>
         </li>
+        <li class="menuLI"><a class="bord" href="video.php">Nasıl kullanırım?</a><span class="Boldweight">::</span></li>
         <li class="menuLI"><a class="yonetici">Yönetici</a></li>
     </ul>
 </div>
