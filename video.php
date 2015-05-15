@@ -13,13 +13,12 @@
             </object>
         </video>
         <div class="justifydiv">
-            <span class="videotag" data-id="10">Etiket - 01</span>
-            <span class="videotag" data-id="20">Etiket - 02</span>
-            <span class="videotag" data-id="30">Etiket - 03</span>
-            <span class="videotag" data-id="40">Etiket - 04</span>
-            <span class="videotag" data-id="50">Etiket - 05</span>
-            <span class="videotag" data-id="60">Etiket - 06</span>
-            <span class="videotag" data-id="70">Etiket - 07</span
+            <span class="videotag" data-id="0">Sisteme Giriş & Oturum Açma</span>
+            <span class="videotag" data-id="38">Kargo Bildirmi Yollamak</span>
+            <span class="videotag" data-id="67">Arıza Bildirimi Göndermek</span>
+            <span class="videotag" data-id="117">Çamaşır Listesini Kontrol Etmek</span>
+            <span class="videotag" data-id="137">Dilekçeleri Okumak</span>
+            <span class="videotag" data-id="158">Duyuru İşlemleri</span>
         </div>
     </div>
     <script type="text/javascript">

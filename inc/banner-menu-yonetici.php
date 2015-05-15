@@ -18,7 +18,7 @@
             </ul>
         </li>
         <li class="menuLI"><a class="bord" href="video.php">Nasıl kullanırım?</a><span class="Boldweight">::</span></li>
-        <li class="menuLI"><a class="yonetici">Yönetici</a></li>
+        <li class="menuLI"><a href="yonetici.php" class="yonetici">Yönetici</a></li>
     </ul>
 </div>
 <div class="banner">

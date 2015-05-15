@@ -57,7 +57,10 @@
     background-color: red;
     font-weight: bold;
     margin-right: 10px;
-    cursor: default;
+    cursor: pointer;
+}
+.Menu .menuUL .menuLI a.yonetici:hover{
+    background-color: #f99;
 }
 .Menu .menuUL .menuLI a.yonetici.displaynone{
     display: none;

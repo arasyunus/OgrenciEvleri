@@ -1192,7 +1192,7 @@ ul.duyuruduzenle li:hover a{
     display: inline-block;
     *display:inline;
     *zoom: 1;
-    width: 210px;
+    min-width: 210px;
     height: 28px;
     line-height: 28px;
     font-size: 16px;
@@ -1202,7 +1202,7 @@ ul.duyuruduzenle li:hover a{
     margin-bottom: 7px;
     border: #934fa8 2px double;
     cursor: pointer;
-
+    padding: 0 31px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
