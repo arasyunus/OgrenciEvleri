@@ -1222,3 +1222,47 @@ ul.duyuruduzenle li:hover a{
 .justifydiv{
     text-align: center;
 }
+div.infoIcons{
+    position: relative;
+    background-color: #ECCCF9;
+    width: 98%;
+    padding: 2%;
+    margin: 0;
+    margin-bottom: 10px;
+    border: #c38ad4 double 2px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #4a1e7f;
+}
+div.infoIcons img{
+    width: 28px;
+    float: left;
+    vertical-align: bottom;
+    margin-right: 8px;
+}
+div.infoIcons span.iconInfoClose{
+    position: absolute;
+    right: 2px;
+    font-size: 12px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    border: #c879e0 2px solid;
+    line-height: 17px;
+    top: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #c879e0;
+    color: #fff;
+    width: 15px;
+    text-align: center;
+}
+div.infoIcons span.iconInfoClose:hover{
+    border-color: #e4aef5;
+    background-color: #F3E0FC;
+    color: #864A97;
+}
+div.infoIcons span.iconInfoClose:active{
+    background-color: #fff;
+    color: #43254B;
+}

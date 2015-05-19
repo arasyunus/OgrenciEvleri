@@ -5,6 +5,11 @@
     <div class="kapsul">
         <h1 class="h1Tag">Gönderilen dilekçeler listesi.</h1>
         <hr class="cetvel" />
+        <div class="infoIcons">
+            <img src="images/repairBIG.png" alt=""/><span class="infoIconSpan">Arızanın çözümüne yönelik görevlendirme yapıldığına dair öğrenciye mesaj iletmek için tıklamalısınız.</span><div class="clr"></div>
+            <img src="images/checkBIG.png" alt=""/><span class="infoIconSpan">Arızanın çözüldüğü mesajını öğrenciye iletmek için bu simgeye tıklamalı ve öğrenciyi bu şekilde bilgilendirmelisiniz.</span>
+            <span class="iconInfoClose">X</span>
+        </div>
         <?php
             
             if(isset($_GET["arizaCheck"])){
@@ -78,7 +83,7 @@
             $query = mysql_query($sql);
             $count = mysql_num_rows($query);
             if($count > 0){
-                
+                //echo "";
                 while($row =  mysql_fetch_assoc($query)) {
                     if($row["arizadurumu"] == 0){
                         $border = "redBorder";
@@ -118,28 +123,11 @@
             }            
             mysqlClose($connectDB);
         ?>
-        
-        
-        <!--
-        <div class="arizaBildirimi">
-            <div class="ogrFoto">
-                <img src="images/profil.png" alt="Öğrencinin fotoğrafı"/>
-            </div>
-            <div class="ogrenciBilgileri">
-                <span class="ogrLbl">Adı ve soyadı</span><span class="ogrBilgi">Ahmet Karatoprak</span><br>
-                <span class="ogrLbl">Numarası</span><span class="ogrBilgi">21143555</span><br>
-                <span class="ogrLbl">Blok</span><span class="ogrBilgi">K Blok</span><br>
-                <span class="ogrLbl">Kat</span><span class="ogrBilgi">5. Kat</span><br>
-                <span class="ogrLbl">Oda</span><span class="ogrBilgi">6 Numaralı Oda</span>
-            </div>
-            <div class="arizaicerigi ogrenciBilgileri">
-                <span class="ogrLbl">Arıza Kategorisi</span><span class="ogrBilgi">ARIZA - 1</span><br>
-                <span class="ogrLbl">Arıza Ayrıntıları</span><span class="ogrBilgi">Lorem Suspendisse iaculis nunc in Suspendisse iaculis nunc in iaculis nunc in iaculis nunc in iaculis nunc in suscipit pharetra. Aliquam rhoncus tortor vitae nibh varius sollicitudin.</span><br>
-            </div>
-            <div class="clr"></div>
-            <span class="kapatSil"><a href="#">X</a></span>
-        </div>
-        -->
     </div>
+<script type="text/javascript">
+    $(".iconInfoClose").on("click", function(){
+        $(".infoIcons").fadeOut(1000);
+    });
+</script>
 </body>
 </html>

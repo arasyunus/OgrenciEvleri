@@ -20,7 +20,7 @@
                         <li>Resim dosyasının boyutları <strong><i>900x275px</i></strong> boyutlarında  olmalıdır.</li>
                     </ul>
                 </div>
-                <label style="font-size: 15px" class="uyelikLabel"><strong>Link vermek için URL giriniz:</strong> <input class="inputText" type="text" name="linking" id="linking" placeholder="http://url.com"/></label><br/>
+                <label style="font-size: 15px" class="uyelikLabel"><strong>Eklediğiniz resime bağlantı koymak için URL giriniz:</strong> <input class="inputText" type="text" name="linking" id="linking" placeholder="http://url.com"/></label><br/>
                 <input type="file" name="slaytResmi[]" id="slaytResmi" multiple="" accept="image/x-png, image/jpeg"/><br>
                 <input style="width: 200px;margin-top:15px" type="submit" value="EKLE" name="slaytEkle" class="button" />
             </form>

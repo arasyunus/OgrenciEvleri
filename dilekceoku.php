@@ -5,10 +5,7 @@
     <div class="kapsul">
         <h1 class="h1Tag">Gönderilen dilekçeler listesi.</h1>
         <hr class="cetvel" />
-        
-        
         <?php
-        
             if(isset($_GET["silDilekce"])){
                 $connectDB = DBConnect();
                 $sql = "UPDATE dilekceler SET dDurumu='SILINMIS' WHERE INCREMENT=$_GET[inc]";
@@ -40,27 +37,7 @@
             }            
             mysqlClose($connectDB);
         ?>
-        
-        <!--
-        <div class='dilekceKapsul'>
-            <div class='ogrFoto'>
-                <img src='images/profil.png' alt='Öğrencinin fotoğrafı'/>
-            </div>
-            <div class='ogrenciBilgileri'>
-                <span class='ogrLbl'>Adı ve soyadı</span><span class='ogrBilgi'>Ahmet Karatoprak</span><br>
-                <span class='ogrLbl'>Numarası</span><span class='ogrBilgi'>21143555</span><br>
-                <span class='ogrLbl'>Blok</span><span class='ogrBilgi'>K Blok</span><br>
-                <span class='ogrLbl'>Kat</span><span class='ogrBilgi'>5. Kat</span><br>
-                <span class='ogrLbl'>Oda</span><span class='ogrBilgi'>6 Numaralı Oda</span>
-            </div>
-            <a href='?oku=oku&inc=123'><div class='dilekceOkuBtn button'>Dilekçesini Oku</div></a>
-            <span class='kapatSil'><a href='#'>X</a></span>
-        </div>
-        -->
-        
     </div>
-    
-
 <?php
 
     if(isset($_GET["oku"])){

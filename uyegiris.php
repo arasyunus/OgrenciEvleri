@@ -17,15 +17,17 @@
             if($isSession){
                 if($_SESSION["userData"]["konum"] == "yonetici"){
                     $hreff = "yonetici.php";
+                    $yonMsg = "Yönetici ekranına git";
                 }else{
                     $hreff = "profil.php";
+                    $yonMsg = "Profiline git";
                 }
                 $msgBox["title"] = "Üye Girişi Yapıldı.";
                 $msgBox["content"] = "Hoşgeldiniz Sayın, ". $_SESSION["userData"]["adsoyad"] .". Üye girişiniz yapılmıştır. Sistem kullanmaya başlayabilirsiniz";
-                $msgBox["buttonLeft"]["href"] = $hreff;
-                $msgBox["buttonLeft"]["name"] = "Tamam";
-                $msgBox["buttonRight"]["href"] = "index.php";
-                $msgBox["buttonRight"]["name"] = "Anasayfaya git";
+                $msgBox["buttonLeft"]["href"] = "index.php";
+                $msgBox["buttonLeft"]["name"] = "Anasayfaya git";
+                $msgBox["buttonRight"]["href"] = "$hreff";
+                $msgBox["buttonRight"]["name"] = $yonMsg;
                 echo showMsgBox($msgBox);
             }else{
                 $msgBox["title"] = "Üye Kaydı Bulunamadı!";

@@ -52,8 +52,6 @@
                 $query  = mysql_query($sql);
                 if(mysql_num_rows($query) > 0){
                     while($user =  mysql_fetch_assoc($query)) {
-                        
-                        
                         $comeCount = 0;
                         $sqlComing = "SELECT * FROM mesajlasma WHERE (gonderenNo='".$_SESSION["userData"]["numara"]."' AND alanNo='$user[numara]') OR (gonderenNo='$user[numara]' AND alanNo='".$_SESSION["userData"]["numara"]."')";
                         $query  = mysql_query($sqlComing);
@@ -65,10 +63,7 @@
                                 $comeCount++;
                             }
                         }
-                        
                         $comeCount > 0 ? $msjIncoming = "<div class='msgIncoming'>$comeCount</div>" : $msjIncoming = "";
-                        
-                        
                         echo "<div data-id='$user[numara]' class='mesajProfil'>
                                 <img src='$user[fotograf]' alt='Profil resmi'/>
                                 <span>$user[adsoyad]</span>

@@ -202,11 +202,6 @@
                 }
                 mysqlClose($connectDB);
             ?>
-            <!--
-            <div class="bildirimDiv olumlu">Kargonuz Geldi</div>
-            <div class="bildirimDiv olumsuz">Arızanızı Onaramıyoruz<span class='bildirimKapat'><a href='#'>X</a></span></div>
-            <div class="bildirimDiv uyari">Sular 3 Gün Kesik<span class='bildirimKapat'><a href='#'>X</a></span></div>
-            -->
         </div>
     </div>
 <?php

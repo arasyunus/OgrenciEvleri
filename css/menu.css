@@ -349,7 +349,7 @@ div.modal div.msgBox a.modalButton:link{
     background-color: #934fa8;
     color: #fff;
     padding: 5px;
-    width: 120px;
+    min-width: 120px;
     text-align: center;
     bottom: -13px;
     border: 1px #934fa8 solid;

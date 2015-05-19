@@ -18,13 +18,11 @@
             </ul>
         </li>
         <li class="menuLI"><a class="bord" href="video.php">Nasıl kullanırım?</a><span class="Boldweight">::</span></li>
-        <li class="menuLI"><a href="yonetici.php" class="yonetici">Yönetici</a></li>
+        <li class="menuLI"><a href="yonetici.php" class="yonetici">Yönetici Ekranı</a></li>
     </ul>
 </div>
 <div class="banner">
-
-    <a href="yonetici.php"><div class="hupng"></div></a>
-
+    <a href="indexyonetici.php"><div class="hupng"></div></a>
     <div class="bannerMenu">
         <ul class="banMenu">
             <li class="banmenuitem"><a class="menuLink kesMenu" href="dilekceoku.php">Dilekçeleri Oku</a></li>
@@ -33,5 +31,4 @@
             <li class="banmenuitem"><a class="menuLink" href="kargobildir.php">Gelen Kargo Bildir</a></li>
         </ul>
     </div>
-
 </div>

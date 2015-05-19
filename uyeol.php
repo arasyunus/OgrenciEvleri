@@ -116,28 +116,3 @@
 
 </body>
 </html>
-<!--
-    
-    ******* MESAJ KUTUSU ******
-
-<div class="modal">
-    <div class="msgBox">
-        <div class="msgTitle">Deneme Başlık Mesajı<span class="closeModal">X</span></div>
-        <div class="msgBody">
-            <span class="msgContent">Bir hata oluştu</span>
-            <a class="modalButton left" href="#">Tamam</a>
-            <a class="modalButton center" href="#">Tamam</a>
-            <a class="modalButton right" href="#">Kapat</a>
-        </div>
-    </div>
-</div>
-
-    *****************************
-    $msgBox = array(
-        "title"         => "Üye Kayıt Ekranı",
-        "content"       => "",
-        "buttonLeft"    => array("href" => "", "name" => "Giriş yap"),
-        "buttonCenter"  => array("href" => "", "name" => "Tamam"),
-        "buttonRight"   => array("href" => "", "name" => "Kapat"),
-    );
--->

@@ -1,0 +1,87 @@
+<!--
+        <div class="arizaBildirimi">
+            <div class="ogrFoto">
+                <img src="images/profil.png" alt="Öðrencinin fotoðrafý"/>
+            </div>
+            <div class="ogrenciBilgileri">
+                <span class="ogrLbl">Adý ve soyadý</span><span class="ogrBilgi">Ahmet Karatoprak</span><br>
+                <span class="ogrLbl">Numarasý</span><span class="ogrBilgi">21143555</span><br>
+                <span class="ogrLbl">Blok</span><span class="ogrBilgi">K Blok</span><br>
+                <span class="ogrLbl">Kat</span><span class="ogrBilgi">5. Kat</span><br>
+                <span class="ogrLbl">Oda</span><span class="ogrBilgi">6 Numaralý Oda</span>
+            </div>
+            <div class="arizaicerigi ogrenciBilgileri">
+                <span class="ogrLbl">Arýza Kategorisi</span><span class="ogrBilgi">ARIZA - 1</span><br>
+                <span class="ogrLbl">Arýza Ayrýntýlarý</span><span class="ogrBilgi">Lorem Suspendisse iaculis nunc in Suspendisse iaculis nunc in iaculis nunc in iaculis nunc in iaculis nunc in suscipit pharetra. Aliquam rhoncus tortor vitae nibh varius sollicitudin.</span><br>
+            </div>
+            <div class="clr"></div>
+            <span class="kapatSil"><a href="#">X</a></span>
+        </div>
+-->
+
+<!--
+    
+    ******* MESAJ KUTUSU ******
+
+<div class="modal">
+    <div class="msgBox">
+        <div class="msgTitle">Deneme Baþlýk Mesajý<span class="closeModal">X</span></div>
+        <div class="msgBody">
+            <span class="msgContent">Bir hata oluþtu</span>
+            <a class="modalButton left" href="#">Tamam</a>
+            <a class="modalButton center" href="#">Tamam</a>
+            <a class="modalButton right" href="#">Kapat</a>
+        </div>
+    </div>
+</div>
+
+    *****************************
+    $msgBox = array(
+        "title"         => "Üye Kayýt Ekraný",
+        "content"       => "",
+        "buttonLeft"    => array("href" => "", "name" => "Giriþ yap"),
+        "buttonCenter"  => array("href" => "", "name" => "Tamam"),
+        "buttonRight"   => array("href" => "", "name" => "Kapat"),
+    );
+-->
+<!--
+        <div class='arizaBildirimi'>
+            <div class='ogrFoto'>
+                <img src='images/profil.png' alt='Öðrencinin fotoðrafý'/>
+            </div>
+            <div class='ogrenciBilgileri'>
+                <span class='ogrLbl'>Adý ve soyadý</span><span class='ogrBilgi'>Ahmet Karatoprak</span><br>
+                <span class='ogrLbl'>Telefon</span><span class='ogrBilgi'>05345343221</span><br>
+                <span class='ogrLbl'>Blok</span><span class='ogrBilgi'>K Blok</span><br>
+                <span class='ogrLbl'>Kat</span><span class='ogrBilgi'>5. Kat</span><br>
+                <span class='ogrLbl'>Oda</span><span class='ogrBilgi'>6 Numaralý Oda</span>
+            </div>
+            <div class='arizaicerigi ogrenciBilgileri'>
+                <span class='ogrLbl'>Oda deðiþtirme talebi</span><span class='ogrBilgi'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id nibh nec erat pharetra tempor a at justo. Vivamus malesuada turpis sed sapien mollis, nec posuere ligula imperdiet. Integer sit amet mattis dolor. Nam faucibus sed sem eu eleifend. Curabitur dignissim tellus sapien, in faucibus eros facilisis sed. Donec in ligula eget leo scelerisque tristique. In efficitur lectus vel neque laoreet pulvinar. Quisque convallis, ex vel commodo porta, ligula arcu hendrerit neque, sit amet tempus velit orci a felis. Fusce in pretium nisl. Maecenas feugiat aliquam varius. Ut arcu nunc, semper vel aliquet a, ullamcorper nec massa. Suspendisse iaculis nunc in suscipit pharetra. Aliquam rhoncus tortor vitae nibh varius sollicitudin.</span><br>
+            </div>
+            <div class='clr'></div>
+            <span class='kapatSil'><a href='#'>X</a></span>
+        </div>
+-->
+<!--
+            <div class="bildirimDiv olumlu">Kargonuz Geldi</div>
+            <div class="bildirimDiv olumsuz">Arýzanýzý Onaramýyoruz<span class='bildirimKapat'><a href='#'>X</a></span></div>
+            <div class="bildirimDiv uyari">Sular 3 Gün Kesik<span class='bildirimKapat'><a href='#'>X</a></span></div>
+-->
+
+        <!--
+        <div class='dilekceKapsul'>
+            <div class='ogrFoto'>
+                <img src='images/profil.png' alt='Öðrencinin fotoðrafý'/>
+            </div>
+            <div class='ogrenciBilgileri'>
+                <span class='ogrLbl'>Adý ve soyadý</span><span class='ogrBilgi'>Ahmet Karatoprak</span><br>
+                <span class='ogrLbl'>Numarasý</span><span class='ogrBilgi'>21143555</span><br>
+                <span class='ogrLbl'>Blok</span><span class='ogrBilgi'>K Blok</span><br>
+                <span class='ogrLbl'>Kat</span><span class='ogrBilgi'>5. Kat</span><br>
+                <span class='ogrLbl'>Oda</span><span class='ogrBilgi'>6 Numaralý Oda</span>
+            </div>
+            <a href='?oku=oku&inc=123'><div class='dilekceOkuBtn button'>Dilekçesini Oku</div></a>
+            <span class='kapatSil'><a href='#'>X</a></span>
+        </div>
+-->

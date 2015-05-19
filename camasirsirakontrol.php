@@ -47,7 +47,7 @@
                 while($record =  mysql_fetch_assoc($query)) {
                     //var_dump($record);
                     $record["kat"] = $record["kat"] == "0" ? "Zemin": $record["kat"];
-                    echo "<tr><td  class='randevusaati rezerve boldd'>$record[adsoyad] <span class='tooltip'><strong>E-posta:</strong> $record[eposta]<br/><strong>Telefon Numarası:</strong> $record[telefon]</span> </td><td class='randevusaati rezerve boldd'>$record[numara]</td><td class='randevusaati rezerve boldd'>$record[blok] blok $record[kat] kat $record[oda]. oda</td><td class='randevusaati rezerve boldd'>$record[cmsrtarihi]</td><td class='randevusaati rezerve boldd'>$record[cmsrsaati]</td><td class='randevusaati rezerve boldd'>$record[cmsrblok] Blok - $record[cmsrkat].Kat</td><td class='randevusaati musait silbtn'><a href='?silcmsr=$record[cmsrINCREMENT]'>x</a></td></tr>";
+                    echo "<tr><td  class='randevusaati rezerve boldd'>$record[adsoyad] <span class='tooltip'><strong>E-posta:</strong> $record[eposta]<br/><strong>Telefon Numarası:</strong> $record[telefon]</span> </td><td class='randevusaati rezerve boldd'>$record[numara]</td><td class='randevusaati rezerve boldd'>$record[blok] blok $record[kat] kat $record[oda]. oda</td><td class='randevusaati rezerve boldd'>$record[cmsrtarihi]</td><td class='randevusaati rezerve boldd'>$record[cmsrsaati]</td><td class='randevusaati rezerve boldd'>$record[cmsrblok] Blok - $record[cmsrkat].Kat</td><td class='randevusaati musait silbtn'><a class='aryudelete' href='?silcmsr=$record[cmsrINCREMENT]'>x</a></td></tr>";
                 }
                 echo $tableFooter;
                 mysqlClose($connectDB);
@@ -56,6 +56,13 @@
             }
         ?>
     </div>
-</body>
+<script type="text/javascript">
+    $(".aryudelete").on("click", function(e){
+        if(!window.confirm("Gerçekten silmek istiyor musunuz?")){
+            e.preventDefault();
+            return false;
+        }
+    });
+</script>
 </body>
 </html>

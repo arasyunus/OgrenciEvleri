@@ -62,11 +62,8 @@
             $msgBox["buttonCenter"]["name"] = "Tamam";
             echo showMsgBox($msgBox);
         }
-        
-        
-
         /*if(mysql_affected_rows()){
-
+            //işlem başarıyla gerçekleşti...
         }*/
         mysqlClose($connectDB);
     }
