@@ -1,4 +1,9 @@
 <?php
+/**
+ * Bu sayfa ise bütün sayfalarda bulunan HEAD dediğimiz değişmez kısımları içerir.
+ * Her sayfada include edilerek kalabalık sayfa yapısının önüne geçilmiştir.
+ * Plugin(jQuery, jQuery UI, tinymce text editor) vs. eklentiler burada tanımlanmıştır.
+ */
     session_start();
     ob_start();
     $basename = basename($_SERVER['PHP_SELF']);

@@ -1,5 +1,9 @@
 <?php
 include 'configuration.inc';
+    /**
+     * parametre almaz ve veritabanı bağlantı değişkenini geriye döndürür.
+     * @return DB_Connect
+     */
     function DBConnect(){
         $connectDB      = mysql_connect(DBServer, DBUser, DBPass);
         $selectDB       = mysql_select_db(DBName);
@@ -8,8 +12,11 @@ include 'configuration.inc';
         }
         return $connectDB;
     }
-    
-    
+    /**
+     * Veritabınını kurar ve geriye kurulup kurulmadığına dair Boolean değer döndürür.
+     * setup.php sayfasında kullanılmaktadır.
+     * @return boolean
+     */
     function createDatabaseAndTables(){
         $return = FALSE;
         $conn = DBConnect();
@@ -32,11 +39,25 @@ include 'configuration.inc';
         mysqlClose($conn);
         return $return;
     }
-    
+    /**
+     * Veritabanı bağlantısı değişkenini parametre olarak alır.
+     * DBConnect() fonksiyonunun geriye döndürdüğü değişken bu fonksiyonun parametresidir.
+     * Veritabanı bağlantısını sona erdirir.
+     * @param type $conn
+     * @return NULL
+     */
     function mysqlClose($conn){
         mysql_close($conn);
     }
-    
+    /**
+     * Dosya yüklemek için kullanılır.
+     * input[file] nesnesini ilk parametre olarak alır ve dosyanın ismini $uploadDir klasörüne yükler
+     * 
+     * @param type $fileOBJ
+     * @param type $fileName
+     * @param type $uploadDir
+     * @return boolean
+     */
     function fileUpload($fileOBJ, $fileName, $uploadDir){
         if(!is_dir($uploadDir)){
             mkdir($uploadDir);
@@ -50,7 +71,12 @@ include 'configuration.inc';
             }            
         }
     }
-    
+    /**
+     * codeSamples.txt dosyasındaki MESAJ KUTUSU yapısındaki şekilde bir DOM element oluşturur. Oraya bakınız.
+     * $msgBoxContent değişkeni verilecek mesaji belirler.
+     * @param type $msgBoxContent
+     * @return \strıng
+     */
     function showMsgBox($msgBoxContent) {
         $basename = basename($_SERVER['PHP_SELF']);
         $return = "<div class='modal'>
@@ -64,7 +90,10 @@ include 'configuration.inc';
         $return .= "</div></div></div>";
         return $return;
     }
-    
+    /**
+     * Bütün $_SESSION değişkenlerini silecek fonksiyondur.
+     * Kullanıcı oturum kapat linkine tıkladığında bu fonksiyon çalışır.
+     */
     function oturumKapat() {
         if(isset($_GET["oturumuKapat"])){
             if($_GET["oturumuKapat"] == "kapat"){
@@ -73,7 +102,17 @@ include 'configuration.inc';
             }                
         }
     }
-    
+    /**
+     * E-Posta göndermek için geliştirilmiş fonksiyondur.
+     * Yandex hesabını kullanır.
+     * Mesaj başlığı, mesaj içeriği ve mesajı göndereceği e-posta adresini parametre olarak alır.
+     * Mesaj gönderiminin başarılı olup olmamasına göre geriye Boolean değer döndürür.
+     * 
+     * @param type $mailTitle
+     * @param type $mailContent
+     * @param type $sendAdress
+     * @return boolean
+     */
     function mailGonder($mailTitle,$mailContent,$sendAdress) {
         require_once 'inc/PHPMailer/PHPMailerAutoload.php';
         $mail = new PHPMailer;
@@ -98,11 +137,9 @@ include 'configuration.inc';
 		return TRUE;
 	}
     }
-
-    
     /*
-         * mysql_affected_rows() bu fonksiyon başarılı mı kaç başarılı onu soyler
-         * mysql_real_escape_string kaçış karakteri
-         * 
+    * mysql_affected_rows() bu fonksiyon başarılı mı kaç başarılı onu soyler
+    * mysql_real_escape_string kaçış karakteri
+    * 
     */
 ?>

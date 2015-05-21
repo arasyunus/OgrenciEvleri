@@ -1,4 +1,8 @@
 <?php
+/**
+ * Bu sayfada drag-drop ile reim yükleme işlemi için ayaranmıştır.
+ * Ajax ile bu sayfaya $_FILES["files"] değişkeni aracılığıyla resim dosyası yollanır ve resimler upload edilir.
+ */
 header("Content-Type: application/json");
 
 $allowed = explode(",", strtolower($_POST["allowExt"]));

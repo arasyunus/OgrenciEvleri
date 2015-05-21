@@ -1,5 +1,11 @@
 <?php
     //header("Content-Type: application/json; charset=utf-8");
+/*
+ * Bu sayfa mesajlaşma sayfasının arka planında Ajax ile mesaj gönderme ve gelen mesajları okumak için yazılmıştır.
+ * $_POST["insert"] değişkeni mesaj göndermeyi, $_POST["mesajoku"] değişkeni ise mesaj okumayı ve ekranda göstermeyi sağlar.
+ * json_encode(array("sonuc" => FALSE) komutuyla ajax ile javascripte komut json formatına dönüştürülerek yollanır.
+ * Javascript tarafında ise Json.PARSE(DATA) komutu ile bu veriler alınır ve işleme konur. 
+ */
     include 'dbFunctions.inc';
     session_start();
     if($_POST["insert"]=="true"){

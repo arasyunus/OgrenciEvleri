@@ -1,5 +1,11 @@
 <?php
     //header("Content-Type: application/json; charset=utf-8");
+/**
+ * Çamaşır sırası alma, çamaşır listeleme işlemlerinin ajax ile gerçekleştirilmesi bu PHP Scripti ile sağlanır
+ * $_POST["insert"] değişkeni ile çamaşır sırası alma işlemine başlanır.
+ * Kullanıcı bilgileri $_SESSION['userData'] değişkeninde saklanır ve kullanıcı bilgilerine buradan ulaşılır.
+ * $_POST["select"] değişkeni ise seçilen tarihteki çamaşır listesinin dolu olup olmadığını listeler ve Javascript tarafına gönderir.
+ */
     include 'dbFunctions.inc'; 
     session_start();
     if($_POST["insert"]=="true"){
