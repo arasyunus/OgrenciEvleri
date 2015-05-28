@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
     <link rel="stylesheet" href="css/jquery-ui.min.css" />
     <link href="css/jquery-ui.theme.css" rel="stylesheet" type="text/css"/>
-    <link rel="icon" type="image/x-icon" href="images/icon.ico" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <script src="script/jquery-1.11.2.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="script/jquery-ui.js"></script>
     <script src="script/tinymce/tinymce.min.js"></script>
