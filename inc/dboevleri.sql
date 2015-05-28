@@ -12,6 +12,11 @@ CREATE TABLE IF NOT EXISTS `arizalar` (
   PRIMARY KEY (`INCREMENT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
 
+INSERT INTO `arizalar` (`ogrencino`, `arizaturu`, `arizametni`, `olusmatarihi`, `onarimtarihi`, `arizadurumu`, `INCREMENT`) VALUES
+(21143811, 'Mobilya', 'asdasd', '2015-05-19 07:52:43', '2015-05-19 07:52:43', '0', 1),
+(21144319, 'Mobilya', 'Komidin kÄ±rÄ±ldÄ± bir bakar mÄ±sÄ±nÄ±z rica edersem.', '2015-05-28 08:58:16', '2015-05-28 08:58:16', '0', 2),
+(21143767, 'Elektrik', 'DolabÄ±n altÄ±ndaki elektrik prizinden elektrik Ã§arpÄ±yor. 3 kez Ã§arpÄ±ldÄ±m onarabilirmisiniz?', '2015-05-28 09:18:11', '2015-05-28 09:18:11', '0', 3);
+
 CREATE TABLE IF NOT EXISTS `cmsiraal` (
   `cmsrogrno` int(8) NOT NULL,
   `cmsrblok` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
@@ -21,6 +26,11 @@ CREATE TABLE IF NOT EXISTS `cmsiraal` (
   `cmsrINCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`cmsrINCREMENT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+
+INSERT INTO `cmsiraal` (`cmsrogrno`, `cmsrblok`, `cmsrkat`, `cmsrtarihi`, `cmsrsaati`, `cmsrINCREMENT`) VALUES
+(21144319, 'K', '2', '2015-05-31', '16.00 - 19.00', 1),
+(21144319, 'A', '1', '2015-06-10', '09.00 - 13.00', 2),
+(21143767, 'G', '1', '2015-06-04', '19.00 - 22.00', 3);
 
 CREATE TABLE IF NOT EXISTS `dilekceler` (
   `dOgrNo` int(8) NOT NULL,
@@ -32,6 +42,9 @@ CREATE TABLE IF NOT EXISTS `dilekceler` (
   `INCREMENT` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`INCREMENT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
+
+INSERT INTO `dilekceler` (`dOgrNo`, `dMetni`, `dCevabi`, `dDurumu`, `dYazmaTarihi`, `dOkumaTarihi`, `INCREMENT`) VALUES
+(21144319, '<h2 style="text-align: center;"><strong><br /><br />HU Ã–ÄŸrenci Evleri MÃ¼dÃ¼rlÃ¼ÄŸÃ¼ne</strong></h2>\r\n<p>Â </p>\r\n<p>Ã–ÄŸrenci evlerinin 21144811 numaralÄ± Ã¶ÄŸrencisiyim, K Blok 2. Kat 10 numaralÄ± odada kalÄ±yorum. 04.06.2015 PerÅŸembe gÃ¼nÃ¼ Hacettepe Ãœniversitesi EÄŸitim FakÃ¼ltesi Balosuna katÄ±lmak Ã¼zere belirtilen tarihte izinli sayÄ±lmam hususunda;</p>\r\n<p style="text-align: center;">GereÄŸinin yapÄ±lmasÄ±nÄ± arz ederim. Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â </p>\r\n<p style="text-align: left;">Â </p>\r\n<p style="text-align: left;">Adres: AkÅŸemsetin Mah. Tuzla Cad. AslÄ± Sok. No: 29 Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Mehmet KAPLAN</p>\r\n<p style="text-align: left;">Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â Ã‡ankaya/ANKARA</p>\r\n<p style="text-align: left;">Tel Â  : 05449449494</p>\r\n<p>Â </p>', '', 'YENI', '2015-05-28 09:04:22', '0000-00-00 00:00:00', 1);
 
 CREATE TABLE IF NOT EXISTS `duyurular` (
   `duyurumetni` varchar(600) COLLATE utf8_turkish_ci NOT NULL,
@@ -75,6 +88,10 @@ CREATE TABLE IF NOT EXISTS `odtalepleri` (
   PRIMARY KEY (`INCREMENT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=0 ;
 
+INSERT INTO `odtalepleri` (`ogrno`, `talepmetni`, `taleptarihi`, `talepdurumu`, `INCREMENT`) VALUES
+(21144319, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis condimentum nulla. In at ligula nibh. Morbi risus velit, imperdiet eget facilisis sed, accumsan vel lorem. Morbi mattis elementum rhoncus. Cras mollis libero id turpis ultricies, hendrerit elementum libero blandit. Phasellus sollicitudin euismod nibh in auctor. Cras ut lacus consequat, posuere orci non, fringilla augue. Integer sed urna justo. Cras euismod est eu posuere suscipit. Donec convallis tellus at dictum fermentum.\r\n\r\nNulla lacus nunc, convallis sit amet mollis vitae, bibendum a elit. Mauris fermentum bibendum mau', '2015-05-28 09:05:36', '0', 1),
+(21143767, 'Ben oda arkadaÅŸÄ±mdan ÅŸikayetÃ§iyim yeni bir odaya geÃ§mek istiyorum sigara iÃ§meyen ve dÃ¼zenli birisi benimle iletiÅŸime geÃ§ebilir mi?', '2015-05-28 09:19:23', '0', 2);
+
 CREATE TABLE IF NOT EXISTS `slayt` (
   `resim` varchar(300) COLLATE utf8_turkish_ci NOT NULL,
   `link` varchar(300) COLLATE utf8_turkish_ci NOT NULL,
@@ -102,4 +119,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`adsoyad`, `numara`, `sifre`, `eposta`, `telefon`, `blok`, `kat`, `oda`, `cinsiyet`, `fotograf`, `hakkinda`, `konum`) VALUES
 ('Yonetici Bey', 6800, '12345qwe', 'yunus.aras@mynet.com', '05445444444', '-', 0, 0, 'erkek', 'images/profil.png', 'Öğrenci Evleri Yönetim Sistemi Koordinatörü.', 'yonetici'),
-('Yunus ARAS', 21143811, '123456', 'yunus.kariha@gmail.com', '05440000000', 'D', 3, 10, 'erkek', 'IMGProfil/21144319.jpg', 'BOTE', 'ogrenci');
+('Damla AKDULUM', 21143767, '123456', 'damlaakdulum@gmail.com', '05449559595', 'J', 3, 4, 'kadin', 'IMGProfil/21143767.jpg', '', 'ogrenci'),
+('Yunus ARAS', 21143811, '123456', 'yunus.kariha@gmail.com', '05440000000', 'D', 3, 10, 'erkek', 'IMGProfil/21143811.jpg', 'BOTE', 'ogrenci'),
+('Filiz UZUN', 21144319, 'fu1234', 'filizuzun@gmail.com', '05423233223', 'K', 2, 14, 'kadin', 'IMGProfil/21144319.jpg', '', 'ogrenci');
